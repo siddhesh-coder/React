@@ -1,0 +1,26 @@
+{
+  "name": "react_03_laying_foundation",
+  "version": "1.0.0",
+  "description": "react foundation",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "author": "Siddhesh Bhosale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siddhesh-coder/React/issues"
+  },
+  "homepage": "https://github.com/siddhesh-coder/React#readme",
+  "browserslist": [
+    "last 2 version"
+  ],
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
