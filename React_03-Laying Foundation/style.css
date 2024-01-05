@@ -1,0 +1,22 @@
+.greet{
+    color: brown;
+}
+
+.greet2{
+    color: rgb(42, 48, 165);
+}
+
+.Avatar{
+    width: 80px;
+}
+
+.Comment{
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid;
+    background-color: rgba(0, 255, 255, 0.4);
+}
