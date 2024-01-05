@@ -155,4 +155,27 @@ const root = ReactDOM.createRoot(document.getElementById("new"));
 //root.render(getGreeting(user));
 // root.render(element);
 // root.render(profile);
-root.render(<Grab />); //OR root.render(Grab());
+// root.render(<Grab />); //OR root.render(Grab());
+
+const Data = () => {
+  return (
+    <div>
+      <p>Sri Ram</p>
+    </div>
+  );
+};
+
+const ShowTable = () => {
+  return (
+    <div>
+      {/* There are three ways to call component in component */}
+     
+      {Data()}
+      <Data></Data>
+      <Data />
+      
+    </div>
+  );
+};
+
+root.render(<ShowTable/>);
