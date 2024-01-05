@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
+import { el1, Grab, Grab2 } from "./App2";
 //* --------------------------------- IMP --------------------------------------
 //!All React components must act like pure functions with respect to their props.
 //!Props are Read-Only
@@ -30,49 +32,46 @@ const info = {
   firstName: "Siddhesh",
   lastName: "Bhosale",
 };
-function createGreet(info) {
-  return `${info.firstName} ${info.lastName}`;
-}
+const createGreet = (info) => `${info.firstName} ${info.lastName}`;
+
 const flow = <h1 className="greet">Hello {createGreet(info)}</h1>;
 
 //ex. 3 JSX is an Expression Too
 
 let user = true;
 
-function getGreeting(user) {
+const getGreeting = (user) => {
   return user ? (
     <h1 className="greet2">Hello {createGreet(info)}</h1>
   ) : (
     <h2>Hello Stranger</h2>
   );
-}
+};
 
 //ex. 4 If a tag is empty, you may close it immediately with />, like XML:
 
 const el = <img src={user.avatarUrl} />;
 
 //ex. 5 Rendering a Component
-//!Note: Always start component names with a capital letter.
+//!Note: Always start component name with a capital letter.
 
-function Show(props) {
-  //Component
+const Show = (props) => {
+  //Functional Component
   return (
     <div>
       <h2>Rendering Component</h2>
       <h3>Success.....{props.loginID}</h3>
     </div>
   );
-}
+};
 
 const element = <Show loginID="1234" />;
 
 //ex. 6 Composing Components
 
-function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
+const Welcome = (props) => <h1>Hello, {props.name}</h1>;
 
-function App() {
+const App = () => {
   return (
     <div>
       <Welcome name="Sara" />
@@ -80,7 +79,7 @@ function App() {
       <Welcome name="Edite" />
     </div>
   );
-}
+};
 
 //ex. 7 Extracting Components
 
@@ -114,7 +113,7 @@ const author = {
 // }
 
 //!How Extraction work
-function Comment(props) {
+const Comment = (props) => {
   return (
     <div className="Comment">
       <UserInfo {...props} />
@@ -126,25 +125,23 @@ function Comment(props) {
       <div className="Comment-date">{props.date.toString()}</div>
     </div>
   );
-}
+};
 //First we will extract avatar
 
-function Avatar(props) {
-  return (
-    <img className="Avatar" src={props.avatarUrl} alt={props.name} />
-  );
-}
+const Avatar = (props) => (
+  <img className="Avatar" src={props.avatarUrl} alt={props.name} />
+);
 
 //second UserInfo with Avatar include in it
 
-function UserInfo(props) {
+const UserInfo = (props) => {
   return (
     <>
       <Avatar {...props} />
       <div className="UserInfo-name">{props.name}</div>
     </>
   );
-}
+};
 
 const profile = <Comment {...author} text="Meow Meow" />;
 
@@ -157,4 +154,5 @@ const root = ReactDOM.createRoot(document.getElementById("new"));
 //root.render(flow);
 //root.render(getGreeting(user));
 // root.render(element);
-root.render(profile);
+// root.render(profile);
+root.render(<Grab />); //OR root.render(Grab());
