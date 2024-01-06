@@ -2,6 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { el1, Grab, Grab2 } from "./App2";
+
+//Assignment imports
+import { nested, nested2, Nested3, MyButton, Box } from "./Assignment";
+
+import { Logo, SearchBar, User } from "./Heading";
 //* --------------------------------- IMP --------------------------------------
 //!All React components must act like pure functions with respect to their props.
 //!Props are Read-Only
@@ -169,13 +174,29 @@ const ShowTable = () => {
   return (
     <div>
       {/* There are three ways to call component in component */}
-     
+
       {Data()}
       <Data></Data>
       <Data />
-      
     </div>
   );
 };
 
-root.render(<ShowTable/>);
+// root.render(<ShowTable/>);
+
+//Assignment
+
+// root.render(nested);
+// root.render(nested2);
+//root.render(<Nested3/>);
+
+const Header = () => {
+  return (
+    <div className="heading">
+      <Logo />
+      <SearchBar />
+      <User />
+    </div>
+  );
+};
+root.render(<Header />);

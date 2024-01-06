@@ -1,22 +1,116 @@
-.greet{
-    color: brown;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.greet2{
-    color: rgb(42, 48, 165);
+/* Viewport Size for Body */
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0; /* Ensure no default margin is applied */
+  font-family: "Your Preferred Font", sans-serif; /* Set a preferred font stack */
+  font-size: 16px; /* Establish a baseline font size for the document */
+  line-height: 1.5; /* Set a comfortable line height */
+  color: #333; /* Define a default text color */
+  background-color: #fff; /* Set a default background color */
 }
 
-.Avatar{
-    width: 80px;
+.greet {
+  color: brown;
 }
 
-.Comment{
-    width: 400px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border: 2px solid;
-    background-color: rgba(0, 255, 255, 0.4);
+.greet2 {
+  color: rgb(42, 48, 165);
+}
+
+.Avatar {
+  width: 80px;
+}
+
+.Comment {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid;
+  background-color: rgba(0, 255, 255, 0.4);
+}
+
+.container {
+  width: 200px;
+  height: 100px;
+  background-color: blanchedalmond;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  background-color: rgb(149, 68, 226);
+  width: 100px;
+  height: 30px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.heading {
+  padding: 20px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.search {
+  width: 50%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid;
+  padding-right: 15px;
+  border-radius: 25px;
+  background-color: #afe8f3;
+  border-style: none;
+
+  button{
+    background-color: transparent;
+    border-style: none;
+    cursor: pointer;
+  }
+}
+
+.input{
+    width: 90%;
+    height: 100%;
+    border-top-left-radius: 21px;
+    border-bottom-left-radius: 21px;
+    border-style: none;
+    padding-inline-start: 20px;
+}
+
+.user {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid;
+  cursor: pointer;
 }
