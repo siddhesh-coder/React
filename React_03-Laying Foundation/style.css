@@ -12,8 +12,9 @@ body {
   font-family: "Your Preferred Font", sans-serif; /* Set a preferred font stack */
   font-size: 16px; /* Establish a baseline font size for the document */
   line-height: 1.5; /* Set a comfortable line height */
-  color: #333; /* Define a default text color */
-  background-color: #fff; /* Set a default background color */
+  color: rgb(0, 0, 0); /* Define a default text color */
+  background: rgb(34,193,195);
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
 }
 
 .greet {
@@ -60,7 +61,7 @@ body {
 }
 
 .heading {
-  padding: 20px;
+  padding: 15px 20px 10px 20px;
   width: 100%;
   height: 80px;
   display: flex;
@@ -80,7 +81,7 @@ body {
 }
 
 .search {
-  width: 50%;
+  width: 550px;
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -99,12 +100,13 @@ body {
 }
 
 .input{
-    width: 90%;
+    width: 500px;
     height: 100%;
     border-top-left-radius: 21px;
     border-bottom-left-radius: 21px;
     border-style: none;
     padding-inline-start: 20px;
+    font-size: 15px;
 }
 
 .user {
