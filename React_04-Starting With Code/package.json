@@ -1,0 +1,25 @@
+{
+  "name": "react_04-starting-with-code",
+  "version": "1.0.0",
+  "description": "Starting with the react Code",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siddhesh-coder/React.git"
+  },
+  "author": "Siddhesh Bhosale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siddhesh-coder/React/issues"
+  },
+  "homepage": "https://github.com/siddhesh-coder/React#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
