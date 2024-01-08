@@ -1,3 +1,138 @@
-.heading{
-    color: blue;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: "Basis";
+    src: url(fonts/BasisGrotesqueArabicPro-Regular.ttf);
+}
+
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, ol, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a basic styling to the body */
+body {
+    font-family: 'Basis','Arial', sans-serif;
+    line-height: 1.6;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Style the header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(https://img.freepik.com/free-photo/wooden-background_24972-623.jpg?w=1060&t=st=1704708258~exp=1704708858~hmac=82ca4076524906ec679d4c07a1c2a70ed49662c1338b4ade6e1cf0fc91b2310f);
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+
+nav{
+    margin-right: 40px;
+    width: 450px;
+}
+
+/* Style the main content area */
+main {
+    margin-left: 50px;
+    padding: 20px;
+}
+
+/* Style the footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Add any additional styles based on your project requirements */
+
+.logo{
+    margin-left: 65px;
+    width: 70px;
+    height: 70px;
+}
+
+ul{
+    list-style: none;
+    font-size: larger;
+    font-weight: 700;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+}
+
+#card-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+  /* min-width: 481px; */
+  width: 340px;
+  border-color: rgb(255, 255, 255);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  overflow: hidden;
+  margin-right: 1rem;
+  margin-top: 2.6rem;
+}
+
+.card:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+}
+
+.food-img{
+    width: 100%;
+    height: 248px;
+    border-radius: 1.5rem;
+}
+
+.food-heading, .food-dis{
+    display: flex;
+    justify-content: space-between;  
+}
+
+.food-time{
+    font-size: 15px;
+}
+
+
+.rating{
+    width: 50px;
+    height: 25px;
+    text-align: center;
+    background-color: rgb(38, 126, 62);
+    border-radius: 7px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.food-dis{
+    color: rgb(105, 105, 105);
+    font-weight: 300;
+    font-size: inherit;
+    white-space: nowrap;
+    /* display: block; */
+    max-width: 100%;
+}
+
+.food-dis > p:nth-child(1){
+    width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
