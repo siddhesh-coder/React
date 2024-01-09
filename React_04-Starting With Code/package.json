@@ -1,7 +1,7 @@
 {
   "name": "react_04-starting-with-code",
   "version": "1.0.0",
-  "description": "Starting with the react Code",
+  "description": "Food Ordering App",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
