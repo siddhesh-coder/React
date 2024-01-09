@@ -5,7 +5,6 @@ import { ShoppingBag, Search, Home, PercentCircle, Info } from "lucide-react";
 
 import resList from "./mockData";
 
-
 //Header Component
 
 const Header = () => {
@@ -55,19 +54,12 @@ const CardContainer = ({ foodData }) => {
     return null; // or a placeholder for loading or error state
   }
 
-  const {
-    id,
-    cloudinaryImageId,
-    name,
-    avgRating,
-    cuisines,
-    costForTwo,
-    sla,
-  } = foodData?.info; //Optional Chaining
-  const {deliveryTime} = sla;
+  const { id, cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla } =
+    foodData?.info; //Optional Chaining
+  const { deliveryTime } = sla;
 
   // above we will use destructing for props
-  
+
   return (
     <>
       <div className="card">
@@ -113,17 +105,14 @@ const SearchBar = () => {
 };
 
 const FoodCards = () => {
-
   //!Note: never take index's as a key react says it.
-  const cardComponents = resList.map((restro) => (
-    <CardContainer key={restro.info.id}  foodData={restro}/>
-  ));
-
   return (
     <main>
       <SearchBar />
       <div id="card-container">
-        {cardComponents}
+        {resList.map((restro) => (
+          <CardContainer key={restro.info.id} foodData={restro} />
+        ))}
       </div>
     </main>
   );
