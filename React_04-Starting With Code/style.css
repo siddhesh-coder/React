@@ -1,87 +1,113 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 @font-face {
-    font-family: "Basis";
-    src: url(fonts/BasisGrotesqueArabicPro-Regular.ttf);
+  font-family: "Basis";
+  src: url(fonts/BasisGrotesqueArabicPro-Regular.ttf);
 }
 
 /* Reset some default styles */
-body, h1, h2, h3, p, ul, ol, li {
-    margin: 0;
-    padding: 0;
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
 }
 
 /* Apply a basic styling to the body */
 body {
-    font-family: 'Basis','Arial', sans-serif;
-    line-height: 1.6;
-    width: 100vw;
-    overflow-x: hidden;
+  font-family: "Basis", "Arial", sans-serif;
+  line-height: 1.6;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Style the header */
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    height: 80px;
     align-items: center;
-    background-image: url(https://img.freepik.com/free-photo/wooden-background_24972-623.jpg?w=1060&t=st=1704708258~exp=1704708858~hmac=82ca4076524906ec679d4c07a1c2a70ed49662c1338b4ade6e1cf0fc91b2310f);
-    background-size: cover;
-    color: #fff;
+    color: #000000;
     text-align: center;
     padding: 1em;
-}
+    box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
+    background-color: #ffffff; 
+    z-index: 1000; /* Ensure it's on top of other elements */
+  }
 
-nav{
-    margin-right: 40px;
-    width: 450px;
-}
-
-/* Style the main content area */
 main {
-    margin-left: 50px;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+  padding: 20px;
+  margin-top: 100px;
 }
 
 /* Style the footer */
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Add any additional styles based on your project requirements */
 
-.logo{
-    margin-left: 65px;
-    width: 70px;
-    height: 70px;
+.logo {
+  margin-left: 60px;
+  width: 60px;
+  height: 60px;
 }
 
-ul{
-    list-style: none;
-    font-size: larger;
-    font-weight: 700;
+.nav {
+  padding: 10px;
+  margin-right: 60px;
 }
 
-.nav-links{
-    display: flex;
-    justify-content: space-around;
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
 }
 
-#card-container{
-    display: flex;
-    flex-wrap: wrap;
+.nav-links li {
+  margin: 0px 0px 0px 50px;
 }
 
-.card{
-  /* min-width: 481px; */
+.nav-links a {
+  text-decoration: none;
+  color: #3d4152;
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 7px;
+  }
+}
+
+#card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
   width: 340px;
   border-color: rgb(255, 255, 255);
   border-radius: 1.5rem;
@@ -91,48 +117,80 @@ ul{
   margin-top: 2.6rem;
 }
 
-.card:hover{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    cursor: pointer;
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
 }
 
-.food-img{
-    width: 100%;
-    height: 248px;
-    border-radius: 1.5rem;
+.food-img {
+  width: 100%;
+  height: 248px;
+  border-radius: 1.5rem;
 }
 
-.food-heading, .food-dis{
-    display: flex;
-    justify-content: space-between;  
+.food-heading,
+.food-dis {
+  display: flex;
+  justify-content: space-between;
 }
 
-.food-time{
-    font-size: 15px;
+.food-time {
+  font-size: 15px;
 }
 
-
-.rating{
-    width: 50px;
-    height: 25px;
-    text-align: center;
-    background-color: rgb(38, 126, 62);
-    border-radius: 7px;
-    font-weight: 600;
-    color: #fff;
+.rating {
+  width: 50px;
+  height: 25px;
+  text-align: center;
+  background-color: rgb(38, 126, 62);
+  border-radius: 7px;
+  font-weight: 600;
+  color: #fff;
 }
 
-.food-dis{
-    color: rgb(105, 105, 105);
-    font-weight: 300;
-    font-size: inherit;
-    white-space: nowrap;
-    /* display: block; */
-    max-width: 100%;
+.food-dis {
+  color: rgb(105, 105, 105);
+  font-weight: 300;
+  font-size: inherit;
+  white-space: nowrap;
+  /* display: block; */
+  max-width: 100%;
 }
 
-.food-dis > p:nth-child(1){
-    width: 180px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.food-dis > p:nth-child(1) {
+  width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-container {
+  position: relative;
+  width: 50%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-style: none;
+  padding-right: 15px;
+  border: 1px solid;
+  background-color: #eeeeee;
+}
+
+.search-input {
+  width: 95%;
+  height: 100%;
+  border-style: none;
+  padding-inline-start: 20px;
+  font-size: 16px;
+  background-color: #eeeeee;
+  outline: none;
+}
+
+.search-button {
+  position: absolute;
+  right: 0;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+  margin: 15px;
 }
