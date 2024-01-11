@@ -1,0 +1,2 @@
+export const COMPANY_LOGO = "https://img.freepik.com/free-vector/pizzeria-emblem-design_1176-233.jpg?w=740&t=st=1704703727~exp=1704704327~hmac=73459d409ba24e137deedf33556d18ac149cc7557d20117411ffa0ee9d79734a";
+export const FOOD_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/";
