@@ -4,6 +4,26 @@
   box-sizing: border-box;
 }
 
+/* For Chrome and Safari */
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b6b6b6; /* Change the color to your preference */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #F0F0F0; /* Change the color to your preference */
+}
+
+/* Hide scrollbar buttons in Chrome */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+
 button{
   cursor: pointer;
 }
@@ -57,7 +77,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 40px;
+  margin-left: 10px;
   padding: 20px;
   margin-top: 100px;
 }
@@ -113,23 +133,24 @@ footer {
 }
 
 .card {
-  width: 340px;
+  width: 280px;
   border-color: rgb(255, 255, 255);
   border-radius: 1.5rem;
   padding: 1rem;
   overflow: hidden;
   margin-right: 1rem;
   margin-top: 2.6rem;
+  transition: transform 0.3s ease-in-out;
 }
 
 .card:hover {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transform: scale(1.1);
   cursor: pointer;
 }
 
 .food-img {
   width: 100%;
-  height: 248px;
+  height: 220px;
   border-radius: 1.5rem;
 }
 
@@ -196,7 +217,6 @@ footer {
   right: 0;
   background-color: transparent;
   border-style: none;
-  cursor: pointer;
   margin: 15px;
 }
 
@@ -208,4 +228,46 @@ footer {
   color: rgb(62, 62, 62);
   border: 1px solid rgb(146, 146, 146);
   border-radius: 30px;
+}
+
+.results-list {
+  position: absolute;
+  top: 10em;
+  left: 25em;
+  width: 48.7%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 8px #ddd;
+  margin-top: 1rem;
+  max-height: 500px;
+  overflow-y: auto;
+  z-index: 1000;
+  padding: 0;
+}
+
+.result-bar{
+  display: flex;
+}
+
+.result-bar:hover{
+  background-color: #efefef;
+}
+
+.result-img{
+  width: 60px;
+  margin: 10px 10px 0px 10px;
+}
+
+.result-info{
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.result-info-name{
+  font-weight: 600;
+}
+
+.result-info-cuisine{
+  color: rgb(105, 105, 105);
 }

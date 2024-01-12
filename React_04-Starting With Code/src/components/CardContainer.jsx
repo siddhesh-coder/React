@@ -10,6 +10,8 @@ export default CardContainer = ({ foodData }) => {
     const { deliveryTime } = sla;
   
     // above we will use destructing for props
+
+    // console.log(foodData);
   
     return (
       <>
