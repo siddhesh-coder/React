@@ -1,9 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Search } from "lucide-react";
-import resList from "../utils/mockData";
+import { SWIGGY_API } from "../utils/constants";
 
-function debounce(fn, t) {
-  //debounce function
+const debounce = (fn, t) => {
   let timeOutId;
 
   return function () {
@@ -16,29 +15,37 @@ function debounce(fn, t) {
       fn.apply(context, args);
     }, t);
   };
-}
+};
 
-export default SearchBar = ({ setResults }) => {
+const SearchBar = ({ setResults }) => {
   const [searchValue, setSearchValue] = useState("");
 
-  const fetchData = (value) => {
-    const results = resList.filter((restro) => {
-      return (
-        (value &&
-          restro &&
-          restro.info.name &&
-          restro.info.name.toLocaleLowerCase().includes(value)) ||
-        (value &&
-          restro.info.cuisines &&
-          restro.info.cuisines.some((cuisine) =>
-            cuisine.toLocaleLowerCase().includes(value)
-          ))
-      );
-    });
-    setResults(results);
+  const fetchData = async (value) => {
+    try {
+      const data = await fetch(SWIGGY_API);
+      const json = await data.json();
+      const cards = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+      const results = cards.filter((restro) => {
+        return (
+          (value &&
+            restro &&
+            restro.info.name &&
+            restro.info.name.toLocaleLowerCase().includes(value)) ||
+          (value &&
+            restro.info.cuisines &&
+            restro.info.cuisines.some((cuisine) =>
+              cuisine.toLocaleLowerCase().includes(value)
+            ))
+        );
+      });
+      setResults(results);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
-  debounceFunction = debounce(fetchData, 300);
+  const debounceFunction = debounce(fetchData, 200);
 
   const handleChange = (e) => {
     setSearchValue(e.target.value);
@@ -58,3 +65,5 @@ export default SearchBar = ({ setResults }) => {
     </div>
   );
 };
+
+export default SearchBar;

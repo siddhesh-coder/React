@@ -1,41 +1,49 @@
-import resList from "../utils/mockData";
-import SearchBar, { SearchSlices } from "./SearchBar";
+import SearchBar from "./SearchBar";
 import CardContainer from "./CardContainer";
 import TopRatedRes from "./TopRatedRes";
+import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
 import { SearchResultsList } from "./SearchResultsList";
 import { SWIGGY_API } from "../utils/constants";
 
-
 export default FoodCards = () => {
-    //!Note: never take index's as a key react says it.
+  //!Note: never take index's as a key react says it.
 
-    const [results, setResults] = useState([]);
-    const [cards, setCards] = useState(resList);
+  const [results, setResults] = useState([]);
+  const [cards, setCards] = useState([]);
 
-    useEffect(()=>{
-       fetchData();
-    },[]);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    const fetchData = async () => {
-        const data = await fetch(SWIGGY_API);
-        const json = await data.json();
-
-        setCards(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-        console.log(cards);
+  const fetchData = async () => {
+    try {
+      const data = await fetch(SWIGGY_API);
+      const json = await data.json();
+      setCards(
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
-
-    return (
-      <main>
-        <SearchBar setResults={setResults}/>
-        <SearchResultsList results={results}/>
-        {/* <TopRatedRes resList={resList}> */}
-        <div id="card-container">
-          {cards.map((restro) => (
-            <CardContainer foodData={restro} />
-          ))}
-        </div>
-        {/* </TopRatedRes> */}
-      </main>
-    );
   };
+
+  return (
+    <main>
+      <SearchBar setResults={setResults} />
+      <SearchResultsList results={results} />
+      {/* <TopRatedRes resList={resList}> */}
+      <div id="card-container">
+        {cards.length === 0 ? (
+          <Shimmer />
+        ) : (
+          cards.map((restro) => (
+            <CardContainer key={restro.info.id} foodData={restro} />
+          ))
+        )}
+      </div>
+      {/* </TopRatedRes> */}
+    </main>
+  );
+};

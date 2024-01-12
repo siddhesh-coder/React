@@ -10,11 +10,8 @@ export default CardContainer = ({ foodData }) => {
     const { deliveryTime } = sla;
   
     // above we will use destructing for props
-
-    // console.log(foodData);
   
     return (
-      <>
         <div className="card">
           <img
             className="food-img"
@@ -37,6 +34,5 @@ export default CardContainer = ({ foodData }) => {
             <p>{deliveryTime} min</p>
           </div>
         </div>
-      </>
     );
   };

@@ -138,13 +138,24 @@ footer {
   border-radius: 1.5rem;
   padding: 1rem;
   overflow: hidden;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+  margin-left: 0.4rem;
   margin-top: 2.6rem;
   transition: transform 0.3s ease-in-out;
 }
 
+.shimmer-card{
+  width: 280px;
+  background-color: rgba(131, 131, 131, 0.725);
+  height: 250px;
+  border-radius: 1.5rem;
+  margin-right: 0.5rem;
+  margin-left: 0.4rem;
+  margin-top: 2.6rem;
+}
+
 .card:hover {
-  transform: scale(1.1);
+  transform: scale(0.9);
   cursor: pointer;
 }
 
