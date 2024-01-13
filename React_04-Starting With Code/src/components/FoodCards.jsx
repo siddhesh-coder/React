@@ -35,6 +35,8 @@ export default FoodCards = () => {
       <SearchResultsList results={results} />
       {/* <TopRatedRes resList={resList}> */}
       <div id="card-container">
+        
+        {/* conditional rendering */}
         {cards.length === 0 ? (
           <Shimmer />
         ) : (

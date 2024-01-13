@@ -127,6 +127,18 @@ footer {
   }
 }
 
+.logUser{
+  color: #3d4152;
+  display: flex;
+  align-items: center;
+
+  button{
+    margin-left: 7px;
+    color: #3d4152;
+    border-style: none;
+  }
+}
+
 #card-container {
   display: flex;
   flex-wrap: wrap;
@@ -146,8 +158,8 @@ footer {
 
 .shimmer-card{
   width: 280px;
-  background-color: rgba(131, 131, 131, 0.725);
-  height: 250px;
+  padding: 1rem;
+  height: 360px;
   border-radius: 1.5rem;
   margin-right: 0.5rem;
   margin-left: 0.4rem;
@@ -165,13 +177,31 @@ footer {
   border-radius: 1.5rem;
 }
 
+.food-img-shimmer {
+  width: 100%;
+  height: 220px;
+  background-color: rgb(230, 230, 230);
+  margin-bottom: 20px;
+  border-radius: 1.5rem;
+}
+
 .food-heading,
 .food-dis {
   display: flex;
   justify-content: space-between;
 }
 
+.food-heading-shimmer,
+.food-dis-shimmer {
+  display: flex;
+  justify-content: space-between;
+}
+
 .food-time {
+  font-size: 15px;
+}
+
+.food-time-shimmer {
   font-size: 15px;
 }
 
@@ -185,12 +215,23 @@ footer {
   color: #fff;
 }
 
+.rating-shimmer {
+  width: 50px;
+  height: 25px;
+  background-color: rgb(230, 230, 230);
+  border-radius: 10px;
+  color: #fff;
+}
+
 .food-dis {
   color: rgb(105, 105, 105);
   font-weight: 300;
   font-size: inherit;
   white-space: nowrap;
-  /* display: block; */
+  max-width: 100%;
+}
+
+.food-dis-shimmer{
   max-width: 100%;
 }
 
@@ -198,6 +239,42 @@ footer {
   width: 180px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.food-dis-shimmer > p:nth-child(1) {
+  width: 180px;
+  overflow: hidden;
+}
+
+.food-name-shimmer{
+  width: 50%;
+  height: 25px;
+  border-radius: 10px;
+  background-color: rgb(230, 230, 230);
+}
+
+.cusi-shimmer{
+  margin-top: 5px;
+  width: 60%;
+  height: 25px;
+  border-radius: 10px;
+  background-color: rgb(230, 230, 230);
+}
+
+.price-shimmer{
+  margin-top: 5px;
+  width: 30%;
+  height: 25px;
+  border-radius: 10px;
+  background-color: rgb(230, 230, 230);
+}
+
+.time-shimmer{
+  margin-top: 5px;
+  width: 20%;
+  height: 25px;
+  border-radius: 10px;
+  background-color: rgb(230, 230, 230);
 }
 
 .search-container {
