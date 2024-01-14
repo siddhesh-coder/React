@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CardContainer from "./CardContainer";
+import Shimmer from "./Shimmer";
 
 export default TopRatedRes = ({resList}) => {
   const [resLists, setResList] = useState(resList); //useState
+
+  useEffect(() => {
+    setResList(resList);
+  }, [resList]);
 
   //handler function for state
   const giveRes = () => {
@@ -17,9 +22,15 @@ export default TopRatedRes = ({resList}) => {
       </button>
       
       <div id="card-container">
-        {resLists.map((restro) => (
-          <CardContainer key={restro.info.id} foodData={restro} />
-        ))}
+        
+        {/* conditional rendering */}
+        {resLists.length === 0 ? (
+          <Shimmer />
+        ) : (
+          resLists.map((restro) => (
+            <CardContainer key={restro.info.id} foodData={restro} />
+          ))
+        )}
       </div>
     </>
   );

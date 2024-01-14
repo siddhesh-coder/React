@@ -21,36 +21,39 @@ const SearchBar = ({ setResults }) => {
   const [searchValue, setSearchValue] = useState("");
 
   const fetchData = async (value) => {
-    try {
-      const data = await fetch(SWIGGY_API);
-      const json = await data.json();
-      const cards = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
-      const results = cards.filter((restro) => {
-        return (
-          (value &&
-            restro &&
-            restro.info.name &&
-            restro.info.name.toLocaleLowerCase().includes(value)) ||
-          (value &&
-            restro.info.cuisines &&
-            restro.info.cuisines.some((cuisine) =>
-              cuisine.toLocaleLowerCase().includes(value)
-            ))
-        );
-      });
-      setResults(results);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+      try {
+        const data = await fetch(SWIGGY_API);
+        const json = await data.json();
+        const cards =
+          json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants;
+  
+        const results = cards.filter((restro) => {
+          return (
+            (searchItem &&
+              restro &&
+              restro.info.name &&
+              restro.info.name.toLocaleLowerCase().includes(searchItem)) ||
+            (searchItem &&
+              restro.info.cuisines &&
+              restro.info.cuisines.some((cuisine) =>
+                cuisine.toLocaleLowerCase().includes(searchItem)
+              ))
+          );
+        });
+        setResults(results);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
   };
-
-  const debounceFunction = debounce(fetchData, 200);
-
+  
+  const debounceFunction = debounce(fetchData, 500);
+  
   const handleChange = (e) => {
     setSearchValue(e.target.value);
     debounceFunction(e.target.value);
   };
+  
 
   return (
     <div className="search-container">

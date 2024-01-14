@@ -33,7 +33,7 @@ export default FoodCards = () => {
     <main>
       <SearchBar setResults={setResults} />
       <SearchResultsList results={results} />
-      {/* <TopRatedRes resList={resList}> */}
+      <TopRatedRes resList={cards}>
       <div id="card-container">
         
         {/* conditional rendering */}
@@ -45,7 +45,7 @@ export default FoodCards = () => {
           ))
         )}
       </div>
-      {/* </TopRatedRes> */}
+      </TopRatedRes>
     </main>
   );
 };
