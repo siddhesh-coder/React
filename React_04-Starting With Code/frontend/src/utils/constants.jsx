@@ -7,3 +7,5 @@ export const FOOD_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_
 
 export const ACTUAL_SWIGGY_API = `https://www.swiggy.com/dapi/restaurants/list/v5?${latLang}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
 export const SWIGGY_API = `https://api.allorigins.win/raw?url=${encodeURIComponent(ACTUAL_SWIGGY_API)}`
+
+export const ERROR_IMG = "https://img.freepik.com/free-vector/warning-concept-illustration_114360-1551.jpg?w=740&t=st=1705479461~exp=1705480061~hmac=c4a9e1128fa2e9f39b9d2ae9bfd6888eae22b1d4afb902e099e7b84b409d48ae";

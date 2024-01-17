@@ -28,6 +28,8 @@ export default FoodCards = () => {
   const [results, setResults] = useState([]);
   const [cards, setCards] = useState([]);
 
+  
+
   // const [data, setData] = useState([]);
   // const [page, setPage] = useState(1);
   // const [loading, setLoading] = useState(false);

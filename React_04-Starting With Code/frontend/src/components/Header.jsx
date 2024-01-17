@@ -1,3 +1,5 @@
+import * as React from "react";
+import { Link } from "react-router-dom";
 import {
   ShoppingBag,
   Home,
@@ -20,28 +22,28 @@ export default Header = () => {
       <nav className="nav">
         <ul className="nav-links">
           <li>
-            <a href="/">
+            <Link to={"/"}>
               <Home />
               <span>Home</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/about">
+            <Link to={"/aboutus"}>
               <PercentCircle />
-              <span>Offers</span>
-            </a>
+              <span>About us</span>
+            </Link>
           </li>
           <li>
-            <a href="/contact">
+            <Link to={"/contactus"}>
               <Info />
               <span>Help</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/shopping">
+            <Link to={"/foodcart"}>
               <ShoppingBag />
               <span>Cart</span>
-            </a>
+            </Link>
           </li>
           <li>
             <button
