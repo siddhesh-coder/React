@@ -9,3 +9,7 @@ export const ACTUAL_SWIGGY_API = `https://www.swiggy.com/dapi/restaurants/list/v
 export const SWIGGY_API = `https://api.allorigins.win/raw?url=${encodeURIComponent(ACTUAL_SWIGGY_API)}`
 
 export const ERROR_IMG = "https://img.freepik.com/free-vector/warning-concept-illustration_114360-1551.jpg?w=740&t=st=1705479461~exp=1705480061~hmac=c4a9e1128fa2e9f39b9d2ae9bfd6888eae22b1d4afb902e099e7b84b409d48ae";
+
+export const DISCOUNT_LOGO = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_28,h_28/Store_Assets/Icons/OfferIconCart";
+
+export const CRAOUSEL_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_628,h_704/";

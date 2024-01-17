@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/siddhesh-coder/React#readme",
   "devDependencies": {
+    "buffer": "^6.0.3",
     "parcel": "^2.11.0"
   },
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.6.5",
     "lucide-react": "^0.307.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

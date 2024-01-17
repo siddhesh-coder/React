@@ -15,7 +15,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #F0F0F0; /* Change the color to your preference */
+  background-color: #f0f0f0; /* Change the color to your preference */
 }
 
 /* Hide scrollbar buttons in Chrome */
@@ -23,8 +23,7 @@
   display: none;
 }
 
-
-button{
+button {
   cursor: pointer;
 }
 
@@ -52,25 +51,28 @@ body {
   line-height: 1.6;
   width: 100vw;
   overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Style the header */
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-    align-items: center;
-    color: #000000;
-    text-align: center;
-    padding: 1em;
-    box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
-    background-color: #ffffff; 
-    z-index: 1000; /* Ensure it's on top of other elements */
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+  color: #000000;
+  text-align: center;
+  padding: 1em;
+  box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
+  background-color: #ffffff;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
 
 main {
   display: flex;
@@ -132,23 +134,22 @@ footer {
   color: #eda63c;
 }
 
-.logUser{
+.logUser {
   color: #3d4152;
   display: flex;
   align-items: center;
   transition: 0.2s;
 
-  button{
+  button {
     font-family: "Basis";
     margin-left: 7px;
     color: #3d4152;
     border-style: none;
     font-size: 16px;
     background-color: transparent;
-    
   }
-  button:hover{
-    color: #eda63c;;
+  button:hover {
+    color: #eda63c;
   }
 }
 
@@ -169,7 +170,7 @@ footer {
   transition: transform 0.3s ease-in-out;
 }
 
-.shimmer-card{
+.shimmer-card {
   width: 280px;
   padding: 1rem;
   height: 360px;
@@ -244,7 +245,7 @@ footer {
   max-width: 100%;
 }
 
-.food-dis-shimmer{
+.food-dis-shimmer {
   max-width: 100%;
 }
 
@@ -259,14 +260,14 @@ footer {
   overflow: hidden;
 }
 
-.food-name-shimmer{
+.food-name-shimmer {
   width: 50%;
   height: 25px;
   border-radius: 10px;
   background-color: rgb(230, 230, 230);
 }
 
-.cusi-shimmer{
+.cusi-shimmer {
   margin-top: 5px;
   width: 60%;
   height: 25px;
@@ -274,7 +275,7 @@ footer {
   background-color: rgb(230, 230, 230);
 }
 
-.price-shimmer{
+.price-shimmer {
   margin-top: 5px;
   width: 30%;
   height: 25px;
@@ -282,7 +283,7 @@ footer {
   background-color: rgb(230, 230, 230);
 }
 
-.time-shimmer{
+.time-shimmer {
   margin-top: 5px;
   width: 20%;
   height: 25px;
@@ -321,7 +322,7 @@ footer {
   margin: 15px;
 }
 
-.rated-btn{
+.rated-btn {
   font-weight: 600;
   width: 170px;
   height: 40px;
@@ -348,33 +349,33 @@ footer {
   padding: 0;
 }
 
-.result-bar{
+.result-bar {
   display: flex;
 }
 
-.result-bar:hover{
+.result-bar:hover {
   background-color: #efefef;
 }
 
-.result-img{
+.result-img {
   width: 60px;
   margin: 10px 10px 0px 10px;
 }
 
-.result-info{
+.result-info {
   margin-top: 5px;
   cursor: pointer;
 }
 
-.result-info-name{
+.result-info-name {
   font-weight: 600;
 }
 
-.result-info-cuisine{
+.result-info-cuisine {
   color: rgb(105, 105, 105);
 }
 
-.error-img{
+.error-img {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -384,6 +385,155 @@ footer {
   color: rgb(78, 78, 78);
 }
 
-.error-img > img{
+.error-img > img {
   width: 30%;
 }
+
+.menu-card {
+  width: 800px;
+  position: relative;
+  top: 150px;
+}
+
+.box-1-resInfo {
+  border-bottom: 1px solid rgb(156, 156, 156);
+  border-bottom-style: dashed;
+  padding: 15px 10px 15px 0px;
+}
+
+.resName {
+  display: flex;
+  justify-content: space-between;
+
+  .resRate {
+    width: 67px;
+    border: 1px solid rgb(216, 216, 216);
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 13px;
+    padding-top: 3px;
+    color: #3d9b6d;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+}
+
+.reslocation {
+  display: flex;
+  justify-content: space-between;
+
+  .oneColorRes{
+    color: #7e808c;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 300;
+  }
+
+  .resRateCount {
+    border: 1px solid rgb(216, 216, 216);
+    height: 30px;
+    font-size: 11px;
+    padding: 5px;
+    font-weight: 600;
+    color: #8b8d97;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+}
+
+.resPricing-time{
+  display: flex;
+  margin: 20px 20px 0px 0px;
+
+  .timerRes{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+  }
+
+  span{
+    margin-left: 15px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: #3e4152;
+  }
+
+  .resprice{
+    margin-left: 15px;
+    display: flex;
+     justify-content: center;
+     align-items: center;
+  }
+
+}
+
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
+  user-select: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-item {
+  cursor: pointer;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  min-width: 230px;
+  border: 1px solid rgb(216, 216, 216);
+  box-sizing: border-box;
+  padding: 15px;
+  margin: 20px 20px 20px 0px;
+  border-radius: 10px;
+}
+
+.carousel-item > p {
+  font-size: 15px;
+  color: #686b78;
+  line-height: 18px;
+  font-weight: 600;
+}
+.carousel-item img{
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.top-picks{
+  margin-top: 20px;
+  border-top: 1px solid rgb(156, 156, 156);
+  padding-top: 20px;
+}
+
+.carousel2{
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
+  user-select: none;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For IE and Edge */
+}
+
+.carousel2::-webkit-scrollbar {
+  display: none; /* For Chrome and Safari */
+}
+
+.carousel-item2 {
+  width: 1000px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+.carousel-item2 img {
+  cursor: pointer;
+  width: 400px;
+  margin-right: 80px;
+}
+
