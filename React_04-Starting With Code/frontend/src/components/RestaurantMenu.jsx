@@ -3,6 +3,7 @@ import axios from "axios";
 import Carousel from "./CarouselDiscount";
 import { TimerReset, IndianRupee } from "lucide-react";
 import TopPicks from "./TopPicks";
+import MenuCard from "./MenuCard";
 
 export default RestaurantMenu = () => {
   const [menuInfo, setMenuInfo] = useState(null);
@@ -46,9 +47,12 @@ export default RestaurantMenu = () => {
     menuInfo?.cards[1]?.card?.card?.gridElements?.infoWithStyle || [];
 
   const banner =
-    menuInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    menuInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+      ?.card;
 
-  
+  const rec =
+    menuInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+      ?.card;
   return (
     <div className="menu-card">
       <div className="box-1-resInfo">
@@ -88,7 +92,9 @@ export default RestaurantMenu = () => {
 
       <Carousel offs={[discount]} />
 
-      <TopPicks banner={[banner]}/>
+      <TopPicks banner={[banner]} />
+
+      <MenuCard recommended={rec} />
     </div>
   );
 };
