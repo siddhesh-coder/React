@@ -1,7 +1,7 @@
 import React from "react";
 import { VEG_LOGO, NONVEG_LOGO, FOOD_MENU } from "../utils/constants";
 
-export default MenuCardList = (el) => {
+const MenuCardList = (el) => {
   const {
     itemAttribute: { vegClassifier },
     name,
@@ -9,7 +9,16 @@ export default MenuCardList = (el) => {
     finalPrice,
     description,
     imageId,
+    offerTags,
   } = el?.el?.card?.info;
+
+  let flag = true;
+
+  if (!offerTags || offerTags.length === 0) {
+    flag = false;
+  }
+
+  const { title, subTitle, textColor, backgroundColor } = offerTags?.[0] || {};
 
   const p1 = price || 0;
   const p2 = finalPrice || 0;
@@ -33,7 +42,19 @@ export default MenuCardList = (el) => {
         </div>
         <div>
           {calculatedFinalPrice === "0.00" ? (
-            <span>{"₹" + String(calculatedPrice)}</span>
+            <>
+              <span>{"₹" + String(calculatedPrice)} </span>
+              {flag && (
+                <span
+                  style={{
+                    color: `${textColor}`,
+                    backgroundColor: `${backgroundColor}`,
+                  }}
+                >
+                  {title} | {subTitle}
+                </span>
+              )}
+            </>
           ) : (
             <>
               <span className="origi-price">
@@ -57,3 +78,5 @@ export default MenuCardList = (el) => {
     </div>
   );
 };
+
+export default MenuCardList;

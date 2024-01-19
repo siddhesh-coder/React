@@ -1,24 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import MenuCardList from "./MenuCardList";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
-export default MenuCard = (rec) => {
-  const { recommended } = rec;
-  const { title, itemCards } = recommended;
+export default MenuCard = (tabs) => {
+  const { downmenu } = tabs;
+  const { title, itemCards } = downmenu;
 
-  console.log(itemCards);
+  const [isOpen, setisOpen] = useState(true);
+
+   const handleChange = () => {
+      setisOpen(!isOpen);
+   }
 
   return (
     <>
       <div className="recommended-tab">
         <span>
-          {title} ({itemCards.length})
+          {title} ({itemCards?.length})
         </span>
-        <button>
-          <ChevronDown />
+        <button className="menudown-btn" onClick={handleChange}>
+          {
+            isOpen ? <ChevronDown /> : <ChevronUp />
+          }
         </button>
       </div>
-      {itemCards.map((el) => <MenuCardList key={el?.card?.info?.id} el={el}/>)}
+      { isOpen && itemCards.map((el) => <MenuCardList key={el?.card?.info?.id} el={el}/>)}
     </>
   );
 };

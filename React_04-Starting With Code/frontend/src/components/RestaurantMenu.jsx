@@ -50,9 +50,19 @@ export default RestaurantMenu = () => {
     menuInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
       ?.card;
 
-  const rec =
-    menuInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card;
+  const menuLength =
+    menuInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+  const n = menuLength.length;
+
+  const menutabs = [];
+
+  for (let i = 2; i <= n - 3; i++) {
+    const menutab =
+      menuInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[i]?.card
+        ?.card;
+    menutabs.push(menutab);
+  }
+
   return (
     <div className="menu-card">
       <div className="box-1-resInfo">
@@ -94,7 +104,9 @@ export default RestaurantMenu = () => {
 
       <TopPicks banner={[banner]} />
 
-      <MenuCard recommended={rec} />
+      {menutabs.map((tab, index) => (
+        <MenuCard key={index} downmenu={tab} />
+      ))}
     </div>
   );
 };

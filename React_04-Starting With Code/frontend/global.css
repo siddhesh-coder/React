@@ -546,8 +546,20 @@ footer {
   height: 70px;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  border: 2px solid;
+  align-items: end;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 22px;
+  color: #3e4152;
+}
+
+.menudown-btn{
+  background-color: transparent;
+  border-style: none;
+  color: #282c3f;
 }
 
 .veg-logo {
@@ -620,6 +632,7 @@ footer {
 }
 
 .list-img-block{
+  border-radius: 15px;
   width: 135px;
   height: 100px;
 }
