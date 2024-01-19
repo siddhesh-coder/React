@@ -12,6 +12,8 @@ export default FoodCards = () => {
   const [results, setResults] = useState([]);
   const [cards, setCards] = useState([]);
 
+  console.log(cards);
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -28,6 +30,8 @@ export default FoodCards = () => {
       console.error("Error fetching data:", error);
     }
   };
+
+  
 
   return (
     <main>

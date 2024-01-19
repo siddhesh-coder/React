@@ -12,6 +12,8 @@ const MenuCardList = (el) => {
     offerTags,
   } = el?.el?.card?.info;
 
+  console.log(imageId);
+
   let flag = true;
 
   if (!offerTags || offerTags.length === 0) {
@@ -69,11 +71,13 @@ const MenuCardList = (el) => {
         <p className="list-food-dis">{description}</p>
       </div>
       <div>
-        <img
-          className="list-img-block"
-          src={FOOD_MENU + imageId}
-          alt="foodimg"
-        />
+        {imageId && (
+          <img
+            className="list-img-block"
+            src={FOOD_MENU + imageId}
+            alt="foodimg"
+          />
+        )}
       </div>
     </div>
   );

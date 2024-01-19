@@ -6,6 +6,8 @@ export default MenuCard = (tabs) => {
   const { downmenu } = tabs;
   const { title, itemCards } = downmenu;
 
+  console.log(itemCards);
+
   const [isOpen, setisOpen] = useState(true);
 
    const handleChange = () => {
@@ -16,7 +18,7 @@ export default MenuCard = (tabs) => {
     <>
       <div className="recommended-tab">
         <span>
-          {title} ({itemCards?.length})
+          {title} ({itemCards?.length  || 0})
         </span>
         <button className="menudown-btn" onClick={handleChange}>
           {
@@ -24,7 +26,7 @@ export default MenuCard = (tabs) => {
           }
         </button>
       </div>
-      { isOpen && itemCards.map((el) => <MenuCardList key={el?.card?.info?.id} el={el}/>)}
+      { isOpen && itemCards && itemCards.map((el) => <MenuCardList key={el?.card?.info?.id} el={el}/>)}
     </>
   );
 };

@@ -8,11 +8,13 @@ import MenuCard from "./MenuCard";
 export default RestaurantMenu = () => {
   const [menuInfo, setMenuInfo] = useState(null);
 
+  // console.log(menuInfo);
+
   useEffect(() => {
     const fetchMenu = async () => {
       try {
         const response = await axios.get(
-          "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5912716&lng=73.73890899999999&restaurantId=289340&catalog_qa=undefined&submitAction=ENTER"
+          `https://api.allorigins.win/raw?url=${encodeURIComponent('https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5679146&lng=73.91434319999999&restaurantId=156139&catalog_qa=undefined&submitAction=ENTER')}`
         );
         setMenuInfo(response?.data?.data);
       } catch (error) {
