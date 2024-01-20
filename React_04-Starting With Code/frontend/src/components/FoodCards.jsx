@@ -5,14 +5,13 @@ import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
 import { SearchResultsList } from "./SearchResultsList";
 import { SWIGGY_API } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 export default FoodCards = () => {
   //!Note: never take index's as a key react says it.
 
   const [results, setResults] = useState([]);
   const [cards, setCards] = useState([]);
-
-  console.log(cards);
 
   useEffect(() => {
     fetchData();
@@ -31,23 +30,23 @@ export default FoodCards = () => {
     }
   };
 
-  
-
   return (
     <main>
       <SearchBar setResults={setResults} />
       <SearchResultsList results={results} />
-      <TopRatedRes resList={cards}>
-        <div id="card-container">
-          {cards.length === 0 ? (
-            <Shimmer />
-          ) : (
-            cards.map((restro) => (
-              <CardContainer key={restro.info.id} foodData={restro} />
-            ))
-          )}
-        </div>
-      </TopRatedRes>
+      {/* <TopRatedRes resList={cards}> */}
+      <div id="card-container">
+        {cards.length === 0 ? (
+          <Shimmer />
+        ) : (
+          cards.map((restro) => (
+            <Link key={restro.info.id} className="per-food-link" to={"/restaurants/" + restro.info.id}>
+              <CardContainer foodData={restro} />
+            </Link>
+          ))
+        )}
+      </div>
+      {/* </TopRatedRes> */}
     </main>
   );
 };

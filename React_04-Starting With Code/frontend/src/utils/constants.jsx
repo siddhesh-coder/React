@@ -28,3 +28,5 @@ export const VEG_LOGO =
 
 export const NONVEG_LOGO =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Non_veg_symbol.svg/2048px-Non_veg_symbol.svg.png";
+
+export const MENU = "";
