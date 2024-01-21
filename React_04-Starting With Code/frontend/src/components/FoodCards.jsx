@@ -15,6 +15,7 @@ export default FoodCards = () => {
 
   useEffect(() => {
     fetchData();
+    console.log("2");
   }, []);
 
   const fetchData = async () => {
