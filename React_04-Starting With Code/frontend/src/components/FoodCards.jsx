@@ -15,7 +15,6 @@ export default FoodCards = () => {
 
   useEffect(() => {
     fetchData();
-    console.log("2");
   }, []);
 
   const fetchData = async () => {
@@ -30,12 +29,12 @@ export default FoodCards = () => {
       console.error("Error fetching data:", error);
     }
   };
-
+ 
   return (
     <main>
       <SearchBar setResults={setResults} />
       <SearchResultsList results={results} />
-      {/* <TopRatedRes resList={cards}> */}
+      <TopRatedRes resList={cards}>
       <div id="card-container">
         {cards.length === 0 ? (
           <Shimmer />
@@ -47,7 +46,7 @@ export default FoodCards = () => {
           ))
         )}
       </div>
-      {/* </TopRatedRes> */}
+      </TopRatedRes>
     </main>
   );
 };

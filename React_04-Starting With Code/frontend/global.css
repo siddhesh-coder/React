@@ -468,6 +468,14 @@ footer {
   justify-content: space-between;
 }
 
+.open-tag{
+  color: #60b246;
+}
+
+.closed-tag{
+  color: rgb(255, 0, 0);
+}
+
 .resRate {
   width: 75px;
   border: 1px solid rgb(216, 216, 216);

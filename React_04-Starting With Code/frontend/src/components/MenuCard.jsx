@@ -6,8 +6,6 @@ export default MenuCard = (tabs) => {
   const { downmenu } = tabs;
   const { title, itemCards } = downmenu;
 
-  console.log(itemCards);
-
   const [isOpen, setisOpen] = useState(true);
 
    const handleChange = () => {

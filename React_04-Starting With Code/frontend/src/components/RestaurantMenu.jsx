@@ -5,10 +5,8 @@ import { TimerReset, IndianRupee } from "lucide-react";
 import TopPicks from "./TopPicks";
 import MenuCard from "./MenuCard";
 import { useParams } from "react-router-dom";
-import Loader from "./Loader";
 
 export default RestaurantMenu = () => {
-  const [loading, setLoading] = useState(false);
   const [menuInfo, setMenuInfo] = useState(null);
   const { resId } = useParams();
 
@@ -31,7 +29,7 @@ export default RestaurantMenu = () => {
 
   if (!menuInfo) {
     // Add loading state or error handling here
-    return <Loader/>;
+    return;
   }
 
   const {
@@ -74,6 +72,14 @@ export default RestaurantMenu = () => {
       <div className="box-1-resInfo">
         <div className="resName">
           <h3>{name}</h3>
+          <h4>
+            {isOpen ? (
+              <span className="open-tag">OPEN</span>
+            ) : (
+              <span className="closed-tag">CLOSED</span>
+            )}
+          </h4>
+
           <div className="resRate">&#x2606; {avgRatingString}</div>
         </div>
 

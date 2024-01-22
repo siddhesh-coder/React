@@ -12,8 +12,6 @@ const MenuCardList = (el) => {
     offerTags,
   } = el?.el?.card?.info;
 
-  console.log(imageId);
-
   let flag = true;
 
   if (!offerTags || offerTags.length === 0) {

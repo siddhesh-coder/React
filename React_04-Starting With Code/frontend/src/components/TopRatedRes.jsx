@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import CardContainer from "./CardContainer";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 export default TopRatedRes = ({resList}) => {
   const [resLists, setResList] = useState(resList); //useState
@@ -28,7 +29,9 @@ export default TopRatedRes = ({resList}) => {
           <Shimmer />
         ) : (
           resLists.map((restro) => (
-            <CardContainer key={restro.info.id} foodData={restro} />
+            <Link key={restro.info.id} className="per-food-link" to={"/restaurants/" + restro.info.id}>
+              <CardContainer foodData={restro} />
+            </Link>
           ))
         )}
       </div>
