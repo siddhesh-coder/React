@@ -10,6 +10,7 @@ import ContactUs from "./components/ContactUs";
 import FoodCart from "./components/FoodCart";
 import Errors from "./components/Errors";
 import RestaurantMenu from "./components/RestaurantMenu";
+import SignupForm from "./components/SignUpForm";
 
 const AppParent = () => {
   return (
@@ -46,6 +47,10 @@ const appRouter = createBrowserRouter([
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
       },
+      {
+        path: "/signup",
+        element: <SignupForm/>
+      }
     ],
     errorElement: <Errors />,
   },

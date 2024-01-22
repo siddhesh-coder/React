@@ -1,17 +1,20 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import {
-  ShoppingBag,
-  Home,
-  PercentCircle,
-  Info,
-  CircleUserRound,
-} from "lucide-react";
+import { ShoppingBag, Home, Building2, Info, UserRound } from "lucide-react";
 import { COMPANY_LOGO } from "../utils/constants";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default Header = () => {
   const [userState, setUserState] = useState("Login");
+
+  function handleUserState() {
+    if (userState === "Logout") {
+      setUserState("Login");
+    } else {
+      setUserState("Logout");
+    }
+  }
 
   return (
     <header>
@@ -29,7 +32,7 @@ export default Header = () => {
           </li>
           <li>
             <Link to={"/aboutus"}>
-              <PercentCircle />
+              <Building2 />
               <span>About us</span>
             </Link>
           </li>
@@ -46,14 +49,11 @@ export default Header = () => {
             </Link>
           </li>
           <li>
-            <button
-              onClick={() =>
-                userState === "Logout"
-                  ? setUserState("Login")
-                  : setUserState("Logout")
-              }
-            >
-              {userState}
+            <button className="user-main-btn" onClick={handleUserState}>
+              <Link to={userState === "Login" ? "/signup" : null}>
+                <UserRound />
+                {userState}
+              </Link>
             </button>
           </li>
         </ul>

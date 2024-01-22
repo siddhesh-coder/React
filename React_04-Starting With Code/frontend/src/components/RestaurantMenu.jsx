@@ -114,7 +114,7 @@ export default RestaurantMenu = () => {
 
       <Carousel offs={[discount]} />
 
-      <TopPicks banner={[banner]} />
+      {banner && <TopPicks banner={[banner]} />}
 
       {menutabs.map((tab, index) => (
         <MenuCard key={index} downmenu={tab} />

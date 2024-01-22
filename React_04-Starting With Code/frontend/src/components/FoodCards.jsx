@@ -32,6 +32,7 @@ export default FoodCards = () => {
  
   return (
     <main>
+      <div className="welcome-state">{localStorage.getItem('firstName') || ""}, what's on your mind?</div>
       <SearchBar setResults={setResults} />
       <SearchResultsList results={results} />
       <TopRatedRes resList={cards}>
