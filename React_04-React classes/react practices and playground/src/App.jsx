@@ -7,7 +7,7 @@ class App extends React.Component {
       <div>
         <h1>Hello From Class</h1>
         
-        <Greeting info={this.greeting} />
+        <Greeting namee={"Siddhesh"} />
       </div>
     );
   }
