@@ -6,7 +6,6 @@ class App extends React.Component {
     return (
       <div>
         <h1>Hello From Class</h1>
-        
         <Greeting namee={"Siddhesh"} />
       </div>
     );
