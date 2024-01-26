@@ -2,31 +2,46 @@
 import React from "react";
 
 class Greeting extends React.Component {
-    constructor(props) {
-        super(props);
-        console.log(props);
-        this.state = {
-            count: 0,
-            count2: 1,
-        }
-    }
+  constructor(props) {
+    super(props);
 
-    render() {
-        const { namee } = this.props;
-        const { count, count2 } = this.state;
-        return (
-            <div>
-                <h2>hi {namee}</h2>
-                <h2>Gracias {count}</h2>
-                <button onClick={()=>{
-                    this.setState({
-                        count: count + 1,
-                    })
-                }}>Click</button>
-                <h2>Hola {count2}</h2>
-            </div>
-        );
-    }
+    this.state = {
+      name: 'User Name',
+      address: "User Address",
+      avatar: "User avatar"
+    };
+    console.log(this.props.namee+"Child Constructor");
+  }
+
+  async componentDidMount() {
+    console.log(this.props.namee+"Child DidMount"); 
+    
+    //API calls
+    const data = await fetch('https://api.github.com/users/siddhesh-coder');
+    const json = await data.json();
+    this.setState({
+      name: json.name,
+      location: json.location,
+      avatar: json.avatar_url,
+    })
+  }
+
+  componentDidUpdate(){
+    console.log(this.props.namee+"Child DidUpdate");
+  }
+
+  render() { 
+    const { namee } = this.props;
+    const { name, location, avatar } = this.state;
+    console.log(namee+"Child Render");
+    return (
+      <div>
+        <img src={avatar} style={{width: 90}} alt="profile" />
+        <h2>name: {name}</h2>
+        <h3>Location: {location}</h3>
+      </div>
+    );
+  }
 }
 
 export default Greeting;
