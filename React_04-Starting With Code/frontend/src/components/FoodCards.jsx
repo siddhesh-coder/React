@@ -37,7 +37,7 @@ export default FoodCards = () => {
  
   return (
     <main>
-      <div className="welcome-state">{localStorage.getItem('firstName') || ""}, what's on your mind?</div>
+      <div className="welcome-state">{localStorage.getItem('firstName') || "Hello"}, what's on your mind?</div>
       <MainGridSlider slider={menuCarousel}/>
       <SearchBar setResults={setResults} />
       <SearchResultsList results={results} />

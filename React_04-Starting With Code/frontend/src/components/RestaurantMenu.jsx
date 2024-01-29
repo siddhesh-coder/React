@@ -5,6 +5,7 @@ import { TimerReset, IndianRupee } from "lucide-react";
 import TopPicks from "./TopPicks";
 import MenuCard from "./MenuCard";
 import { useParams } from "react-router-dom";
+import FoodLoader from "./FoodLoader";
 
 export default RestaurantMenu = () => {
   const [menuInfo, setMenuInfo] = useState(null);
@@ -29,7 +30,7 @@ export default RestaurantMenu = () => {
 
   if (!menuInfo) {
     // Add loading state or error handling here
-    return;
+    return <FoodLoader/>;
   }
 
   const {
