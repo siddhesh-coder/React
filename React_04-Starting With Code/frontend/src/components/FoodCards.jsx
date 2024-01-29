@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 import { SearchResultsList } from "./SearchResultsList";
 import { SWIGGY_API } from "../utils/constants";
 import { Link } from "react-router-dom";
+import MainGridSlider from "./MainGridSlider";
 
 export default FoodCards = () => {
   //!Note: never take index's as a key react says it.
 
   const [results, setResults] = useState([]);
   const [cards, setCards] = useState([]);
+  const [menuCarousel, setMenuCarousel] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -25,6 +27,9 @@ export default FoodCards = () => {
         json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       );
+      setMenuCarousel(
+        json?.data?.cards[0]?.card?.card?.imageGridCards?.info
+      );
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -33,6 +38,7 @@ export default FoodCards = () => {
   return (
     <main>
       <div className="welcome-state">{localStorage.getItem('firstName') || ""}, what's on your mind?</div>
+      <MainGridSlider slider={menuCarousel}/>
       <SearchBar setResults={setResults} />
       <SearchResultsList results={results} />
       <TopRatedRes resList={cards}>

@@ -29,4 +29,4 @@ export const VEG_LOGO =
 export const NONVEG_LOGO =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Non_veg_symbol.svg/2048px-Non_veg_symbol.svg.png";
 
-export const MENU = "";
+export const SLIDER_MENU = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";

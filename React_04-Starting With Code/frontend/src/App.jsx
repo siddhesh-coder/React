@@ -11,6 +11,7 @@ import FoodCart from "./components/FoodCart";
 import Errors from "./components/Errors";
 import RestaurantMenu from "./components/RestaurantMenu";
 import SignupForm from "./components/SignUpForm";
+import MainCategory from "./components/MainCategory";
 
 const AppParent = () => {
   return (
@@ -49,7 +50,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/signup",
-        element: <SignupForm/>
+        element: <SignupForm/>,
+      },
+      {
+        path: "/category/:menuId",
+        element: <MainCategory/>,
       }
     ],
     errorElement: <Errors />,

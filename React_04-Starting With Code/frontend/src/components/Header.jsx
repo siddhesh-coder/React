@@ -19,7 +19,9 @@ export default Header = () => {
   return (
     <header>
       <div>
+        <Link to={"/"}>
         <img className="logo" src={COMPANY_LOGO} />
+        </Link>
       </div>
 
       <nav className="nav">
