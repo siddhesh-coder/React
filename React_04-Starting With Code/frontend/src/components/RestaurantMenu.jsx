@@ -26,6 +26,7 @@ export default RestaurantMenu = () => {
     };
 
     fetchMenu();
+    return () => fetchMenu();
   }, []);
 
   if (!menuInfo) {

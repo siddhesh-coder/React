@@ -1,9 +1,9 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ShoppingBag, Home, Building2, Info, UserRound } from "lucide-react";
 import { COMPANY_LOGO } from "../utils/constants";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default Header = () => {
   const [userState, setUserState] = useState("Login");
@@ -27,35 +27,35 @@ export default Header = () => {
       <nav className="nav">
         <ul className="nav-links">
           <li>
-            <Link to={"/"}>
+            <NavLink to={"/"}>
               <Home />
               <span>Home</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to={"/aboutus"}>
+            <NavLink to={"/aboutus"}>
               <Building2 />
               <span>About us</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to={"/contactus"}>
+            <NavLink to={"/contactus"}>
               <Info />
               <span>Help</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to={"/foodcart"}>
+            <NavLink to={"/foodcart"}>
               <ShoppingBag />
               <span>Cart</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
             <button className="user-main-btn" onClick={handleUserState}>
-              <Link to={userState === "Login" ? "/signup" : null}>
+              <NavLink to={userState === "Login" ? "/signup" : null}>
                 <UserRound />
                 {userState}
-              </Link>
+              </NavLink>
             </button>
           </li>
         </ul>

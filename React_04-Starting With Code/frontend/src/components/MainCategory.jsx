@@ -11,6 +11,7 @@ export const MainCategory = () => {
 
   useEffect(() => {
     fetchData();
+    return () => fetchData();
   }, []);
 
   const fetchData = async () => {

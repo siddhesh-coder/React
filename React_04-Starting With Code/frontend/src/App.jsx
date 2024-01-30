@@ -18,7 +18,6 @@ const AppParent = () => {
     <div id="app">
       <Header />
       <Outlet />
-      {/* Footer */}
     </div>
   );
 };
@@ -29,37 +28,41 @@ const appRouter = createBrowserRouter([
     element: <AppParent />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <FoodCards />,
       },
       {
-        path: "/aboutus",
+        path: "aboutus",
         element: <AboutUs />,
       },
       {
-        path: "/contactus",
+        path: "contactus",
         element: <ContactUs />,
       },
       {
-        path: "/foodcart",
+        path: "foodcart",
         element: <FoodCart />,
       },
       {
-        path: "/restaurants/:resId",
+        path: "restaurants/:resId",
         element: <RestaurantMenu />,
       },
       {
-        path: "/signup",
-        element: <SignupForm/>,
+        path: "signup",
+        element: <SignupForm />,
       },
       {
-        path: "/category/:menuId",
-        element: <MainCategory/>,
-      }
+        path: "category/:menuId",
+        element: <MainCategory />,
+      },
     ],
     errorElement: <Errors />,
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter} />);
+root.render(
+  <React.StrictMode>
+    <RouterProvider router={appRouter} />
+  </React.StrictMode>
+);
