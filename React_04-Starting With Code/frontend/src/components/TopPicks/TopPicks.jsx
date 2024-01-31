@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { DISCOUNT_LOGO } from "../utils/constants";
+import { CRAOUSEL_IMG } from "../../utils/constants";
 
-const Carousel = ({ offs }) => {
+const TopPicks = ({ banner }) => {
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  const offer = offs[0]?.offers;
+  const { carousel } = banner[0] || {};
+  const [banners, setBanners] = useState(carousel || []);
 
   const handleMouseDown = (e) => {
     setIsMouseDown(true);
@@ -31,25 +32,23 @@ const Carousel = ({ offs }) => {
   };
 
   return (
-    <div
-      className="carousel"
-      onMouseDown={handleMouseDown}
-      onMouseLeave={handleMouseLeave}
-      onMouseUp={handleMouseUp}
-      onMouseMove={handleMouseMove}
-    >
-      {Array.isArray(offer) ? (
-        offer.map((el, index) => (
-          <div key={index} className="carousel-item">
-            <img src={DISCOUNT_LOGO} alt="Image 1" />
-            <p>{el.info.header}</p>
+    <>
+      <h2 className="top-picks">Top Picks</h2>
+      <div
+        className='carousel2'
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+      >
+        {banners.map((bannerItem) => (
+          <div key={bannerItem.bannerId} className="carousel-item2">
+            <img src={`${CRAOUSEL_IMG}${bannerItem.creativeId}`} alt={`Image ${bannerItem.bannerId}`} />
           </div>
-        ))
-      ) : (
-        <div className="carousel-item">New offers Coming soon....</div>
-      )}
-    </div>
+        ))}
+      </div>
+    </>
   );
 };
 
-export default Carousel;
+export default TopPicks;

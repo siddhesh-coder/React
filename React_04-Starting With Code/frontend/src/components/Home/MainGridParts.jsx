@@ -1,6 +1,5 @@
 import React from "react";
-import { SLIDER_MENU } from "../utils/constants";
-import ShimmerCategory from "./ShimmerCategory";
+import { SLIDER_MENU } from "../../utils/constants";
 
 const MainGridParts = ({ image }) => {
   return (

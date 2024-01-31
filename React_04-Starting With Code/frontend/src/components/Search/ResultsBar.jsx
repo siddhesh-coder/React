@@ -1,5 +1,5 @@
 import React from 'react'
-import { FOOD_IMG } from "../utils/constants";
+import { FOOD_IMG } from "../../utils/constants";
 
 export const ResultsBar = ({results, id}) => {
 

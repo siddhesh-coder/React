@@ -1,5 +1,5 @@
 import React from 'react';
-import { COMPANY_LOGO } from '../utils/constants';
+import { COMPANY_LOGO } from '../../utils/constants';
 
 const AboutUs = () => {
   return (

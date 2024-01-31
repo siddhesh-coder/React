@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Carousel from "./CarouselDiscount";
 import { TimerReset, IndianRupee } from "lucide-react";
-import TopPicks from "./TopPicks";
+import TopPicks from "../TopPicks/TopPicks";
 import MenuCard from "./MenuCard";
 import { useParams } from "react-router-dom";
-import FoodLoader from "./FoodLoader";
+import FoodLoader from "../Home/FoodLoader";
 
 export default RestaurantMenu = () => {
   const [menuInfo, setMenuInfo] = useState(null);

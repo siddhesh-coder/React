@@ -1,7 +1,7 @@
 import React from "react";
 import MainGridParts from "./MainGridParts";
 import { Link } from "react-router-dom";
-import ShimmerCategory from "./ShimmerCategory";
+import ShimmerCategory from "../Shimmers/ShimmerCategory";
 
 const MainGridSlider = ({ slider }) => {
   return (

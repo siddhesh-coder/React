@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Search } from "lucide-react";
-import { SWIGGY_API } from "../utils/constants";
+import { SWIGGY_API } from "../../utils/constants";
 
 const debounce = (fn, t) => {
   let timeOutId;

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ShoppingBag, Home, Building2, Info, UserRound } from "lucide-react";
-import { COMPANY_LOGO } from "../utils/constants";
+import { COMPANY_LOGO } from "../../utils/constants";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 

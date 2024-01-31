@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import CardContainer from "./CardContainer";
-import Shimmer from "./Shimmer";
+import CardContainer from "../Home/CardContainer";
+import Shimmer from "../Shimmers/Shimmer";
 import { Link } from "react-router-dom";
 
 export default TopRatedRes = ({resList}) => {

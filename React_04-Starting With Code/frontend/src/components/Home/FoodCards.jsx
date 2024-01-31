@@ -1,13 +1,13 @@
-import SearchBar from "./SearchBar";
+import SearchBar from '../Search/SearchBar';
 import CardContainer from "./CardContainer";
-import TopRatedRes from "./TopRatedRes";
-import Shimmer from "./Shimmer";
+import TopRatedRes from "../TopPicks/TopRatedRes";
+import Shimmer from "../Shimmers/Shimmer";
 import { useEffect, useState } from "react";
-import { SearchResultsList } from "./SearchResultsList";
-import { SWIGGY_API } from "../utils/constants";
+import { SearchResultsList } from "../Search/SearchResultsList";
+import { SWIGGY_API } from "../../utils/constants";
 import { Link } from "react-router-dom";
-import MainGridSlider from "./MainGridSlider";
-import Footer from "./Footer";
+import MainGridSlider from "../Home/MainGridSlider";
+import Footer from "../Footer/Footer";
 
 export default FoodCards = () => {
   //!Note: never take index's as a key react says it.

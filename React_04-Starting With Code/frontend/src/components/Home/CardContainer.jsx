@@ -1,4 +1,4 @@
-import { FOOD_IMG } from "../utils/constants";
+import { FOOD_IMG } from "../../utils/constants";
 
 export default CardContainer = ({ foodData }) => {
     if (!foodData || !foodData.info) {

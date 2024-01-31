@@ -1,6 +1,6 @@
 import React, { lazy } from "react";
 import { useRouteError } from "react-router-dom";
-import { ERROR_IMG } from "../utils/constants";
+import { ERROR_IMG } from "../../utils/constants";
 
 export default Errors = () => {
     const err = useRouteError();

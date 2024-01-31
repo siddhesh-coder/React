@@ -1,5 +1,5 @@
 import React from "react";
-import { VEG_LOGO, NONVEG_LOGO, FOOD_MENU } from "../utils/constants";
+import { VEG_LOGO, NONVEG_LOGO, FOOD_MENU } from "../../utils/constants";
 
 const MenuCardList = (el) => {
   const {

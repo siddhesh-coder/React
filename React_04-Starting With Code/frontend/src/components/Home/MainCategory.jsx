@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Shimmer from "./Shimmer";
+import Shimmer from "../Shimmers/Shimmer";
 import CardContainer from "./CardContainer";
 import { useParams } from "react-router-dom";
 import axios from "axios";

@@ -2,16 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-import Header from "./components/Header";
-import FoodCards from "./components/FoodCards";
-
-import AboutUs from "./components/AboutUs";
-import ContactUs from "./components/ContactUs";
-import FoodCart from "./components/FoodCart";
-import Errors from "./components/Errors";
-import RestaurantMenu from "./components/RestaurantMenu";
-import SignupForm from "./components/SignUpForm";
-import MainCategory from "./components/MainCategory";
+import Header from "./components/Header/Header";
+import FoodCards from "./components/Home/FoodCards";
+import AboutUs from "./components/Header/AboutUs";
+import ContactUs from "./components/Header/ContactUs";
+import FoodCart from "./components/Home/FoodCart";
+import Errors from "./components/Error/Errors";
+import RestaurantMenu from "./components/Menu/RestaurantMenu";
+import SignupForm from "./components/Header/SignUpForm";
+import MainCategory from "./components/Home/MainCategory";
 
 const AppParent = () => {
   return (
