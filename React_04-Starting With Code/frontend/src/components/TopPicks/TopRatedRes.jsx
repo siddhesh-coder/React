@@ -10,7 +10,6 @@ export default TopRatedRes = ({resList}) => {
     setResList(resList);
   }, [resList]);
 
-  //handler function for state
   const giveRes = () => {
     const FilteredRestros = resLists.filter((res) => res.info.avgRating > 4); //filter
     setResList(FilteredRestros);

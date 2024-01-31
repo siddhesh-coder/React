@@ -2,24 +2,24 @@ import React from "react";
 import Greeting from "./components/Greeting";
 
 class App extends React.Component {
-  constructor(prop){
-     super(prop); 
-     console.log("Parent constructor");
+  constructor(prop) {
+    super(prop);
+    console.log("Parent constructor");
   }
 
-  componentDidMount(){
+  componentDidMount() {
     console.log("Parent DidMount");
   }
 
-  componentDidUpdate(){
+  componentDidUpdate() {
     console.log("Parent DidUpdate");
   }
 
   render() {
-    console.log("Parent render"); 
+    console.log("Parent render");
     return (
       <div>
-         <Greeting namee={"First"} />
+        <Greeting namee={"First"} />
         <h1>Hello From Class</h1>
         <Greeting namee={"Second"} />
       </div>
