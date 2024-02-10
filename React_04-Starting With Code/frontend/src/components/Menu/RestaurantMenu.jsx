@@ -1,37 +1,18 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import Carousel from "./CarouselDiscount";
 import { TimerReset, IndianRupee } from "lucide-react";
 import TopPicks from "../TopPicks/TopPicks";
 import MenuCard from "./MenuCard";
 import { useParams } from "react-router-dom";
 import FoodLoader from "../Home/FoodLoader";
+import useRestaurantMenu from "../../utils/useRestaurantMenu";
 
 export default RestaurantMenu = () => {
-  const [menuInfo, setMenuInfo] = useState(null);
   const { resId } = useParams();
-
-  useEffect(() => {
-    const fetchMenu = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.allorigins.win/raw?url=${encodeURIComponent(
-            `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5679146&lng=73.91434319999999&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
-          )}`
-        );
-        setMenuInfo(response?.data?.data);
-      } catch (error) {
-        console.error("Error fetching data:", error.message);
-      }
-    };
-
-    fetchMenu();
-    return () => fetchMenu();
-  }, []);
+  const menuInfo = useRestaurantMenu(resId);
 
   if (!menuInfo) {
-    // Add loading state or error handling here
-    return <FoodLoader/>;
+    return <FoodLoader />;
   }
 
   const {

@@ -1,39 +1,26 @@
-import SearchBar from '../Search/SearchBar';
-import CardContainer from "./CardContainer";
-import TopRatedRes from "../TopPicks/TopRatedRes";
-import Shimmer from "../Shimmers/Shimmer";
-import { useEffect, useState } from "react";
-import { SearchResultsList } from "../Search/SearchResultsList";
-import { SWIGGY_API } from "../../utils/constants";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import MainGridSlider from "../Home/MainGridSlider";
+
+import useRestaurantsCards from "../../utils/useRestaurantsCards";
+
+import CardContainer from "./CardContainer";
 import Footer from "../Footer/Footer";
+import MainGridSlider from "../Home/MainGridSlider";
+import SearchBar from "../Search/SearchBar";
+import { SearchResultsList } from "../Search/SearchResultsList";
+import Shimmer from "../Shimmers/Shimmer";
+import TopRatedRes from "../TopPicks/TopRatedRes";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 export default FoodCards = () => {
-  //!Note: never take index's as a key react says it.
-
+  //!Note: never take index's as a key, react says it.
+  const { cards, menuCarousel } = useRestaurantsCards(); //Custom Hook to fetch restros.
   const [results, setResults] = useState([]);
-  const [cards, setCards] = useState([]);
-  const [menuCarousel, setMenuCarousel] = useState([]);
+  const onlineStatus = useOnlineStatus();
 
-  useEffect(() => {
-    fetchData();
-    return () => fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const data = await fetch(SWIGGY_API);
-      const json = await data.json();
-      setCards(
-        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
-      setMenuCarousel(json?.data?.cards[0]?.card?.card?.imageGridCards?.info);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  if (!onlineStatus) {  //fix requried
+    return <h1 className="offline-Img">you are offline</h1>
+  }
 
   return (
     <>

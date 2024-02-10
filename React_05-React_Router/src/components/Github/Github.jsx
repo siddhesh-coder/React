@@ -1,25 +1,30 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 const Github = () => {
-  const [user, setUser] = useState([]);
+  const user = useLoaderData();
+  // const [user, setUser] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-    return () => fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  //   return () => fetchData();
+  // }, []);
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        "https://api.github.com/users/siddhesh-coder"
-      );
-      const data = await response.json();
-      setUser(data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://api.github.com/users/siddhesh-coder"
+  //     );
+  //     const data = await response.json();
+  //     setUser(data);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
+
+  //We well fetch data by Loader
+  
 
   const { name, avatar_url, bio, url } = user;
 

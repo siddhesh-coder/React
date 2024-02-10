@@ -9,8 +9,6 @@ export default CardContainer = ({ foodData }) => {
       foodData?.info; //Optional Chaining
     const { deliveryTime } = sla;
   
-    // above we will use destructing for props
-  
     return (
         <div className="card">
           <img

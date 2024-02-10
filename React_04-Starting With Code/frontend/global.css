@@ -487,7 +487,7 @@ footer {
 }
 
 .resRate {
-  width: 75px;
+  width: 80px;
   border: 1px solid rgb(216, 216, 216);
   font-size: 14px;
   font-weight: 700;
@@ -510,7 +510,7 @@ footer {
   }
 
   .resRateCount {
-    width: 75px;
+    width: 80px;
     border: 1px solid rgb(216, 216, 216);
     height: 30px;
     font-size: 11px;
@@ -957,6 +957,12 @@ footer {
   margin-top: 30px; 
 }
 
+.offline-Img{
+  position: relative;
+  top: 20rem;
+  width: 10rem;
+  height: 10rem;
+}
 
 @media only screen and (max-width: 768px) {
   .footer-innerContainer {
