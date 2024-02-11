@@ -1,7 +1,7 @@
 import Shimmer from "../Shimmers/Shimmer";
 import CardContainer from "./CardContainer";
 import { Link } from "react-router-dom";
-import useCategory from "../../utils/useCategory";
+import useCategory from "../../hooks/useCategory";
 import { useParams } from "react-router-dom";
 
 export const MainCategory = () => {

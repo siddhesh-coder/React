@@ -5,7 +5,7 @@ import TopPicks from "../TopPicks/TopPicks";
 import MenuCard from "./MenuCard";
 import { useParams } from "react-router-dom";
 import FoodLoader from "../Home/FoodLoader";
-import useRestaurantMenu from "../../utils/useRestaurantMenu";
+import useRestaurantMenu from "../../hooks/useRestaurantMenu";
 
 export default RestaurantMenu = () => {
   const { resId } = useParams();

@@ -11,12 +11,26 @@ import Errors from "./components/Error/Errors";
 import RestaurantMenu from "./components/Menu/RestaurantMenu";
 import SignupForm from "./components/Header/SignUpForm";
 import MainCategory from "./components/Home/MainCategory";
+import useOnlineStatus from "./hooks/useOnlineStatus";
+import InternetConnectionMessage from "./components/InternetConnectionMessage/InternetConnectionMessage";
 
 const AppParent = () => {
+  const onlineStatus = useOnlineStatus();
+
+  // if (!onlineStatus) {  //fix requried
+  //   return
+  // }
+
   return (
     <div id="app">
-      <Header />
-      <Outlet />
+      {onlineStatus ? (
+        <>
+          <Header />
+          <Outlet />
+        </>
+      ) : (
+        <InternetConnectionMessage/>
+      )}
     </div>
   );
 };

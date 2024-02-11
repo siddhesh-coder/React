@@ -1,5 +1,5 @@
 import React from 'react';
-import mainLogo from '../assets/foodload.gif';
+import mainLogo from '../../assets/foodload.gif';
 
 export const FoodLoader = () => {
   return (

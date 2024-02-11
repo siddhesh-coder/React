@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import useRestaurantsCards from "../../utils/useRestaurantsCards";
+import useRestaurantsCards from "../../hooks/useRestaurantsCards";
 
 import CardContainer from "./CardContainer";
 import Footer from "../Footer/Footer";
@@ -10,17 +10,12 @@ import SearchBar from "../Search/SearchBar";
 import { SearchResultsList } from "../Search/SearchResultsList";
 import Shimmer from "../Shimmers/Shimmer";
 import TopRatedRes from "../TopPicks/TopRatedRes";
-import useOnlineStatus from "../../utils/useOnlineStatus";
 
 export default FoodCards = () => {
   //!Note: never take index's as a key, react says it.
   const { cards, menuCarousel } = useRestaurantsCards(); //Custom Hook to fetch restros.
   const [results, setResults] = useState([]);
-  const onlineStatus = useOnlineStatus();
-
-  if (!onlineStatus) {  //fix requried
-    return <h1 className="offline-Img">you are offline</h1>
-  }
+  
 
   return (
     <>
@@ -33,7 +28,7 @@ export default FoodCards = () => {
         <SearchResultsList results={results} />
         <TopRatedRes resList={cards}>
           <div id="card-container">
-            {cards.length === 0 ? (
+            {cards.length || 0 === 0 ? (
               <Shimmer />
             ) : (
               cards.map((restro) => (

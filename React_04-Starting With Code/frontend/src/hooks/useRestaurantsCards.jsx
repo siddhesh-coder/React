@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { SWIGGY_API } from "./constants";
+import { SWIGGY_API } from "../utils/constants";
 
 const useRestaurantsCards = () => {
   const [cards, setCards] = useState([]);
