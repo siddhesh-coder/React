@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { ShoppingBag, Home, Building2, Info, UserRound } from "lucide-react";
+import { ShoppingBag, Home, Building2, Info, UserRound, ShoppingBasket } from "lucide-react";
 import { COMPANY_LOGO } from "../../utils/constants";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -48,6 +48,12 @@ export default Header = () => {
             <NavLink to={"/foodcart"}>
               <ShoppingBag />
               <span>Cart</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/grocery"}>
+            <ShoppingBasket />
+              <span>Grocery</span>
             </NavLink>
           </li>
           <li>

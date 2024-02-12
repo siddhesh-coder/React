@@ -1,0 +1,12 @@
+.product-carousal {
+  display: flex;
+  width: 1000px;
+  overflow-x: scroll;
+  height: auto;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.product-carousal::-webkit-scrollbar {
+    display: none;
+  }

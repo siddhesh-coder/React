@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -8,18 +8,18 @@ import AboutUs from "./components/Header/AboutUs";
 import ContactUs from "./components/Header/ContactUs";
 import FoodCart from "./components/Home/FoodCart";
 import Errors from "./components/Error/Errors";
-import RestaurantMenu from "./components/Menu/RestaurantMenu";
 import SignupForm from "./components/Header/SignUpForm";
 import MainCategory from "./components/Home/MainCategory";
 import useOnlineStatus from "./hooks/useOnlineStatus";
 import InternetConnectionMessage from "./components/InternetConnectionMessage/InternetConnectionMessage";
+import Shimmer from "./components/Shimmers/Shimmer";
+import FoodLoader from "./components/Home/FoodLoader";
+
+const GroceryLanding = lazy(() => import("./Grocery/components/GroceryLanding"));
+const RestaurantMenu = lazy(() => import("./components/Menu/RestaurantMenu"));
 
 const AppParent = () => {
   const onlineStatus = useOnlineStatus();
-
-  // if (!onlineStatus) {  //fix requried
-  //   return
-  // }
 
   return (
     <div id="app">
@@ -29,7 +29,7 @@ const AppParent = () => {
           <Outlet />
         </>
       ) : (
-        <InternetConnectionMessage/>
+        <InternetConnectionMessage />
       )}
     </div>
   );
@@ -57,8 +57,18 @@ const appRouter = createBrowserRouter([
         element: <FoodCart />,
       },
       {
+        path: "grocery",
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <GroceryLanding />
+          </Suspense>
+        ),
+      },
+      {
         path: "restaurants/:resId",
-        element: <RestaurantMenu />,
+        element: <Suspense fallback={<FoodLoader/>}>
+          <RestaurantMenu/>
+        </Suspense>,
       },
       {
         path: "signup",

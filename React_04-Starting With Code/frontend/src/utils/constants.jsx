@@ -14,7 +14,7 @@ export const SWIGGY_API = `https://api.allorigins.win/raw?url=${encodeURICompone
 export const ERROR_IMG =
   "https://img.freepik.com/free-vector/warning-concept-illustration_114360-1551.jpg?w=740&t=st=1705479461~exp=1705480061~hmac=c4a9e1128fa2e9f39b9d2ae9bfd6888eae22b1d4afb902e099e7b84b409d48ae";
 
-export const DISCOUNT_LOGO = 
+export const DISCOUNT_LOGO =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_28,h_28/Store_Assets/Icons/OfferIconCart";
 
 export const CRAOUSEL_IMG =
@@ -29,4 +29,7 @@ export const VEG_LOGO =
 export const NONVEG_LOGO =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Non_veg_symbol.svg/2048px-Non_veg_symbol.svg.png";
 
-export const SLIDER_MENU = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
+export const SLIDER_MENU =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
+
+export const GROCERY_API_CATEGORY = "https://www.swiggy.com/api/instamart/home?pageNo=1&layoutId=3173&storeId=1382708&clientId=INSTAMART-APP";
