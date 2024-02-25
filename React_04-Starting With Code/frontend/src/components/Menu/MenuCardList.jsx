@@ -27,18 +27,18 @@ const MenuCardList = (el) => {
   const calculatedFinalPrice = (p2 / 100).toFixed(2);
 
   return (
-    <div className="food-list">
-      <div className="food-list-info">
+    <div className="flex justify-between items-center mt-5 mb-5 border-b-2 border-solid border-[#b5b5b5] pb-5" >
+      <div className="w-4/5">
         <div>
           {vegClassifier === "VEG" ? (
-            <img className="veg-logo" src={VEG_LOGO} alt="veg" />
+            <img className="w-[15px]" src={VEG_LOGO} alt="veg" loading="lazy"/>
           ) : (
-            <img className="nonveg-logo" src={NONVEG_LOGO} alt="nonveg" />
+            <img className="w-[17px]" src={NONVEG_LOGO} alt="nonveg" loading="lazy"/>
           )}
         </div>
-        <div className="list-title-button">
-          <div className="food-title">{name}</div>
-          <button className="add-btn">ADD +</button>
+        <div className="flex justify-between">
+          <div className="text-lg text-[#3e4152] font-medium">{name}</div>
+          <button className="w-20 h-9 bg-transparent rounded-xl border-none text-sm text-[#60b246] font-semibold">ADD +</button>
         </div>
         <div>
           {calculatedFinalPrice === "0.00" ? (
@@ -57,21 +57,21 @@ const MenuCardList = (el) => {
             </>
           ) : (
             <>
-              <span className="origi-price">
+              <span className="line-through text-xs text-[#7e808c] font-light mr-[10px]">
                 {"₹" + String(calculatedPrice)}
               </span>
-              <span className="final-Price">
+              <span className="text-sm font-normal text-[#3e4152]">
                 {"₹" + String(calculatedFinalPrice)}
               </span>
             </>
           )}
         </div>
-        <p className="list-food-dis">{description}</p>
+        <p className="text-sm text-[#282c3f] opacity-45 font-light">{description}</p>
       </div>
       <div>
         {imageId && (
           <img
-            className="list-img-block"
+            className="rounded-2xl w-[135px] h-[100px]"
             src={FOOD_MENU + imageId}
             alt="foodimg"
           />

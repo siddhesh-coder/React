@@ -13,11 +13,11 @@ export const MainCategory = () => {
   const { text } = category[2]?.card?.card?.gridElements?.infoWithStyle || {};
 
   return (
-    <div className="mainCategory">
-      <h1 className="title-mainCategory">{title}</h1>
-      <p className="description-mainCategory">{description}</p>
-      <h1 className="restro-mainCategory">{text}</h1>
-      <div id="card-container">
+    <div className="w-[1200px] relative top-[150px]">
+      <h1 className="font-semibold text-[40px] leading-[48px] text-[#282c3f]">{title}</h1>
+      <p className="font-light text-[18px] leading-[22px] text-[#282c3f]">{description}</p>
+      <h1 className="mt-5 font-extrabold text-2xl text-[#02060c] text-opacity-95">{text}</h1>
+      <div className="flex flex-wrap">
         {category.length === 0 ? (
           <Shimmer />
         ) : (
@@ -27,7 +27,7 @@ export const MainCategory = () => {
             return (
               <Link
                 key={id}
-                className="per-food-link"
+                className="no-underline text-[#02060c] text-opacity-75"
                 to={"/restaurants/" + id}
               >
                 <CardContainer foodData={restros} />

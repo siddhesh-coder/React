@@ -6,7 +6,7 @@ export default Errors = () => {
     const err = useRouteError();
     return (
         <div className="error-img">
-            <img src={ERROR_IMG} alt="error message" />
+            <img src={ERROR_IMG} alt="error message" loading="lazy"/>
             <h1>{err.status}</h1>
             <h2>{err.statusText}</h2>
         </div>

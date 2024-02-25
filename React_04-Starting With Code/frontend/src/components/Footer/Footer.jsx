@@ -2,8 +2,8 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <div className="footer-mainContainer">
-      <div className="footer-innerContainer">
+    <div className="w-full bg-[#02060c] text-white pt-12 pb-12 flex justify-center items-center">
+      <div className="w-90 max-w-1200 h-auto flex flex-wrap justify-between">
         <div>
           <h1>HungryHub</h1>
           <p>© 2024 Siddhesh Bhosale</p>
@@ -11,10 +11,10 @@ export const Footer = () => {
 
         <div>
           <h3>Company</h3>
-          <ul>
-            <li>About</li>
-            <li>Careers</li>
-            <li>Team</li>
+          <ul className="list-none p-0">
+            <li className="my-[10px]">About</li>
+            <li className="my-[10px]">Careers</li>
+            <li className="my-[10px]">Team</li>
           </ul>
         </div>
 
@@ -24,25 +24,25 @@ export const Footer = () => {
             <span>Help & Support</span>
           </div>
 
-          <div className="legal">
+          <div className="w-full mt-8">
             <h3>Legal</h3>
-            <ul>
-              <li>Terms & Conditions</li>
-              <li>Cookie Policy</li>
-              <li>Privacy Policy</li>
+            <ul className="list-none p-0">
+              <li className="my-[10px]">Terms & Conditions</li>
+              <li className="my-[10px]">Cookie Policy</li>
+              <li className="my-[10px]">Privacy Policy</li>
             </ul>
           </div>
         </div>
 
         <div>
           <h3>We deliver to:</h3>
-          <ul>
-            <li>Bangalore</li>
-            <li>Gurgaon</li>
-            <li>Hyderabad</li>
-            <li>Delhi</li>
-            <li>Mumbai</li>
-            <li>Pune</li>
+          <ul className="list-none p-0">
+            <li className="my-[10px]">Bangalore</li>
+            <li className="my-[10px]">Gurgaon</li>
+            <li className="my-[10px]">Hyderabad</li>
+            <li className="my-[10px]">Delhi</li>
+            <li className="my-[10px]">Mumbai</li>
+            <li className="my-[10px]">Pune</li>
           </ul>
         </div>
       </div>

@@ -8,19 +8,18 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="help-page-container">
-      <h2 className="section-title">Help Center</h2>
+    <div className="relative top-[100px] w-[800px] m-auto p-5">
+      <h2 className="text-[#333] text-4xl mb-5">Help Center</h2>
 
-      {/* Frequently Asked Questions (FAQs) Section */}
-      <section className="faq-section">
-        <h3 className="subsection-title">Frequently Asked Questions</h3>
-        <ul className="faq-list">
+      <section>
+        <h3 className="text-[#333] text-2xl mb-4">Frequently Asked Questions</h3>
+        <ul className="list-none p-0">
           {faqs.map((faq, index) => (
-            <li className="faq-item" key={index}>
-              <div className="faq-question" onClick={() => toggleAnswer(index)}>
+            <li className="mb-4" key={index}>
+              <div className="bg-[#f5f5f5] p-3 cursor-pointer" onClick={() => toggleAnswer(index)}>
                 {faq.question}
               </div>
-              <div id={`faq-answer-${index}`} className="faq-answer">
+              <div id={`faq-answer-${index}`} className="p-3 hidden">
                 {faq.answer}
               </div>
             </li>
@@ -28,16 +27,15 @@ const ContactUs = () => {
         </ul>
       </section>
 
-      {/* Contact Information Section */}
-      <section className="contact-section">
-        <h3 className="subsection-title">Contact Information</h3>
+      <section>
+        <h3 className="text-[#333] text-2xl mb-4">Contact Information</h3>
         <p>
           If you need further assistance or have any inquiries, feel free to reach out to our support team.
         </p>
-        <p className="contact-info">
+        <p className="mt-2">
           <strong>Email:</strong> support@pizza.com
         </p>
-        <p className="contact-info">
+        <p className="mt-2">
           <strong>Phone:</strong> +1 (123) 456-7890
         </p>
       </section>

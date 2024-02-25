@@ -1,8 +1,8 @@
 const InternetConnectionMessage = () => {
   return (
-    <div style={{ position: 'relative', textAlign: "center", top: "320px" }}>
+    <div className="relative text-center top-80">
       <h2>No Internet Connection</h2>
-      <h3 style={{ color: 'gray' }}>Please check your connection and try again.</h3>
+      <h3 className="text-gray-800">Please check your connection and try again.</h3>
     </div>
   );
 };

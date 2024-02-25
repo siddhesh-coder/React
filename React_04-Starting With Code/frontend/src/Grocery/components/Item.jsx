@@ -5,7 +5,7 @@ const Item = ({ product }) => {
   const categoryImage = useCategoryImage(product.imageId);
   return (
     <div className="product-item">
-      <img className="product-img" src={categoryImage} alt={product.name} />
+      <img className="product-img" src={categoryImage} alt={product.name} loading="lazy"/>
       <span className="product-name-item">{product.displayName || ""}</span>
     </div>
   );

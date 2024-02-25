@@ -15,14 +15,14 @@ import InternetConnectionMessage from "./components/InternetConnectionMessage/In
 import Shimmer from "./components/Shimmers/Shimmer";
 import FoodLoader from "./components/Home/FoodLoader";
 
-const GroceryLanding = lazy(() => import("./Grocery/components/GroceryLanding"));
+// const GroceryLanding = lazy(() => import("./Grocery/components/GroceryLanding"));
 const RestaurantMenu = lazy(() => import("./components/Menu/RestaurantMenu"));
 
 const AppParent = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div id="app">
+    <div className="w-full flex justify-between items-center flex-col">
       {onlineStatus ? (
         <>
           <Header />
@@ -56,14 +56,14 @@ const appRouter = createBrowserRouter([
         path: "foodcart",
         element: <FoodCart />,
       },
-      {
-        path: "grocery",
-        element: (
-          <Suspense fallback={<h1>Loading...</h1>}>
-            <GroceryLanding />
-          </Suspense>
-        ),
-      },
+      // {
+      //   path: "grocery",
+      //   element: (
+      //     <Suspense fallback={<h1>Loading...</h1>}>
+      //       <GroceryLanding />
+      //     </Suspense>
+      //   ),
+      // },
       {
         path: "restaurants/:resId",
         element: <Suspense fallback={<FoodLoader/>}>

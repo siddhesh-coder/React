@@ -12,7 +12,7 @@ const ProductCard = ({ items }) => {
   return (
     <div className="product-card">
       <div className="product-img-container">
-        <img className="product-imgg" src={categoryImage} alt="" />
+        <img className="product-imgg" src={categoryImage} alt="" loading="lazy"/>
       </div>
       <div className="product-brand">{brand}</div>
       <div className="product-name">{product_name_without_brand}</div>

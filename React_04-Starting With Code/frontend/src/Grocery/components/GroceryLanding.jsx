@@ -44,7 +44,7 @@ const GroceryLanding = () => {
       {container2 && <ProductCarousel products={container2} />}
       {container3 && <ProductCarousel products={container3} />}
     </div>
-     <Footer/>
+     {/* <Footer/> */}
     </>
   );
 };
