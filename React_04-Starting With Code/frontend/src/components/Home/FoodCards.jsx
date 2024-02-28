@@ -1,16 +1,13 @@
-import { Link } from "react-router-dom";
-
 import useRestaurantsCards from "../../hooks/useRestaurantsCards";
 
 import Footer from "../Footer/Footer";
 import MainGridSlider from "../Home/MainGridSlider";
 import SearchBar from "../Search/SearchBar";
 import Restros from "./Restros";
+import RestrosCarousel from "./RestrosCarousel";
 
 export default FoodCards = () => {
-  const { cards, menuCarousel } = useRestaurantsCards();
-
-  // console.log(cards.info.id);
+  const { cards, menuCarousel, restrosCarousel } = useRestaurantsCards();
 
   return (
     <>
@@ -19,6 +16,7 @@ export default FoodCards = () => {
           {localStorage.getItem("firstName") || "Hello"}, what's on your mind?
         </div>
         <MainGridSlider slider={menuCarousel} />
+        <RestrosCarousel list={restrosCarousel}/>
         <SearchBar />
         <Restros resList={cards}/>
       </main>

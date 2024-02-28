@@ -501,9 +501,9 @@ footer {
 }
 */
 /* ✅ */
-.carousel::-webkit-scrollbar { 
+/* .carousel::-webkit-scrollbar { 
   display: none;
-}
+} */
 /*
 .carousel-item { //✅
   cursor: pointer;
@@ -801,22 +801,22 @@ footer {
 }
 */
 /* //👀 */
-.mainGrid-carousel {
+/* .mainGrid-carousel {
   display: flex; 
   max-width: 1400px;
   overflow-x: scroll;
   height: 200px;
   margin-bottom: 40px;
   background: rgb(255, 255, 255);
-}
+} */
 /* //✅ */
-.menuSliderImg { 
+/* .menuSliderImg { 
   width: 150px;
   height: 200px;
   margin-right: 30px;
-}
+} */
 /* //✅ */
-.mainGrid-carousel::-webkit-scrollbar {
+.off-carousel::-webkit-scrollbar {
   display: none; 
 }
 /*

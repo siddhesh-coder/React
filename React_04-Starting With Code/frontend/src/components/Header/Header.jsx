@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { SquigglyUnderline } from "../ui/SquigglyUnderline";
 import { HoveredLink, Menu, MenuItem } from "../ui/navbar-menu";
-import { cn } from "../../utils/cn";
+import { cn } from '../../utils/cn';
 
 export default Header = () => {
   const [active, setActive] = useState(null);
@@ -19,7 +19,7 @@ export default Header = () => {
   }
 
   return (
-    <header className="fixed top-0 left-0 w-full flex justify-between h-20 items-center text-center p-4 pr-10 shadow-lg bg-white z-10">
+    <header className="fixed top-0 left-0 w-full flex justify-between h-20 items-center text-center p-4 pr-10 shadow-lg bg-white z-30">
       <div>
         <Link to={"/"}>
           <img className="mx-16 w-16 h-16" src={COMPANY_LOGO} loading="lazy"/>

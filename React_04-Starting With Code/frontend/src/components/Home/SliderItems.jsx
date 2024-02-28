@@ -24,7 +24,7 @@ const SliderItems = ({ slider }) => {
               : `${extractedString}&${extractedString2}`;
   
           return (
-            <Link className="w-[500px]" key={id} to={"/category/" + menuId}>
+            <Link key={id} to={"/category/" + menuId}>
               <MainGridParts image={imageId} />
             </Link>
           );

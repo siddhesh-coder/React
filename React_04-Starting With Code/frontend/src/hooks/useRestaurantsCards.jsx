@@ -5,10 +5,10 @@ import { SWIGGY_API } from "../utils/constants";
 const useRestaurantsCards = () => {
   const [cards, setCards] = useState([]);
   const [menuCarousel, setMenuCarousel] = useState([]);
+  const [restrosCarousel, setRestrosCarousel] = useState([]);
 
   useEffect(() => {
     fetchData();
-    return () => fetchData();
   }, []);
 
   const fetchData = async () => {
@@ -20,12 +20,13 @@ const useRestaurantsCards = () => {
           ?.restaurants
       );
       setMenuCarousel(json?.data?.cards[0]?.card?.card?.imageGridCards?.info);
+      setRestrosCarousel(json?.data?.cards[1]?.card?.card);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
-  return { cards, menuCarousel };
+  return { cards, menuCarousel, restrosCarousel };
 };
 
 export default useRestaurantsCards;

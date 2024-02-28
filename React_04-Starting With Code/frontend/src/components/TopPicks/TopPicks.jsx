@@ -17,8 +17,6 @@ const TopPicks = ({ banner }) => {
     setCurrentIndex(newIndex);
   };
 
-  console.log(banner);
-
   return (
     <>
       <h2 className="mt-5 border-t border-solid pt-5 border-[#9c9c9c]">

@@ -3,7 +3,13 @@ import { SLIDER_MENU } from "../../utils/constants";
 
 const MainGridParts = ({ image }) => {
   return (
-    <img className="menuSliderImg" src={SLIDER_MENU + image} alt="" loading="lazy"/>
+    <div className="w-[150px] h-[200px] mr-[30px]">
+      <img
+        src={SLIDER_MENU + image}
+        alt=""
+        loading="lazy"
+      />
+    </div>
   );
 };
 

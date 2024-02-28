@@ -5,7 +5,7 @@ export default CardContainer = ({ foodData }) => {
     return null;
   }
 
-  const { id, cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla } =
+  const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla } =
     foodData?.info;
   const { deliveryTime } = sla;
 

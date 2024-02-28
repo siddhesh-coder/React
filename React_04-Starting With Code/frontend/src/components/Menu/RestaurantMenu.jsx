@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Carousel from "./CarouselDiscount";
 import { TimerReset, IndianRupee } from "lucide-react";
 import TopPicks from "../TopPicks/TopPicks";
@@ -8,6 +8,8 @@ import FoodLoader from "../Home/FoodLoader";
 import useRestaurantMenu from "../../hooks/useRestaurantMenu";
 
 export default RestaurantMenu = () => {
+  const [showIndex, setShowIndex] = useState(0);
+  const [prevClickIndex, setPrevClickIndex] = useState(null);
   const { resId } = useParams();
   const menuInfo = useRestaurantMenu(resId);
 
@@ -25,7 +27,7 @@ export default RestaurantMenu = () => {
     cuisines,
     sla,
     aggregatedDiscountInfo,
-  } = menuInfo?.cards?.[2]?.card?.card?.info || {};
+  } = menuInfo?.cards[0]?.card?.card?.info || {};
 
   const { minDeliveryTime, maxDeliveryTime, lastMileTravelString } = sla || {};
 
@@ -34,20 +36,29 @@ export default RestaurantMenu = () => {
   const discount = aggregatedDiscountInfo?.descriptionList || [];
 
   const { carousel, title } =
-    menuInfo.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    menuInfo.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+      ?.card || [];
 
   const menuLength =
-    menuInfo.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards;
-  const n = menuLength?.length;
+    menuInfo.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards;
+  const n = menuLength?.length || 0;
 
-  let menutabs =
-    (menuInfo.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards).filter(
+  let menutabs = [];
+  const regularCards =
+    menuInfo.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+  if (Array.isArray(regularCards)) {
+    menutabs = regularCards.filter(
       (c) =>
-        c.card?.card?.["@type"] ===
+        c?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
+  }
 
-    // console.log(carousel);
+  console.log(menuInfo);
+
+  const checkIsOpen = (index) => {
+    return index === showIndex && prevClickIndex !== showIndex;
+  };
 
   return (
     <div className="w-[800px] relative top-[100px]">
@@ -62,7 +73,7 @@ export default RestaurantMenu = () => {
             )}
           </h4>
 
-          <div className="w-20 border-solid border border-[#d8d8d8] text-sm text-center pt-1 text-[#3d9b6d] rounded-t">
+          <div className="w-[90px] border-solid border border-[#d8d8d8] text-sm text-center pt-1 text-[#3d9b6d] rounded-t">
             &#x2606; {avgRatingString}
           </div>
         </div>
@@ -78,7 +89,7 @@ export default RestaurantMenu = () => {
               Location: {areaName}, {lastMileTravelString}
             </div>
           </div>
-          <div className="w-20 border border-solid border-[#d8d8d8] h-8 text-xs pl-2 pt-[5px] font-semibold text-[#8b8d97] rounded-b">
+          <div className="w-[90px] border border-solid border-[#d8d8d8] h-8 text-xs pl-2 pt-[5px] font-semibold text-[#8b8d97] rounded-b">
             {totalRatingsString}
           </div>
         </div>
@@ -105,7 +116,15 @@ export default RestaurantMenu = () => {
       {carousel && <TopPicks banner={carousel} title={title} />}
 
       {menutabs.map((tab, index) => (
-        <MenuCard key={tab?.card?.card?.title} downmenu={tab} />
+        <MenuCard
+          key={tab?.card?.card?.title}
+          downmenu={tab}
+          isOpen={checkIsOpen(index)}
+          setShowIndex={() => {
+            setPrevClickIndex(showIndex);
+            setShowIndex(index);
+          }}
+        />
       ))}
     </div>
   );

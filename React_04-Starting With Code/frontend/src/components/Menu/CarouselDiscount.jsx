@@ -30,7 +30,7 @@ const Carousel = ({ offs }) => {
 
   return (
     <div
-      className="flex overflow-x-scroll whitespace-nowrap select-none overflow-hidden scrollbar-none carousel"
+      className="flex overflow-x-scroll whitespace-nowrap select-none overflow-hidden scrollbar-none off-carousel"
       onMouseDown={handleMouseDown}
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleMouseUp}
