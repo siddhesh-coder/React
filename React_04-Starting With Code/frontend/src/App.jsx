@@ -14,6 +14,7 @@ import useOnlineStatus from "./hooks/useOnlineStatus";
 import InternetConnectionMessage from "./components/InternetConnectionMessage/InternetConnectionMessage";
 import Shimmer from "./components/Shimmers/Shimmer";
 import FoodLoader from "./components/Home/FoodLoader";
+import Login from "./components/Login/Login";
 
 // const GroceryLanding = lazy(() => import("./Grocery/components/GroceryLanding"));
 const RestaurantMenu = lazy(() => import("./components/Menu/RestaurantMenu"));
@@ -72,7 +73,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "signup",
-        element: <SignupForm />,
+        element: <Login/>,
       },
       {
         path: "category/:menuId",

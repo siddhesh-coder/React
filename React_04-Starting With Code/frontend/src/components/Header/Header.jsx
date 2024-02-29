@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { SquigglyUnderline } from "../ui/SquigglyUnderline";
 import { HoveredLink, Menu, MenuItem } from "../ui/navbar-menu";
 import { cn } from '../../utils/cn';
+import { NavLink } from "react-router-dom";
 
 export default Header = () => {
   const [active, setActive] = useState(null);
@@ -31,7 +32,7 @@ export default Header = () => {
         <MenuItem setActive={setActive} active={active} item="Login">
           <div className="flex flex-col space-y-1 text-sm">
             <HoveredLink href="/web-dev">Login</HoveredLink>
-            <HoveredLink href="/interface-design">Sign up</HoveredLink>
+            <HoveredLink to={'/signup'}>Sign up</HoveredLink>
           </div>
         </MenuItem>
       </Menu>
