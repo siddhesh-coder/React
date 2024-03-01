@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { LoginValidate } from "../../utils/AuthValidate";
 import { useGlobal } from "../../Context/GlobalContext";
+import useNotify from "../../hooks/useNotify";
+import InputField from "../../HOC/InputField";
 
 const initialValues = {
   email: "",
@@ -11,21 +13,24 @@ const initialValues = {
 
 const Login = () => {
   const { login } = useGlobal();
+  const notify = useNotify();
+  const navigate = useNavigate();
+
   const Formik = useFormik({
     initialValues: initialValues,
     validationSchema: LoginValidate,
     onSubmit: (values, action) => {
-      const userStoredInfo = localStorage.getItem("userInfo")
-        ? JSON.parse(localStorage.getItem("userInfo"))
-        : null;
+      const userStoredInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
 
       if (
         userStoredInfo.email === values.email &&
         userStoredInfo.password === values.password
       ) {
         login();
+        notify({ message: "Successfully login", status: "success" });
+        navigate("/");
       } else {
-        console.log("error");
+        notify({ message: "Please check email or password", status: "error" });
       }
       action.resetForm();
     },
@@ -33,8 +38,9 @@ const Login = () => {
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     Formik;
+
   return (
-    <div className="flex w-[400px] min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div className="flex mt-20 w-[400px] min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
           className="mx-auto h-10 w-auto"
@@ -48,54 +54,28 @@ const Login = () => {
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form className="space-y-6" onSubmit={handleSubmit}>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Email address
-            </label>
-            <div className="mt-2">
-              <input
-                name="email"
-                type="email"
-                autoComplete="email"
-                value={values.email}
-                onBlur={handleBlur}
-                onChange={handleChange}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-              {errors.email && touched.email ? (
-                <p className="text-[#ff0000] text-sm">{errors.email}</p>
-              ) : null}
-            </div>
-          </div>
-
-          <div>
-            <div className="flex items-center justify-between">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Password
-              </label>
-            </div>
-            <div className="mt-2">
-              <input
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                value={values.password}
-                onBlur={handleBlur}
-                onChange={handleChange}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-              {errors.password && touched.password ? (
-                <p className="text-[#ff0000] text-sm">{errors.password}</p>
-              ) : null}
-            </div>
-          </div>
-
+          <InputField
+            label="Email address"
+            name="email"
+            type="email"
+            autoComplete="email"
+            value={values.email}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            error={errors.email}
+            touched={touched.email}
+          />
+          <InputField
+            label="Password"
+            name="password"
+            type="password"
+            autoComplete="password"
+            value={values.password}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            error={errors.password}
+            touched={touched.password}
+          />
           <div>
             <button
               type="submit"

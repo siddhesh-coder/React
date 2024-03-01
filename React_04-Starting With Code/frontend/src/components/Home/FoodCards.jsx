@@ -13,7 +13,7 @@ export default FoodCards = () => {
 
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo");
-    setUserName(JSON.parse(userInfo).name);
+    setUserName(JSON.parse(userInfo)?.name);
   }, [userName]);
 
   return (

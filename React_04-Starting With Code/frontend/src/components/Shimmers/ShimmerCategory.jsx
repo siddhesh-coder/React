@@ -6,7 +6,7 @@ export const ShimmerCategory = () => {
       key={index}
       className="mt-5 flex w-36 h-36 rounded-full mr-7 bg-neutral-200 relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-200 to-transparent animate-shimmer1"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
     </div>
   ));
 

@@ -1,6 +1,7 @@
 import React from "react";
 
-const Shimmer = () => {
+const Shimmer = (props) => {
+  const { count } = props;
   const renderShimmerCards = (count) => {
     const shimmerCards = [];
     for (let i = 0; i < count; i++) {
@@ -28,7 +29,7 @@ const Shimmer = () => {
     return shimmerCards;
   };
 
-  return <>{renderShimmerCards(10)}</>;
+  return <>{renderShimmerCards(count)}</>;
 };
 
 export default Shimmer;

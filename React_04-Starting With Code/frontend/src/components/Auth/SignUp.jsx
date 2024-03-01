@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { SignUpValidate } from "../../utils/AuthValidate";
+import InputField from "../../HOC/InputField";
 
 const initialValues = {
   name: "",
@@ -15,10 +16,7 @@ export default function SignUp() {
     initialValues: initialValues,
     validationSchema: SignUpValidate,
     onSubmit: (values, action) => {
-      const userStoredInfo = localStorage.getItem("userInfo")
-        ? JSON.parse(localStorage.getItem("userInfo"))
-        : null;
-
+      const userStoredInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
       if (
         userStoredInfo.email === values.email &&
         userStoredInfo.password === values.password
@@ -38,7 +36,7 @@ export default function SignUp() {
     Formik;
 
   return (
-    <div className="flex mt-24 w-[400px] min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <div className="flex w-[500px] min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
           className="mx-auto h-10 w-auto"
@@ -52,101 +50,53 @@ export default function SignUp() {
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form className="space-y-6" onSubmit={handleSubmit}>
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Name
-            </label>
-            <div className="mt-2">
-              <input
-                name="name"
-                autoComplete="off"
-                type="text"
-                value={values.name}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-              {errors.name && touched.name ? (
-                <p className="text-[#ff0000] text-sm">{errors.name}</p>
-              ) : null}
-            </div>
-          </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Email address
-            </label>
-            <div className="mt-2">
-              <input
-                name="email"
-                type="email"
-                autoComplete="email"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-              {errors.email && touched.email ? (
-                <p className="text-[#ff0000] text-sm">{errors.email}</p>
-              ) : null}
-            </div>
-          </div>
+          <InputField
+            label="Name"
+            name="name"
+            type="text"
+            autoComplete="off"
+            value={values.name}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            error={errors.name}
+            touched={touched.name}
+          />
 
-          <div>
-            <div className="flex items-center justify-between">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Password
-              </label>
-            </div>
-            <div className="mt-2">
-              <input
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                value={values.password}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-              {errors.password && touched.password ? (
-                <p className="text-[#ff0000] text-sm">{errors.password}</p>
-              ) : null}
-            </div>
-          </div>
+          <InputField
+            label="Email address"
+            name="email"
+            type="email"
+            autoComplete="email"
+            value={values.email}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            error={errors.email}
+            touched={touched.email}
+          />
 
-          <div>
-            <div className="flex items-center justify-between">
-              <label
-                htmlFor="confirmPassword"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Confirm Password
-              </label>
-            </div>
-            <div className="mt-2">
-              <input
-                name="confirmPassword"
-                type="password"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.confirmPassword}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-              {errors.confirmPassword && touched.confirmPassword ? (
-                <p className="text-[#ff0000] text-sm">
-                  {errors.confirmPassword}
-                </p>
-              ) : null}
-            </div>
-          </div>
+          <InputField
+            label="Password"
+            name="password"
+            type="password"
+            autoComplete="password"
+            value={values.password}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            error={errors.password}
+            touched={touched.password}
+          />
+
+          <InputField
+            label="Confirm Password"
+            name="confirmPassword"
+            type="password"
+            autoComplete="password"
+            value={values.confirmPassword}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            error={errors.confirmPassword}
+            touched={touched.confirmPassword}
+          />
 
           <div>
             <button

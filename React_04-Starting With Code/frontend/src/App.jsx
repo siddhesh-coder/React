@@ -16,6 +16,8 @@ import FoodLoader from "./components/Home/FoodLoader";
 import SignUp from "./components/Auth/SignUp";
 import Login from "./components/Auth/Login";
 import { GlobalContextProvider } from "./Context/GlobalContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // const GroceryLanding = lazy(() => import("./Grocery/components/GroceryLanding"));
 const RestaurantMenu = lazy(() => import("./components/Menu/RestaurantMenu"));
@@ -24,18 +26,18 @@ const AppParent = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <GlobalContextProvider>
-    <div className="w-full flex justify-between items-center flex-col">
-      {onlineStatus ? (
-        <>
-          <Header />
-          <Outlet />
-        </>
-      ) : (
-        <InternetConnectionMessage />
-      )}
-    </div>
-    </GlobalContextProvider>
+    <>
+        <div className="w-full flex justify-between items-center flex-col">
+          {onlineStatus ? (
+            <>
+              <Header />
+              <Outlet />
+            </>
+          ) : (
+            <InternetConnectionMessage />
+          )}
+        </div>
+    </>
   );
 };
 
@@ -60,33 +62,29 @@ const appRouter = createBrowserRouter([
         path: "foodcart",
         element: <FoodCart />,
       },
-      // {
-      //   path: "grocery",
-      //   element: (
-      //     <Suspense fallback={<h1>Loading...</h1>}>
-      //       <GroceryLanding />
-      //     </Suspense>
-      //   ),
-      // },
       {
         path: "restaurants/:resId",
-        element: <Suspense fallback={<FoodLoader/>}>
-          <RestaurantMenu/>
-        </Suspense>,
-      },
-      {
-        path: "signup",
-        element: <SignUp/>,
+        element: (
+          <Suspense fallback={<FoodLoader />}>
+            <RestaurantMenu />
+          </Suspense>
+        ),
       },
       {
         path: "category/:menuId",
         element: <MainCategory />,
       },
-      {
-        path: 'login',
-        element: <Login/>
-      }
     ],
+  },
+  {
+    path: "signup",
+    element: <SignUp />,
+  },
+  {
+    path: "login",
+    element: <Login />,
+  },
+  {
     errorElement: <Errors />,
   },
 ]);
@@ -94,6 +92,9 @@ const appRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <GlobalContextProvider>
     <RouterProvider router={appRouter} />
+    </GlobalContextProvider>
+    <ToastContainer />
   </React.StrictMode>
 );

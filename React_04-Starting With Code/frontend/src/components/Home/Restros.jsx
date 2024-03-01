@@ -29,7 +29,7 @@ export default Restros = ({ resList }) => {
 
       <div className="flex flex-wrap">
         {resLists.length === 0 ? (
-          <Shimmer />
+          <Shimmer count={10} />
         ) : (
           resLists.map((restro) => (
             <Link

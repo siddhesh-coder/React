@@ -30,7 +30,7 @@ const RestrosCarousel = ({ list }) => {
       <h2 className="text-2xl font-extrabold text-[#02060c] opacity-90">{heading}</h2>
       <div className="flex w-[1400px] overflow-x-scroll mb-5 off-carousel">
         {restaurants && restaurants.length === 0 ? (
-          <Shimmer />
+          <Shimmer count={5} />
         ) : (
           restaurants.map((restro) => (
             <Link
