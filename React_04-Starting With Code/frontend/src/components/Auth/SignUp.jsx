@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import AuthValidate from "../../utils/AuthValidate";
+import { SignUpValidate } from "../../utils/AuthValidate";
 
 const initialValues = {
   name: "",
@@ -9,12 +9,27 @@ const initialValues = {
   confirmPassword: "",
 };
 
-export default function Login() {
+export default function SignUp() {
+  const navigate = useNavigate();
   const Formik = useFormik({
     initialValues: initialValues,
-    validationSchema: AuthValidate,
+    validationSchema: SignUpValidate,
     onSubmit: (values, action) => {
-      console.log(values);
+      const userStoredInfo = localStorage.getItem("userInfo")
+        ? JSON.parse(localStorage.getItem("userInfo"))
+        : null;
+
+      if (
+        userStoredInfo.email === values.email &&
+        userStoredInfo.password === values.password
+      ) {
+        console.log("already a user go to login page");
+      } else {
+        if (typeof window !== "undefined" && window.localStorage) {
+          localStorage.setItem("userInfo", JSON.stringify(values));
+        }
+        navigate("/");
+      }
       action.resetForm();
     },
   });
@@ -46,7 +61,6 @@ export default function Login() {
             </label>
             <div className="mt-2">
               <input
-                id="name"
                 name="name"
                 autoComplete="off"
                 type="text"
@@ -69,7 +83,6 @@ export default function Login() {
             </label>
             <div className="mt-2">
               <input
-                id="email"
                 name="email"
                 type="email"
                 autoComplete="email"
@@ -95,7 +108,6 @@ export default function Login() {
             </div>
             <div className="mt-2">
               <input
-                id="password"
                 name="password"
                 type="password"
                 autoComplete="current-password"
@@ -121,7 +133,6 @@ export default function Login() {
             </div>
             <div className="mt-2">
               <input
-                id="confirmPassword"
                 name="confirmPassword"
                 type="password"
                 onChange={handleChange}
@@ -150,7 +161,7 @@ export default function Login() {
         <p className="mt-10 text-center text-sm text-gray-500">
           Already have an account?{" "}
           <Link
-            to={"/"}
+            to={"/login"}
             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
           >
             Sign in now

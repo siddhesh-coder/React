@@ -31,7 +31,7 @@ export default Header = () => {
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Login">
           <div className="flex flex-col space-y-1 text-sm">
-            <HoveredLink href="/web-dev">Login</HoveredLink>
+            <HoveredLink to={'/login'}>Login</HoveredLink>
             <HoveredLink to={'/signup'}>Sign up</HoveredLink>
           </div>
         </MenuItem>

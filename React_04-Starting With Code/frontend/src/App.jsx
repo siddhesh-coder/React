@@ -8,13 +8,14 @@ import AboutUs from "./components/Header/AboutUs";
 import ContactUs from "./components/Header/ContactUs";
 import FoodCart from "./components/Home/FoodCart";
 import Errors from "./components/Error/Errors";
-import SignupForm from "./components/Header/SignUpForm";
 import MainCategory from "./components/Home/MainCategory";
 import useOnlineStatus from "./hooks/useOnlineStatus";
 import InternetConnectionMessage from "./components/InternetConnectionMessage/InternetConnectionMessage";
 import Shimmer from "./components/Shimmers/Shimmer";
 import FoodLoader from "./components/Home/FoodLoader";
-import Login from "./components/Login/Login";
+import SignUp from "./components/Auth/SignUp";
+import Login from "./components/Auth/Login";
+import { GlobalContextProvider } from "./Context/GlobalContext";
 
 // const GroceryLanding = lazy(() => import("./Grocery/components/GroceryLanding"));
 const RestaurantMenu = lazy(() => import("./components/Menu/RestaurantMenu"));
@@ -23,6 +24,7 @@ const AppParent = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
+    <GlobalContextProvider>
     <div className="w-full flex justify-between items-center flex-col">
       {onlineStatus ? (
         <>
@@ -33,6 +35,7 @@ const AppParent = () => {
         <InternetConnectionMessage />
       )}
     </div>
+    </GlobalContextProvider>
   );
 };
 
@@ -73,12 +76,16 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "signup",
-        element: <Login/>,
+        element: <SignUp/>,
       },
       {
         path: "category/:menuId",
         element: <MainCategory />,
       },
+      {
+        path: 'login',
+        element: <Login/>
+      }
     ],
     errorElement: <Errors />,
   },
