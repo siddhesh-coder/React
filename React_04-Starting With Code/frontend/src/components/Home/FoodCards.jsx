@@ -6,8 +6,10 @@ import MainGridSlider from "../Home/MainGridSlider";
 import SearchBar from "../Search/SearchBar";
 import Restros from "./Restros";
 import RestrosCarousel from "./RestrosCarousel";
+import { useGlobal } from "../../Context/GlobalContext";
 
 export default FoodCards = () => {
+  const { isAuthenticated } = useGlobal();
   const [userName, setUserName] = useState("");
   const { cards, menuCarousel, restrosCarousel } = useRestaurantsCards();
 
@@ -20,7 +22,7 @@ export default FoodCards = () => {
     <>
       <main>
         <div className="font-extrabold text-xl text-blue-gray-900 mb-5">
-          {userName || "Hello"}, what's on your mind?
+          {isAuthenticated ? userName : "Hello"}, what's on your mind?
         </div>
         <MainGridSlider slider={menuCarousel} />
         <RestrosCarousel list={restrosCarousel} />
