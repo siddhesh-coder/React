@@ -14,6 +14,7 @@ const GlobalContextProvider = ({ children }) => {
   };
 
   return (
+    //Global
     <GlobalContext.Provider value={{ isAuthenticated, login, logout }}>
       {children}
     </GlobalContext.Provider>
