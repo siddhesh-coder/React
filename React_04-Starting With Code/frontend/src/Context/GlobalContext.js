@@ -4,6 +4,7 @@ const GlobalContext = createContext();
 
 const GlobalContextProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [open, setOpen] = useState(false)
 
   const login = () => {
     setIsAuthenticated(true);
@@ -13,9 +14,12 @@ const GlobalContextProvider = ({ children }) => {
     setIsAuthenticated(false);
   };
 
+  const handleOpen = () => {
+    setOpen(!open);
+  }
+
   return (
-    //Global
-    <GlobalContext.Provider value={{ isAuthenticated, login, logout }}>
+    <GlobalContext.Provider value={{ isAuthenticated, login, logout, handleOpen, open, setOpen }}>
       {children}
     </GlobalContext.Provider>
   );

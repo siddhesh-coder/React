@@ -1,7 +1,10 @@
 import React from "react";
 import { VEG_LOGO, NONVEG_LOGO, FOOD_MENU } from "../../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../utils/Store/cartSlice";
 
 const MenuCardList = (el) => {
+  const dispatch = useDispatch();
   const {
     itemAttribute: { vegClassifier },
     name,
@@ -10,6 +13,7 @@ const MenuCardList = (el) => {
     description,
     imageId,
     offerTags,
+    id,
   } = el?.el?.card?.info;
 
   let flag = true;
@@ -26,6 +30,10 @@ const MenuCardList = (el) => {
   const calculatedPrice = (p1 / 100).toFixed(2);
   const calculatedFinalPrice = (p2 / 100).toFixed(2);
 
+  const handleAddItem = () =>{
+    dispatch(addItem({id: id, name: name, img: imageId, price: calculatedPrice, qty: 1}));
+  }
+
   return (
     <div className="flex justify-between items-center mt-5 mb-5 border-b-2 border-solid border-[#b5b5b5] pb-5" >
       <div className="w-4/5">
@@ -38,7 +46,7 @@ const MenuCardList = (el) => {
         </div>
         <div className="flex justify-between">
           <div className="text-lg text-[#3e4152] font-medium">{name}</div>
-          <button className="w-20 h-9 bg-transparent rounded-xl border-none text-sm text-[#60b246] font-semibold">ADD +</button>
+          <button className="w-20 h-9 bg-transparent rounded-xl border-none text-sm text-[#60b246] font-semibold" onClick={handleAddItem}>ADD +</button>
         </div>
         <div>
           {calculatedFinalPrice === "0.00" ? (

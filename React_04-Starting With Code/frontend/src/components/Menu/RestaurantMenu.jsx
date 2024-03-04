@@ -54,8 +54,6 @@ export default RestaurantMenu = () => {
     );
   }
 
-  console.log(menuInfo);
-
   const checkIsOpen = (index) => {
     return index === showIndex && prevClickIndex !== showIndex;
   };

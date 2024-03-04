@@ -18,6 +18,8 @@ import Login from "./components/Auth/Login";
 import { GlobalContextProvider } from "./Context/GlobalContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Provider } from "react-redux";
+import appStore from "./utils/Store/appStore";
 
 // const GroceryLanding = lazy(() => import("./Grocery/components/GroceryLanding"));
 const RestaurantMenu = lazy(() => import("./components/Menu/RestaurantMenu"));
@@ -27,16 +29,17 @@ const AppParent = () => {
 
   return (
     <>
-        <div className="w-full flex justify-between items-center flex-col">
-          {onlineStatus ? (
-            <>
-              <Header />
-              <Outlet />
-            </>
-          ) : (
-            <InternetConnectionMessage />
-          )}
-        </div>
+      <div className="w-full flex justify-between items-center flex-col">
+        {onlineStatus ? (
+          <>
+            <FoodCart />
+            <Header />
+            <Outlet />
+          </>
+        ) : (
+          <InternetConnectionMessage />
+        )}
+      </div>
     </>
   );
 };
@@ -57,10 +60,6 @@ const appRouter = createBrowserRouter([
       {
         path: "contactus",
         element: <ContactUs />,
-      },
-      {
-        path: "foodcart",
-        element: <FoodCart />,
       },
       {
         path: "restaurants/:resId",
@@ -92,9 +91,11 @@ const appRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <GlobalContextProvider>
-    <RouterProvider router={appRouter} />
-    </GlobalContextProvider>
+    <Provider store={appStore}>
+      <GlobalContextProvider>
+        <RouterProvider router={appRouter} />
+      </GlobalContextProvider>
+    </Provider>
     <ToastContainer />
   </React.StrictMode>
 );
