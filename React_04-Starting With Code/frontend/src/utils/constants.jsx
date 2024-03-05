@@ -32,4 +32,4 @@ export const NONVEG_LOGO =
 export const SLIDER_MENU =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
 
-export const GROCERY_API_CATEGORY = "https://www.swiggy.com/api/instamart/home?pageNo=1&layoutId=3173&storeId=1382708&clientId=INSTAMART-APP";
+export const EMPTY_CART = "https://newnet.vn/themes/newnet/assets/img/empty-cart.png";

@@ -18,7 +18,6 @@ const navigation = [
   { name: "About", link: "aboutus", icon: <Building2 /> },
   { name: "Help", link: "contactus", icon: <Info /> },
   { name: "Bag", link: "", icon: <ShoppingBag /> },
-  { name: "Grocery", link: "grocery", icon: <ShoppingBasket /> },
 ];
 
 export const SquigglyUnderline = () => {
@@ -26,7 +25,6 @@ export const SquigglyUnderline = () => {
   const CartCount = useSelector((store) => store.cart.totalQty);
   const [selectedLink, setSelectedLink] = useState("Home");
   const { handleOpen } = useGlobal();
-  // console.log(cartItems);
   
   return (
     <div className="flex gap-16 mr-12 items-center">

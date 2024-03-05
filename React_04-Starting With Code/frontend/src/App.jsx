@@ -4,25 +4,23 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 import Header from "./components/Header/Header";
 import FoodCards from "./components/Home/FoodCards";
-import AboutUs from "./components/Header/AboutUs";
-import ContactUs from "./components/Header/ContactUs";
-import FoodCart from "./components/Home/FoodCart";
+import FoodCart from "./components/Cart/FoodCart";
 import Errors from "./components/Error/Errors";
 import MainCategory from "./components/Home/MainCategory";
 import useOnlineStatus from "./hooks/useOnlineStatus";
 import InternetConnectionMessage from "./components/InternetConnectionMessage/InternetConnectionMessage";
-import Shimmer from "./components/Shimmers/Shimmer";
 import FoodLoader from "./components/Home/FoodLoader";
-import SignUp from "./components/Auth/SignUp";
-import Login from "./components/Auth/Login";
 import { GlobalContextProvider } from "./Context/GlobalContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Provider } from "react-redux";
 import appStore from "./utils/Store/appStore";
 
-// const GroceryLanding = lazy(() => import("./Grocery/components/GroceryLanding"));
 const RestaurantMenu = lazy(() => import("./components/Menu/RestaurantMenu"));
+const AboutUs = lazy(() => import("./components/Header/AboutUs"));
+const ContactUs = lazy(() => import("./components/Header/ContactUs"));
+const SignUp = lazy(() => import("./components/Auth/SignUp"));
+const Login = lazy(() => import("./components/Auth/Login"));
 
 const AppParent = () => {
   const onlineStatus = useOnlineStatus();
@@ -55,11 +53,19 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "aboutus",
-        element: <AboutUs />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <AboutUs />
+          </Suspense>
+        ),
       },
       {
         path: "contactus",
-        element: <ContactUs />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <ContactUs />
+          </Suspense>
+        ),
       },
       {
         path: "restaurants/:resId",
@@ -77,11 +83,19 @@ const appRouter = createBrowserRouter([
   },
   {
     path: "signup",
-    element: <SignUp />,
+    element: (
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <SignUp />
+      </Suspense>
+    ),
   },
   {
     path: "login",
-    element: <Login />,
+    element: (
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <Login />
+      </Suspense>
+    ),
   },
   {
     errorElement: <Errors />,
