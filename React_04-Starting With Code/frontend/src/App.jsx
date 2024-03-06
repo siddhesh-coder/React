@@ -10,7 +10,6 @@ import MainCategory from "./components/Home/MainCategory";
 import useOnlineStatus from "./hooks/useOnlineStatus";
 import InternetConnectionMessage from "./components/InternetConnectionMessage/InternetConnectionMessage";
 import FoodLoader from "./components/Home/FoodLoader";
-import { GlobalContextProvider } from "./Context/GlobalContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Provider } from "react-redux";
@@ -106,9 +105,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={appStore}>
-      <GlobalContextProvider>
-        <RouterProvider router={appRouter} />
-      </GlobalContextProvider>
+      <RouterProvider router={appRouter} />
     </Provider>
     <ToastContainer />
   </React.StrictMode>

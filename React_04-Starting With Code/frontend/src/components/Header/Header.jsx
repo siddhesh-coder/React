@@ -4,14 +4,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { SquigglyUnderline } from "../ui/SquigglyUnderline";
 import { HoveredLink, Menu, MenuItem } from "../ui/navbar-menu";
-import { cn } from '../../utils/cn';
-import { NavLink } from "react-router-dom";
-import { useGlobal } from "../../Context/GlobalContext";
 import { useDispatch } from "react-redux";
-import { logout } from "../../utils/Store/AuthSlice";
+import { logout } from "../../utils/Store/authSlice";
 
 export default Header = () => {
-  const { logout } = useGlobal();
   const [active, setActive] = useState(null);
   const dispatch = useDispatch();
   

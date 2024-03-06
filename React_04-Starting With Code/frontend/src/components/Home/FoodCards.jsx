@@ -6,12 +6,12 @@ import MainGridSlider from "../Home/MainGridSlider";
 import SearchBar from "../Search/SearchBar";
 import Restros from "./Restros";
 import RestrosCarousel from "./RestrosCarousel";
-import { useGlobal } from "../../Context/GlobalContext";
+import { useSelector } from "react-redux";
 
 export default FoodCards = () => {
-  const { isAuthenticated } = useGlobal();
   const [userName, setUserName] = useState("");
   const { cards, menuCarousel, restrosCarousel } = useRestaurantsCards();
+  const isAuthenticated = useSelector((store) => store.auth.isAuthenticated);
 
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo");

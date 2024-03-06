@@ -8,8 +8,9 @@ import {
   Info,
   ShoppingBag,
 } from "lucide-react";
-import { useSelector } from "react-redux";
-import { useGlobal } from "../../Context/GlobalContext";
+import { useDispatch, useSelector } from "react-redux";
+import { handleOpenCart } from "../../utils/Store/toggleCartSlice";
+
 
 const navigation = [
   { name: "Home", link: "/", icon: <Home /> },
@@ -19,11 +20,15 @@ const navigation = [
 ];
 
 export const SquigglyUnderline = () => {
+  const dispatch = useDispatch();
   const CartCount = useSelector((store) => store.cart.totalQty);
   const isAuthenticated = useSelector((store) => store.auth.isAuthenticated);
   const [selectedLink, setSelectedLink] = useState("Home");
-  const { handleOpen } = useGlobal();
   const navigate = useNavigate();
+  
+  const handleOpen = () => {
+    dispatch(handleOpenCart(true));
+  };
 
   useEffect(() => {
     if (!isAuthenticated) {

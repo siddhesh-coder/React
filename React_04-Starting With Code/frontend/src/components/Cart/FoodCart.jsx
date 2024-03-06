@@ -1,18 +1,17 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { X } from "lucide-react";
-import { useGlobal } from "../../Context/GlobalContext";
 import { useSelector, useDispatch } from "react-redux";
 import { FOOD_MENU } from "../../utils/constants";
 import { removeItem } from "../../utils/Store/cartSlice";
 import { EMPTY_CART } from "../../utils/constants";
 import { clearCart } from "../../utils/Store/cartSlice";
-import { useNavigate } from "react-router-dom";
+import { handleOpenCart } from "../../utils/Store/toggleCartSlice";
 
 export default function FoodCart() {
-  const { open, handleOpen } = useGlobal();
   const dispatch = useDispatch();
   const cartItems = useSelector((store) => store.cart.items);
+  const openCart = useSelector((store) => store.openCart.open);
 
   const handleRemoveItem = (id) => {
     dispatch(removeItem(id));
@@ -22,8 +21,12 @@ export default function FoodCart() {
     dispatch(clearCart());
   };
 
+  const handleOpen = () => {
+    dispatch(handleOpenCart(false));
+  };
+
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={openCart} as={Fragment}>
       <Dialog as="div" className="relative z-40" onClose={handleOpen}>
         <Transition.Child
           as={Fragment}
