@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { X } from "lucide-react";
 import { useGlobal } from "../../Context/GlobalContext";
@@ -7,9 +7,10 @@ import { FOOD_MENU } from "../../utils/constants";
 import { removeItem } from "../../utils/Store/cartSlice";
 import { EMPTY_CART } from "../../utils/constants";
 import { clearCart } from "../../utils/Store/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function FoodCart() {
-  const { open, setOpen, handleOpen } = useGlobal();
+  const { open, handleOpen } = useGlobal();
   const dispatch = useDispatch();
   const cartItems = useSelector((store) => store.cart.items);
 

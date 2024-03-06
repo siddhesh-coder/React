@@ -7,18 +7,16 @@ import { HoveredLink, Menu, MenuItem } from "../ui/navbar-menu";
 import { cn } from '../../utils/cn';
 import { NavLink } from "react-router-dom";
 import { useGlobal } from "../../Context/GlobalContext";
+import { useDispatch } from "react-redux";
+import { logout } from "../../utils/Store/AuthSlice";
 
 export default Header = () => {
   const { logout } = useGlobal();
   const [active, setActive] = useState(null);
-  const [userState, setUserState] = useState("Login");
-
-  function handleUserState() {
-    if (userState === "Logout") {
-      setUserState("Login");
-    } else {
-      setUserState("Logout");
-    }
+  const dispatch = useDispatch();
+  
+  const handleLogout = () => {
+    dispatch(logout(false));
   }
 
   return (
@@ -35,7 +33,7 @@ export default Header = () => {
           <div className="flex flex-col space-y-1 text-sm">
             <HoveredLink to={'/login'}>Login</HoveredLink>
             <HoveredLink to={'/signup'}>Sign up</HoveredLink>
-            <HoveredLink onClick={() => logout()}>Logout</HoveredLink>
+            <HoveredLink onClick={handleLogout}>Logout</HoveredLink>
           </div>
         </MenuItem>
       </Menu>

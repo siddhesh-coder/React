@@ -2,7 +2,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-// import Image from "next/image";
 
 const transition = {
   type: "spring",
@@ -42,11 +41,11 @@ export const MenuItem = ({
             <div className="absolute top-[calc(100%_+_0.4rem)] left-1/2 transform -translate-x-1/2">
               <motion.div
                 transition={transition}
-                layoutId="active" // layoutId ensures smooth animation
+                layoutId="active"
                 className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border text-lg font-extrabold border-black/[0.2] dark:border-white/[0.2] shadow-xl"
               >
                 <motion.div
-                  layout // layout ensures smooth animation
+                  layout
                   className="w-max h-full p-4"
                 >
                   {children}
@@ -69,8 +68,8 @@ export const Menu = ({
 }) => {
   return (
     <nav
-      onMouseLeave={() => setActive(null)} // resets the state
-      className="relative text-base font-black rounded-full border border-transparent dark:bg-yellow-500 dark:border-white/[0.2] bg-white shadow-input flex justify-center space-x-4 px-3 py-1"
+      onMouseLeave={() => setActive(null)}
+      className="relative text-base font-black rounded-full border border-transparent bg-gradient-to-r from-amber-200 to-amber-600 dark:border-white/[0.2] shadow-input flex justify-center space-x-4 px-3 py-1"
     >
       {children}
     </nav>

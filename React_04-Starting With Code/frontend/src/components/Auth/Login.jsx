@@ -5,6 +5,9 @@ import { LoginValidate } from "../../utils/AuthValidate";
 import { useGlobal } from "../../Context/GlobalContext";
 import useNotify from "../../hooks/useNotify";
 import InputField from "../../HOC/InputField";
+import Credentials from "./Credentials";
+import { useDispatch } from "react-redux";
+import { login } from "../../utils/Store/authSlice";
 
 const initialValues = {
   email: "",
@@ -12,9 +15,10 @@ const initialValues = {
 };
 
 const Login = () => {
-  const { login } = useGlobal();
+  // const { login } = useGlobal();
   const notify = useNotify();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const Formik = useFormik({
     initialValues: initialValues,
@@ -26,7 +30,7 @@ const Login = () => {
         userStoredInfo.email === values.email &&
         userStoredInfo.password === values.password
       ) {
-        login();
+        dispatch(login(true));
         notify({ message: "Successfully login", status: "success" });
         navigate("/");
       } else {
@@ -40,6 +44,7 @@ const Login = () => {
     Formik;
 
   return (
+    <>
     <div className="flex mt-20 w-[400px] min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
@@ -97,6 +102,8 @@ const Login = () => {
         </p>
       </div>
     </div>
+    <Credentials/>
+    </>
   );
 };
 

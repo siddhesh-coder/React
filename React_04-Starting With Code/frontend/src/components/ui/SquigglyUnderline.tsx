@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -7,8 +7,6 @@ import {
   Home,
   Info,
   ShoppingBag,
-  ShoppingBasket,
-  UserRound,
 } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useGlobal } from "../../Context/GlobalContext";
@@ -21,11 +19,18 @@ const navigation = [
 ];
 
 export const SquigglyUnderline = () => {
-  const cartItems = useSelector((store) => store.cart.items);
   const CartCount = useSelector((store) => store.cart.totalQty);
+  const isAuthenticated = useSelector((store) => store.auth.isAuthenticated);
   const [selectedLink, setSelectedLink] = useState("Home");
   const { handleOpen } = useGlobal();
-  
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+  }, [isAuthenticated]);
+
   return (
     <div className="flex gap-16 mr-12 items-center">
       {navigation.map((item) => {
@@ -41,13 +46,13 @@ export const SquigglyUnderline = () => {
           >
             {item.name === "Bag" ? (
               <button onClick={handleOpen}>
-              <div className="relative flex">
-                <div className="absolute bottom-4 right-11 w-4 h-4 bg-opacity-80 bg-red-600 font-bold text-white flex items-center justify-center p-[12px] rounded-full">
-                  {CartCount}
+                <div className="relative flex">
+                  <div className="absolute bottom-4 right-11 w-4 h-4 bg-opacity-80 bg-red-600 font-bold text-white flex items-center justify-center p-[12px] rounded-full">
+                    {CartCount}
+                  </div>
+                  <div className="mr-1 mb-1">{item.icon}</div>
+                  {item.name}
                 </div>
-                <div className="mr-1 mb-1">{item.icon}</div>
-                {item.name}
-              </div>
               </button>
             ) : (
               <>

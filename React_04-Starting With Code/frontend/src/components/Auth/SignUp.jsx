@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { SignUpValidate } from "../../utils/AuthValidate";
 import InputField from "../../HOC/InputField";
+import Credentials from "./Credentials";
 
 const initialValues = {
   name: "",
@@ -36,6 +37,7 @@ export default function SignUp() {
     Formik;
 
   return (
+    <>
     <div className="flex w-[500px] min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
@@ -119,5 +121,7 @@ export default function SignUp() {
         </p>
       </div>
     </div>
+    <Credentials/>
+    </>
   );
 }
