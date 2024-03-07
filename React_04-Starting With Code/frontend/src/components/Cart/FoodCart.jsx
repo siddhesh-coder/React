@@ -16,8 +16,8 @@ export default function FoodCart() {
   const totalPrice = useSelector((store) => store.cart.totalPrice);
   const openCart = useSelector((store) => store.openCart.open);
 
-  const handleRemoveItem = (id, price) => {
-    dispatch(removeItem({ id: id, price: price }));
+  const handleRemoveItem = (id) => {
+    dispatch(removeItem(id));
   };
 
   const handleClearCart = () => {
@@ -28,12 +28,12 @@ export default function FoodCart() {
     dispatch(handleOpenCart(false));
   };
 
-  const handleIncrement = (id, price) => {
-    dispatch(incrementItem({id: id, price: price}));
+  const handleIncrement = (id) => {
+    dispatch(incrementItem(id));
   };
 
-  const handleDecrement = (id, price) => {
-    dispatch(decrementItem({id: id, price: price}));
+  const handleDecrement = (id) => {
+    dispatch(decrementItem(id));
   };
 
   return (

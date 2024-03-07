@@ -33,10 +33,10 @@ const MenuCardList = (el) => {
   const calculatedFinalPrice = (p2 / 100).toFixed(2);
 
   useEffect(() => {
-    if (calculatedPrice === "0.00") {
+    if (parseFloat(calculatedPrice) === 0.00) {
       setUpdatePrice(defaultPrice / 100);
     } else {
-      setUpdatePrice(calculatedPrice);
+      setUpdatePrice(parseFloat(calculatedPrice));
     }
   }, [calculatedPrice]);
 

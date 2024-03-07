@@ -46,8 +46,10 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ ...action.payload, qty: 1 });
       }
-      state.totalQty += 1;
-      state.totalPrice += parseInt(action.payload.price);
+      if(state.totalQty < 50){
+        state.totalQty += 1;
+      }
+      state.totalPrice += action.payload.price;
       try {
         setValues("cartItems", state.items);
         setValues("TotalQty", state.totalQty);
@@ -57,13 +59,16 @@ const cartSlice = createSlice({
       }
     },
     removeItem: (state, action) => {
-      const existingIndex = findIndexOfItem(state.items, action.payload.id);
+      const existingIndex = findIndexOfItem(state.items, action.payload);
       if (existingIndex !== -1) {
         const removedQty = state.items[existingIndex].qty;
         const itemPrice = state.items[existingIndex].price;
         state.items.splice(existingIndex, 1);
-        state.totalQty -= removedQty;
-        state.totalPrice -= parseInt(itemPrice);
+
+        if(state.totalQty > 1){
+          state.totalQty -= removedQty;
+        }
+        state.totalPrice -= itemPrice;
       }
       try {
         setValues("cartItems", state.items);
@@ -86,7 +91,7 @@ const cartSlice = createSlice({
       }
     },
     incrementItem: (state, action) => {
-      const existingIndex = findIndexOfItem(state.items, action.payload.id);
+      const existingIndex = findIndexOfItem(state.items, action.payload);
       if (existingIndex !== -1) {
         const item = state.items[existingIndex];
         if (!item.originalPrice) {
@@ -94,9 +99,7 @@ const cartSlice = createSlice({
         }
         if (item.qty >= 1) {
           const updatedQty = item.qty + 1;
-          const updatedPrice = (
-            updatedQty * parseFloat(item.originalPrice)
-          ).toString();
+          const updatedPrice = updatedQty * item.originalPrice;
           const updatedItem = {
             ...item,
             qty: updatedQty,
@@ -116,14 +119,14 @@ const cartSlice = createSlice({
       }
     },
     decrementItem: (state, action) => {
-      const existingIndex = findIndexOfItem(state.items, action.payload.id);
+      const existingIndex = findIndexOfItem(state.items, action.payload);
       if (existingIndex !== -1) {
         const item = state.items[existingIndex];
         if (item.qty > 1) {
           const updatedItem = {
             ...item,
             qty: item.qty - 1,
-            price: ((item.qty - 1) * parseFloat(item.originalPrice)).toString(),
+            price: (item.qty - 1) * item.originalPrice,
           };
           state.items.splice(existingIndex, 1, updatedItem);
 
