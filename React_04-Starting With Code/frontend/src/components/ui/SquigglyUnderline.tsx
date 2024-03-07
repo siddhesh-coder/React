@@ -37,7 +37,7 @@ export const SquigglyUnderline = () => {
   }, [isAuthenticated]);
 
   return (
-    <div className="flex gap-16 mr-12 items-center">
+    <div className="flex items-center gap-16 mr-12">
       {navigation.map((item) => {
         const isSelected = item.name === selectedLink;
         return (
@@ -55,13 +55,13 @@ export const SquigglyUnderline = () => {
                   <div className="absolute bottom-4 right-11 w-4 h-4 bg-opacity-80 bg-red-600 font-bold text-white flex items-center justify-center p-[12px] rounded-full">
                     {CartCount}
                   </div>
-                  <div className="mr-1 mb-1">{item.icon}</div>
+                  <div className="mb-1 mr-1">{item.icon}</div>
                   {item.name}
                 </div>
               </button>
             ) : (
               <>
-                <div className="mr-1 mb-1">{item.icon}</div>
+                <div className="mb-1 mr-1">{item.icon}</div>
                 {item.name}
               </>
             )}

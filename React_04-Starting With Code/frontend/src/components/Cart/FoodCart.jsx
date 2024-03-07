@@ -1,20 +1,23 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { X } from "lucide-react";
+import { Minus, Plus, X } from "lucide-react";
 import { useSelector, useDispatch } from "react-redux";
 import { FOOD_MENU } from "../../utils/constants";
 import { removeItem } from "../../utils/Store/cartSlice";
 import { EMPTY_CART } from "../../utils/constants";
 import { clearCart } from "../../utils/Store/cartSlice";
 import { handleOpenCart } from "../../utils/Store/toggleCartSlice";
+import { incrementItem } from "../../utils/Store/cartSlice";
+import { decrementItem } from "../../utils/Store/cartSlice";
 
 export default function FoodCart() {
   const dispatch = useDispatch();
   const cartItems = useSelector((store) => store.cart.items);
+  const totalPrice = useSelector((store) => store.cart.totalPrice);
   const openCart = useSelector((store) => store.openCart.open);
 
-  const handleRemoveItem = (id) => {
-    dispatch(removeItem(id));
+  const handleRemoveItem = (id, price) => {
+    dispatch(removeItem({ id: id, price: price }));
   };
 
   const handleClearCart = () => {
@@ -23,6 +26,14 @@ export default function FoodCart() {
 
   const handleOpen = () => {
     dispatch(handleOpenCart(false));
+  };
+
+  const handleIncrement = (id, price) => {
+    dispatch(incrementItem({id: id, price: price}));
+  };
+
+  const handleDecrement = (id, price) => {
+    dispatch(decrementItem({id: id, price: price}));
   };
 
   return (
@@ -37,12 +48,12 @@ export default function FoodCart() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-slate-100 bg-opacity-50 transition-opacity" />
+          <div className="fixed inset-0 transition-opacity bg-opacity-50 bg-slate-100" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+            <div className="fixed inset-y-0 right-0 flex max-w-full pl-10 pointer-events-none">
               <Transition.Child
                 as={Fragment}
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
@@ -52,22 +63,22 @@ export default function FoodCart() {
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
-                <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
-                  <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                    <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                <Dialog.Panel className="w-screen max-w-md pointer-events-auto">
+                  <div className="flex flex-col h-full overflow-y-scroll bg-white shadow-xl">
+                    <div className="flex-1 px-4 py-6 overflow-y-auto sm:px-6">
                       <div className="flex items-start justify-between">
                         <Dialog.Title className="text-lg font-medium text-gray-900">
                           Cart
                         </Dialog.Title>
-                        <div className="ml-3 flex h-7 items-center">
+                        <div className="flex items-center ml-3 h-7">
                           <button
                             type="button"
-                            className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
+                            className="relative p-2 -m-2 text-gray-400 hover:text-gray-500"
                             onClick={() => handleOpen()}
                           >
                             <span className="absolute -inset-0.5" />
                             <span className="sr-only">Close panel</span>
-                            <X className="h-6 w-6" aria-hidden="true" />
+                            <X className="w-6 h-6" aria-hidden="true" />
                           </button>
                         </div>
                       </div>
@@ -86,34 +97,52 @@ export default function FoodCart() {
                             >
                               {cartItems.map((product) => (
                                 <li key={product?.id} className="flex py-6">
-                                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                  <div className="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
                                     <img
                                       src={FOOD_MENU + product?.img}
                                       alt={product?.img}
-                                      className="h-full w-full object-cover object-center"
+                                      className="object-cover object-center w-full h-full"
                                     />
                                   </div>
 
-                                  <div className="ml-4 flex flex-1 flex-col">
+                                  <div className="flex flex-col flex-1 ml-4">
                                     <div>
                                       <div className="flex justify-between text-base font-medium text-gray-900">
                                         <h3>
                                           <p>{product?.name}</p>
                                         </h3>
-                                        <p className="ml-4">{product?.price}</p>
+                                        <p className="ml-4">
+                                          ₹{product?.price}
+                                        </p>
                                       </div>
                                     </div>
-                                    <div className="flex flex-1 items-end justify-between text-sm">
-                                      <p className="text-gray-500">
-                                        Qty {product?.qty}
-                                      </p>
-
+                                    <div className="flex items-end justify-between flex-1 text-sm">
+                                      <div className="flex items-center justify-center">
+                                        <Minus
+                                          className="w-4 cursor-pointer hover:text-gray-700"
+                                          onClick={() =>
+                                            handleDecrement(product?.id, product?.price)
+                                          }
+                                        />
+                                        <p className="mx-2 text-gray-500">
+                                          Qty {product?.qty}
+                                        </p>
+                                        <Plus
+                                          className="w-4 cursor-pointer hover:text-gray-700"
+                                          onClick={() =>
+                                            handleIncrement(product?.id, product?.price)
+                                          }
+                                        />
+                                      </div>
                                       <div className="flex">
                                         <button
                                           type="button"
                                           className="font-medium text-indigo-600 hover:text-indigo-500"
                                           onClick={() =>
-                                            handleRemoveItem(product?.id)
+                                            handleRemoveItem(
+                                              product?.id,
+                                              product?.price
+                                            )
                                           }
                                         >
                                           Remove
@@ -133,17 +162,17 @@ export default function FoodCart() {
                       <button
                         type="button"
                         onClick={handleClearCart}
-                        className="flex w-40 ml-6 mb-4 mt-4 items-center justify-center rounded-md border border-transparent bg-black px-6 py-2 text-base font-medium text-white shadow-sm hover:bg-gray-900 transition-all"
+                        className="flex items-center justify-center w-40 px-6 py-2 mt-4 mb-4 ml-6 text-base font-medium text-white transition-all bg-black border border-transparent rounded-md shadow-sm hover:bg-gray-900"
                       >
                         Clear Cart
                       </button>
                     )}
 
                     {cartItems.length === 0 ? null : (
-                      <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
+                      <div className="px-4 py-6 border-t border-gray-200 sm:px-6">
                         <div className="flex justify-between text-base font-medium text-gray-900">
                           <p>Subtotal</p>
-                          <p>$262.00</p>
+                          <p>₹{totalPrice}</p>
                         </div>
                         <p className="mt-0.5 text-sm text-gray-500">
                           Delivery charges and taxes calculated at checkout.
@@ -151,7 +180,7 @@ export default function FoodCart() {
                         <div className="mt-6">
                           <a
                             href="#"
-                            className="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900 transition-all"
+                            className="flex items-center justify-center px-6 py-3 text-base font-medium text-white transition-all bg-gray-800 border border-transparent rounded-md shadow-sm hover:bg-gray-900"
                           >
                             Checkout
                           </a>

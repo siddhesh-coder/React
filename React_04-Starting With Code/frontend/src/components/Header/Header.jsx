@@ -6,20 +6,23 @@ import { SquigglyUnderline } from "../ui/SquigglyUnderline";
 import { HoveredLink, Menu, MenuItem } from "../ui/navbar-menu";
 import { useDispatch } from "react-redux";
 import { logout } from "../../utils/Store/authSlice";
+import useNotify from "../../hooks/useNotify";
 
 export default Header = () => {
   const [active, setActive] = useState(null);
   const dispatch = useDispatch();
+  const notify = useNotify();
   
   const handleLogout = () => {
     dispatch(logout(false));
+    notify({message: "Logout Successfully", status: "success"});
   }
 
   return (
-    <header className="fixed top-0 left-0 w-full flex justify-between h-20 items-center text-center p-4 pr-10 shadow-lg bg-white z-30">
+    <header className="fixed top-0 left-0 z-30 flex items-center justify-between w-full h-20 p-4 pr-10 text-center bg-white shadow-lg">
       <div>
         <Link to={"/"}>
-          <img className="mx-16 w-16 h-16" src={COMPANY_LOGO} loading="lazy"/>
+          <img className="w-16 h-16 mx-16" src={COMPANY_LOGO} loading="lazy"/>
         </Link>
       </div>
       <div className="flex">
