@@ -14,6 +14,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Provider } from "react-redux";
 import appStore from "./utils/Store/appStore";
+import PaymentSuccess from "./components/PaymentStats/PaymentSuccess";
+import Footer from "./components/Footer/Footer";
 
 const RestaurantMenu = lazy(() => import("./components/Menu/RestaurantMenu"));
 const AboutUs = lazy(() => import("./components/Header/AboutUs"));
@@ -26,12 +28,13 @@ const AppParent = () => {
 
   return (
     <>
-      <div className="w-full flex justify-between items-center flex-col">
+      <div className="flex flex-col items-center justify-between w-full">
         {onlineStatus ? (
           <>
-            <FoodCart />
             <Header />
             <Outlet />
+            <FoodCart />
+            {/* <Footer/> */}
           </>
         ) : (
           <InternetConnectionMessage />
@@ -95,6 +98,10 @@ const appRouter = createBrowserRouter([
         <Login />
       </Suspense>
     ),
+  },
+  {
+    path: "paymentSuccess",
+    element: <PaymentSuccess/>
   },
   {
     errorElement: <Errors />,

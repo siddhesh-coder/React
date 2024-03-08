@@ -21,7 +21,7 @@ export default FoodCards = () => {
   return (
     <>
       <main>
-        <div className="font-extrabold text-xl text-blue-gray-900 mb-5">
+        <div className="mb-5 text-xl font-extrabold text-blue-gray-900">
           {isAuthenticated ? userName : "Hello"}, what's on your mind?
         </div>
         <MainGridSlider slider={menuCarousel} />
