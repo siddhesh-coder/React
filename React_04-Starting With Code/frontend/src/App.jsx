@@ -33,8 +33,8 @@ const AppParent = () => {
           <>
             <Header />
             <Outlet />
+            <Footer/>
             <FoodCart />
-            {/* <Footer/> */}
           </>
         ) : (
           <InternetConnectionMessage />

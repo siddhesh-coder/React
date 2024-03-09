@@ -1,52 +1,52 @@
 import React from "react";
+import List from "./List";
+import Social from "./Social";
+import Title from "./Title";
 
 export const Footer = () => {
   return (
-    <div className="w-full bg-[#02060c] text-white pt-12 pb-12 flex justify-center items-center">
-      <div className="w-90 max-w-1200 h-auto flex flex-wrap justify-between">
-        <div>
-          <h1>HungryHub</h1>
-          <p>© 2024 Siddhesh Bhosale</p>
-        </div>
-
-        <div>
-          <h3>Company</h3>
-          <ul className="list-none p-0">
-            <li className="my-[10px]">About</li>
-            <li className="my-[10px]">Careers</li>
-            <li className="my-[10px]">Team</li>
-          </ul>
-        </div>
-
-        <div>
+    <footer className="w-full bg-white dark:bg-gray-900">
+      <div className="w-full max-w-screen-xl mx-auto">
+        <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
           <div>
-            <h3>Contact us</h3>
-            <span>Help & Support</span>
+            <Title>HungryHub</Title>
+            <ul className="font-medium text-gray-500 dark:text-gray-400">
+              <List>About</List>
+              <List>Careers</List>
+              <List>Brand Center</List>
+              <List>Blog</List>
+            </ul>
           </div>
-
-          <div className="w-full mt-8">
-            <h3>Legal</h3>
-            <ul className="list-none p-0">
-              <li className="my-[10px]">Terms & Conditions</li>
-              <li className="my-[10px]">Cookie Policy</li>
-              <li className="my-[10px]">Privacy Policy</li>
+          <div>
+            <Title> Help center</Title>
+            <ul className="font-medium text-gray-500 dark:text-gray-400">
+              <List>Discord Server</List>
+              <List>Twitter</List>
+              <List>Facebook</List>
+              <List>Contact Us</List>
+            </ul>
+          </div>
+          <div>
+            <Title>Legal</Title>
+            <ul className="font-medium text-gray-500 dark:text-gray-400">
+              <List>Privacy Policy</List>
+              <List>Licensing</List>
+              <List>Terms & Conditions</List>
+            </ul>
+          </div>
+          <div>
+            <Title>Download</Title>
+            <ul className="font-medium text-gray-500 dark:text-gray-400">
+              <List>iOS</List>
+              <List>Android</List>
+              <List>Windows</List>
+              <List>MacOS</List>
             </ul>
           </div>
         </div>
-
-        <div>
-          <h3>We deliver to:</h3>
-          <ul className="list-none p-0">
-            <li className="my-[10px]">Bangalore</li>
-            <li className="my-[10px]">Gurgaon</li>
-            <li className="my-[10px]">Hyderabad</li>
-            <li className="my-[10px]">Delhi</li>
-            <li className="my-[10px]">Mumbai</li>
-            <li className="my-[10px]">Pune</li>
-          </ul>
-        </div>
+        <Social />
       </div>
-    </div>
+    </footer>
   );
 };
 

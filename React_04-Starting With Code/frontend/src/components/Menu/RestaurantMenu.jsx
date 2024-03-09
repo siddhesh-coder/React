@@ -93,24 +93,22 @@ export default RestaurantMenu = () => {
         </div>
       </div>
 
-      <div className="flex mt-5 mr-5 mb-0 ml-0">
-        <div className="flex justify-center items-center">
+      <div className="flex mt-5 mb-0 ml-0 mr-5">
+        <div className="flex items-center justify-center">
           <TimerReset />
           <span className="ml-4 font-bold text-base text-[#3e4152]">
             {minDeliveryTime} - {maxDeliveryTime} MINS
           </span>
         </div>
 
-        <div className="ml-4 flex justify-center items-center">
+        <div className="flex items-center justify-center ml-4">
           <IndianRupee />
           <span className="ml-4 font-bold text-base text-[#3e4152]">
             {costForTwoMessage}
           </span>
         </div>
       </div>
-
       <Carousel offs={[discount]} />
-
       {carousel && <TopPicks banner={carousel} title={title} />}
 
       {menutabs.map((tab, index) => (

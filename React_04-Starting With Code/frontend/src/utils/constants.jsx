@@ -32,3 +32,7 @@ export const SLIDER_MENU =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
 
 export const EMPTY_CART = "https://newnet.vn/themes/newnet/assets/img/empty-cart.png";
+
+export const GOOGLE_MAP = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242118.17005851687!2d73.6981553041223!3d18.52454504095413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1709978632444!5m2!1sen!2sin"
+
+export const MEDIA = "http://www.w3.org/2000/svg";
