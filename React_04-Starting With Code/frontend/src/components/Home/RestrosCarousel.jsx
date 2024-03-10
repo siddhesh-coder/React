@@ -35,7 +35,7 @@ const RestrosCarousel = ({ list }) => {
           restaurants.map((restro) => (
             <Link
               key={restro?.info?.id}
-              className="decoration-0 bg-white bg-opacity-75"
+              className="bg-white bg-opacity-75 decoration-0"
               to={restro?.info ? "/restaurants/" + restro?.info?.id : ""}
             >
               {restro?.info?.avgRating >= 4.5 ? (

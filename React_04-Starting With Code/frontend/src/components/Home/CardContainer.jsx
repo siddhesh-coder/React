@@ -1,12 +1,11 @@
 import { FOOD_IMG } from "../../utils/constants";
 
-export default CardContainer = ({ foodData }) => {
+const CardContainer = ({ foodData }) => {
   if (!foodData || !foodData.info) {
     return null;
   }
 
-  const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla } =
-    foodData?.info;
+  const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla } = foodData.info;
   const { deliveryTime } = sla;
 
   return (
@@ -15,6 +14,7 @@ export default CardContainer = ({ foodData }) => {
         className="w-full h-[220px] rounded-3xl mb-2"
         src={FOOD_IMG + cloudinaryImageId}
         loading="lazy"
+        alt={name}
       />
 
       <div className="flex justify-between">
@@ -37,3 +37,5 @@ export default CardContainer = ({ foodData }) => {
     </div>
   );
 };
+
+export default CardContainer;

@@ -14,9 +14,15 @@ export const MainCategory = () => {
 
   return (
     <div className="w-[1200px] relative top-[150px]">
-      <h1 className="font-semibold text-[40px] leading-[48px] text-[#282c3f]">{title}</h1>
-      <p className="font-light text-[18px] leading-[22px] text-[#282c3f]">{description}</p>
-      <h1 className="mt-5 font-extrabold text-2xl text-[#02060c] text-opacity-95">{text}</h1>
+      <h1 className="font-semibold text-[40px] leading-[48px] text-[#282c3f]">
+        {title}
+      </h1>
+      <p className="font-light text-[18px] leading-[22px] text-[#282c3f]">
+        {description}
+      </p>
+      <h1 className="mt-5 font-extrabold text-2xl text-[#02060c] text-opacity-95">
+        {text}
+      </h1>
       <div className="flex flex-wrap">
         {category.length === 0 ? (
           <Shimmer />

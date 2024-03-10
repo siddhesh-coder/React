@@ -5,12 +5,15 @@ import { decrementItem } from "../../utils/Store/cartSlice";
 import { FOOD_MENU } from "../../utils/constants";
 import { removeItem } from "../../utils/Store/cartSlice";
 import { useDispatch } from "react-redux";
+import useNotify from "../../hooks/useNotify";
 
-const CartItems = ({cartItems}) => {
-    const dispatch = useDispatch();
+const CartItems = ({ cartItems }) => {
+  const dispatch = useDispatch();
+  const notify = useNotify();
 
   const handleRemoveItem = (id) => {
     dispatch(removeItem(id));
+    notify({ message: "Item removed" });
   };
 
   const handleIncrement = (id) => {

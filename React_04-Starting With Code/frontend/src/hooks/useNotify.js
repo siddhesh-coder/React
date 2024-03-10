@@ -1,31 +1,7 @@
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const useNotify = () => {
-  const notify = ({ message, status }) => {
-    if (status === "success") {
-      toast.success(message, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    } else if (status === "error") {
-      toast.error(message, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
-  };
+  const notify = ({message}) => toast.success(message, { style: { backgroundColor: "rgb(0,0,0,90)", color: "white", fontWeight: "600" } });
   return notify;
 };
 

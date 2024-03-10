@@ -7,8 +7,10 @@ import { clearCart } from "../../utils/Store/cartSlice";
 import { handleOpenCart } from "../../utils/Store/toggleCartSlice";
 import CartItems from "./CartItems";
 import CheckoutBox from "./CheckoutBox";
+import useNotify from '../../hooks/useNotify.js'
 
 export default function FoodCart() {
+  const notify = useNotify();
   const dispatch = useDispatch();
   const cartItems = useSelector((store) => store.cart.items);
   const totalPrice = useSelector((store) => store.cart.totalPrice);
@@ -16,6 +18,7 @@ export default function FoodCart() {
 
   const handleClearCart = () => {
     dispatch(clearCart());
+    notify({message: "Cart cleared"});
   };
 
   const handleShowCart = () => {

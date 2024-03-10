@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { VEG_LOGO, NONVEG_LOGO, FOOD_MENU } from "../../utils/constants";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../utils/Store/cartSlice";
+import useNotify from "../../hooks/useNotify";
 
 const MenuCardList = (el) => {
   const [updatePrice, setUpdatePrice] = useState();
   const dispatch = useDispatch();
+  const notify = useNotify();
+  
   const {
     itemAttribute: { vegClassifier },
     name,
@@ -33,7 +36,7 @@ const MenuCardList = (el) => {
   const calculatedFinalPrice = (p2 / 100).toFixed(2);
 
   useEffect(() => {
-    if (parseFloat(calculatedPrice) === 0.00) {
+    if (parseFloat(calculatedPrice) === 0.0) {
       setUpdatePrice(defaultPrice / 100);
     } else {
       setUpdatePrice(parseFloat(calculatedPrice));
@@ -49,6 +52,7 @@ const MenuCardList = (el) => {
         price: updatePrice,
       })
     );
+    notify({ message: `${name} added to cart` });
   };
 
   return (

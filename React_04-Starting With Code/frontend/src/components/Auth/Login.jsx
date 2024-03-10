@@ -2,11 +2,12 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { LoginValidate } from "../../utils/AuthValidate";
-import useNotify from "../../hooks/useNotify";
 import InputField from "../../HOC/InputField";
 import Credentials from "./Credentials";
 import { useDispatch } from "react-redux";
 import { login } from "../../utils/Store/authSlice";
+import useNotify from "../../hooks/useNotify.js";
+import toast from "react-hot-toast";
 
 const initialValues = {
   email: "",
@@ -14,9 +15,9 @@ const initialValues = {
 };
 
 const Login = () => {
-  const notify = useNotify();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const notify = useNotify();
 
   const Formik = useFormik({
     initialValues: initialValues,
@@ -29,10 +30,11 @@ const Login = () => {
         userStoredInfo.password === values.password
       ) {
         dispatch(login(true));
-        notify({ message: "Successfully login", status: "success" });
+        notify({ message: "Successfully logged In" });
         navigate("/");
       } else {
-        notify({ message: "Please check email or password", status: "error" });
+        const notify = () => toast.error("Please check email or password", { style: { backgroundColor: "rgb(0,0,0,90)", color: "white", fontWeight: "600" } });
+        notify();
       }
       action.resetForm();
     },

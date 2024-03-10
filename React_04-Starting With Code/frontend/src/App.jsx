@@ -10,8 +10,7 @@ import MainCategory from "./components/Home/MainCategory";
 import useOnlineStatus from "./hooks/useOnlineStatus";
 import InternetConnectionMessage from "./components/InternetConnectionMessage/InternetConnectionMessage";
 import FoodLoader from "./components/Home/FoodLoader";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Toaster } from 'react-hot-toast';
 import { Provider } from "react-redux";
 import appStore from "./utils/Store/appStore";
 import PaymentSuccess from "./components/PaymentStats/PaymentSuccess";
@@ -114,6 +113,6 @@ root.render(
     <Provider store={appStore}>
       <RouterProvider router={appRouter} />
     </Provider>
-    <ToastContainer />
+    <Toaster />
   </React.StrictMode>
 );

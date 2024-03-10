@@ -13,9 +13,9 @@ const Credentials = () => {
 
   return (
     <div className={`fixed inset-y-0 top-0 right-0 px-6 pt-6 transition-transform duration-500 ease-in-out transform ${isVisible ? 'translate-x-0' : 'translate-x-full'}`}>
-      <div className="mx-auto max-w-xl rounded-xl bg-white p-6 shadow-lg">
-        <p className="text-sm leading-6 text-gray-900 font-extrabold">
-          Use this Credentials:
+      <div className="max-w-xl p-6 mx-auto bg-white shadow-lg rounded-xl">
+        <p className="text-sm font-extrabold leading-6 text-gray-900">
+          Use this test Credentials:
         </p>
         <p className="text-sm leading-6 text-gray-900">Name: Test1</p>
         <p className="text-sm leading-6 text-gray-900">

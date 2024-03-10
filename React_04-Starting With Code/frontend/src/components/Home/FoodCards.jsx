@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import useRestaurantsCards from "../../hooks/useRestaurantsCards";
-
-import Footer from "../Footer/Footer";
 import MainGridSlider from "../Home/MainGridSlider";
 import SearchBar from "../Search/SearchBar";
 import Restros from "./Restros";
 import RestrosCarousel from "./RestrosCarousel";
 import { useSelector } from "react-redux";
 
-export default FoodCards = () => {
+const FoodCards = () => {
   const [userName, setUserName] = useState("");
   const { cards, menuCarousel, restrosCarousel } = useRestaurantsCards();
   const isAuthenticated = useSelector((store) => store.auth.isAuthenticated);
@@ -29,7 +27,8 @@ export default FoodCards = () => {
         <SearchBar />
         <Restros resList={cards} />
       </main>
-      {/* <Footer /> */}
     </>
   );
 };
+
+export default FoodCards;
