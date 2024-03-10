@@ -7,46 +7,88 @@ import LabeledCardContainer from "../../HOC/LabeledCardContainer";
 import Button from "../../HOC/Button";
 
 export default Restros = ({ resList }) => {
-  const [resLists, setResList] = useState(resList); //useState
-  const LabelComponent = LabeledCardContainer(CardContainer); //HOC
+  const [resLists, setResList] = useState(resList);
+  const LabelComponent = LabeledCardContainer(CardContainer); // HOC
+
+  const [activeFilters, setActiveFilters] = useState({
+    rate: false,
+    less: false,
+    fast: false,
+  });
 
   useEffect(() => {
     setResList(resList);
   }, [resList]);
 
-  const giveRes = () => {
-    const FilteredRestros = resLists.filter((res) => res.info.avgRating > 4); //filter
-    setResList(FilteredRestros);
-    console.log('rate');
+  const applyFilters = () => {
+    let filteredRestros = resList;
+
+    if (activeFilters.rate) {
+      filteredRestros = filteredRestros.filter((res) => res.info.avgRating > 4);
+    }
+
+    if (activeFilters.less) {
+      filteredRestros = filteredRestros.filter((res) => {
+        const priceStr = res.info.costForTwo.split(" ");
+        const priceNum = parseInt(priceStr[0].split("₹")[1]);
+        return priceNum < 300;
+      });
+    }
+
+    if (activeFilters.fast) {
+      filteredRestros = filteredRestros.filter(
+        (res) => res.info.sla.deliveryTime < 30
+      );
+    }
+
+    setResList(filteredRestros);
   };
 
-  const giveLess = () => {
-    const FilteredRestros = resLists.filter((res) => {
-      const priceStr = res.info.costForTwo.split(' ');
-      const priceNum = priceStr[0].split('₹');
-      return parseInt(priceNum[1]) < 300;
-    });
-    setResList(FilteredRestros);
-    console.log('less');
+  const toggleFilter = (filter) => {
+    setActiveFilters((prevState) => ({
+      ...prevState,
+      [filter]: !prevState[filter],
+    }));
   };
-
-  const giveFast = () => {
-    const FilteredRestros = resLists.filter((res) => res.info.sla.deliveryTime < 30);
-    setResList(FilteredRestros);
-    console.log('fast');
-  }
 
   const revert = () => {
     setResList(resList);
-    console.log('revert');
-  }
-
+    setActiveFilters({
+      rate: false,
+      less: false,
+      fast: false,
+    });
+  };
   return (
     <>
       <div className="flex">
-        <Button onClick={giveRes}>Rating's 4.0+</Button>
-        <Button onClick={giveLess}>less then ₹300</Button>
-        <Button onClick={giveFast}>Fast Delivery</Button>
+        <Button
+          onClick={() => {
+            toggleFilter("rate");
+            applyFilters();
+          }}
+          isActive={activeFilters.rate}
+        >
+          Rating's 4.0+
+        </Button>
+        <Button
+          onClick={() => {
+            toggleFilter("less");
+            applyFilters();
+          }}
+          isActive={activeFilters.less}
+        >
+          Less than ₹300
+        </Button>
+        <Button
+          onClick={() => {
+            toggleFilter("fast");
+            applyFilters();
+          }}
+          isActive={activeFilters.fast}
+        >
+          Fast Delivery
+        </Button>
         <Button onClick={revert}>Clear Filters</Button>
       </div>
 
@@ -57,7 +99,7 @@ export default Restros = ({ resList }) => {
           resLists.map((restro) => (
             <Link
               key={restro.info.id}
-              className="decoration-0 bg-white bg-opacity-75"
+              className="bg-white bg-opacity-75 decoration-0"
               to={"/restaurants/" + restro.info.id}
             >
               {restro.info.avgRating >= 4.5 ? (

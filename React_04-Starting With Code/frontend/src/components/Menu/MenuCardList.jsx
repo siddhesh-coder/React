@@ -52,7 +52,7 @@ const MenuCardList = (el) => {
   };
 
   return (
-    <div className="flex justify-between items-center mt-5 mb-5 border-b-2 border-solid border-[#b5b5b5] pb-5">
+    <div className="flex justify-between items-center mt-5 mb-20 border-b-2 border-solid border-[#b5b5b5] pb-5">
       <div className="w-4/5">
         <div>
           {vegClassifier === "VEG" ? (
