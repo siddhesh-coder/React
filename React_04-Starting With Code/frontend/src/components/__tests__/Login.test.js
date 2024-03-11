@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import appStore from "../../utils/Store/appStore";
 
-test("heading Loaded", () => {
+it("Should load Login proper", () => {
   render(
     <BrowserRouter>
       <Provider store={appStore}>
