@@ -33,8 +33,8 @@ const Login = () => {
         notify({ message: "Successfully logged In" });
         navigate("/");
       } else {
-        const notify = () => toast.error("Please check email or password", { style: { backgroundColor: "rgb(0,0,0,90)", color: "white", fontWeight: "600" } });
-        notify();
+        const notifyError = () => toast.error("Please check email or password", { style: { backgroundColor: "rgb(0,0,0,90)", color: "white", fontWeight: "600" } });
+        notifyError();
       }
       action.resetForm();
     },
@@ -45,7 +45,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex mt-20 w-[400px] min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div data-testid="login-window" className="flex mt-20 w-[400px] min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="w-auto h-10 mx-auto"
