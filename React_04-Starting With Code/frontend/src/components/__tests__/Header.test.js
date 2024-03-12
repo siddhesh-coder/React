@@ -1,11 +1,20 @@
-import { render, screen } from "@testing-library/react"
-import Header from "../Header/Header";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import Header from "../Header/Header";
+import { Provider } from "react-redux";
+import appStore from "../../utils/Store/appStore";
+import { BrowserRouter } from "react-router-dom";
 
-it("Should check header component", ()=>{
-    render(<Header/>);
+it("Should check header component", () => {
+  render(
+    <BrowserRouter>
+      <Provider store={appStore}>
+        <Header />
+      </Provider>
+    </BrowserRouter>
+  );
 
-    const header = screen.getByText('logout');
+  const cart = screen.getByText("Bag");
 
-    expect(header).toBeInTheDocument(); //need to check not working
-})
+  expect(cart).toBeInTheDocument();
+});

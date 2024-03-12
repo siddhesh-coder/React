@@ -14,6 +14,7 @@ const AboutUs = () => {
       </div>
       <div className="w-full mt-8 lg:w-1/2 h-96 lg:h-96 lg:mt-0 lg:mr-16">
         <iframe
+          data-testid="iframe-test"
           src={GOOGLE_MAP}
           width="100%"
           height="100%"

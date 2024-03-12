@@ -8,7 +8,7 @@ export const SearchResultsList = ({ results }) => {
       {results.map((results) => {
         const id = results.info.id;
         return (
-          <Link key={id} className="no-underline text-blue-900 text-opacity-75" to={"/restaurants/" + id}>
+          <Link data-testid="search-result" key={id} className="text-blue-900 text-opacity-75 no-underline" to={"/restaurants/" + id}>
             <ResultsBar results={results} key={id} />
           </Link>
         );

@@ -2,16 +2,17 @@ import { useState, useEffect } from "react";
 import CardContainer from "./CardContainer";
 import Shimmer from "../Shimmers/Shimmer";
 import { Link } from "react-router-dom";
-import CardContainer from "./CardContainer";
 import LabeledCardContainer from "../../HOC/LabeledCardContainer";
 import Filter from "./Filter";
 
 export default Restros = ({ resList }) => {
-  const [resLists, setResList] = useState(resList);
+  const [resLists, setResList] = useState([]);
   const LabelComponent = LabeledCardContainer(CardContainer); // HOC
 
   useEffect(() => {
-    setResList(resList);
+    if (Array.isArray(resList)) {
+      setResList(resList);
+    }
   }, [resList]);
 
   return (

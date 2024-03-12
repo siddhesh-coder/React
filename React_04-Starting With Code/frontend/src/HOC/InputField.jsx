@@ -10,6 +10,7 @@ const InputField = ({
   onChange,
   error,
   touched,
+  data_testid,
 }) => {
   return (
     <div>
@@ -21,6 +22,7 @@ const InputField = ({
       </label>
       <div className="mt-2">
         <input
+          data-testid={data_testid}
           name={name}
           type={type}
           autoComplete={autoComplete}

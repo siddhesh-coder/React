@@ -49,7 +49,7 @@ const Filter = ({ resList, setResList }) => {
   };
 
   return (
-    <div className="flex">
+    <div data-testid="filters" className="flex">
       <Button
         onClick={() => {
           toggleFilter("rate");

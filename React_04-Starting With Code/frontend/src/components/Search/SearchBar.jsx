@@ -56,10 +56,13 @@ const SearchBar = () => {
     debounceFunction(e.target.value);
   };
 
+  console.log(results);
+
   return (
     <>
     <div className="relative w-1/2 h-[50px] flex justify-between items-center border-none pr-[15px] border bg-[#eeeeee]">
       <input
+        data-testid= "search-test"
         type="text"
         className="w-[95%] h-full border-none ps-5 text-base bg-[#eeeeee] outline-none"
         placeholder="Search for restaurants and food"
