@@ -1,145 +1,87 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const findIndexOfItem = (arrItem, searchId) => {
-  return arrItem.findIndex((item) => item.id === searchId);
+const storage = {
+  get: (key) => {
+    try {
+      const item = localStorage.getItem(key);
+      return item ? JSON.parse(item) : null;
+    } catch (error) {
+      console.error(`Error retrieving ${key} from localStorage:`, error);
+      return null;
+    }
+  },
+  set: (key, value) => {
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+      console.error(`Error saving ${key} to localStorage:`, error);
+    }
+  },
 };
-
-const setValues = (dataName, data) => {
-  localStorage.setItem(`${dataName}`, JSON.stringify(data));
-};
-
-const finalPrice = (items) => {
-  return items.reduce((acc, next) => {
-    return acc + parseFloat(next.price);
-  }, 0);
-};
-
-const items =
-  localStorage.getItem("cartItems") !== null
-    ? JSON.parse(localStorage.getItem("cartItems"))
-    : [];
-
-const totalQtyNum =
-  localStorage.getItem("TotalQty") !== null
-    ? JSON.parse(localStorage.getItem("TotalQty"))
-    : 0;
-
-const totalPriceNum =
-  localStorage.getItem("TotalPrice") !== null
-    ? JSON.parse(localStorage.getItem("TotalPrice"))
-    : 0;
 
 const cartSlice = createSlice({
   name: "cartSlice",
   initialState: {
-    items: items,
-    totalQty: totalQtyNum,
-    totalPrice: totalPriceNum,
+    items: storage.get("cartItems") || [],
+    totalQty: storage.get("TotalQty") || 0,
+    totalPrice: storage.get("TotalPrice") || 0,
   },
   reducers: {
     addItem: (state, action) => {
-      const existingIndex = findIndexOfItem(state.items, action.payload.id);
-      if (existingIndex !== -1) {
-        state.items = state.items.map((item) =>
-          item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item
-        );
+      const { id, price } = action.payload;
+      const existingItem = state.items.find((item) => item.id === id);
+      if (existingItem) {
+        existingItem.qty++;
       } else {
         state.items.push({ ...action.payload, qty: 1 });
       }
-      if(state.totalQty < 50){
-        state.totalQty += 1;
-      }
-      state.totalPrice += action.payload.price;
-      try {
-        setValues("cartItems", state.items);
-        setValues("TotalQty", state.totalQty);
-        setValues("TotalPrice", state.totalPrice);
-      } catch (error) {
-        console.error("Error saving auth status to localStorage:", error);
-      }
+      state.totalQty++;
+      state.totalPrice += parseFloat(price);
+      storage.set("cartItems", state.items);
+      storage.set("TotalQty", state.totalQty);
+      storage.set("TotalPrice", state.totalPrice);
     },
     removeItem: (state, action) => {
-      const existingIndex = findIndexOfItem(state.items, action.payload);
-      if (existingIndex !== -1) {
-        const removedQty = state.items[existingIndex].qty;
-        const itemPrice = state.items[existingIndex].price;
-        state.items.splice(existingIndex, 1);
-
-        if(state.totalQty > 1){
-          state.totalQty -= removedQty;
-        }
-        state.totalPrice -= itemPrice;
+      const index = state.items.findIndex((item) => item.id === action.payload);
+      if (index !== -1) {
+        const removedItem = state.items[index];
+        state.items.splice(index, 1);
+        state.totalQty -= removedItem.qty;
+        state.totalPrice -= removedItem.qty * parseFloat(removedItem.price);
+        storage.set("cartItems", state.items);
+        storage.set("TotalQty", state.totalQty);
+        storage.set("TotalPrice", state.totalPrice);
       }
-      try {
-        setValues("cartItems", state.items);
-        setValues("TotalQty", state.totalQty);
-        setValues("TotalPrice", state.totalPrice);
-      } catch (error) {
-        console.error("Error saving auth status to localStorage:", error);
+    },
+    incrementItem: (state, action) => {
+      const index = state.items.findIndex((item) => item.id === action.payload);
+      if (index !== -1) {
+        state.items[index].qty++;
+        state.totalQty++;
+        state.totalPrice += parseFloat(state.items[index].price);
+        storage.set("cartItems", state.items);
+        storage.set("TotalQty", state.totalQty);
+        storage.set("TotalPrice", state.totalPrice);
+      }
+    },
+    decrementItem: (state, action) => {
+      const index = state.items.findIndex((item) => item.id === action.payload);
+      if (index !== -1 && state.items[index].qty > 1) {
+        state.items[index].qty--;
+        state.totalQty--;
+        state.totalPrice -= parseFloat(state.items[index].price);
+        storage.set("cartItems", state.items);
+        storage.set("TotalQty", state.totalQty);
+        storage.set("TotalPrice", state.totalPrice);
       }
     },
     clearCart: (state) => {
       state.items = [];
       state.totalQty = 0;
       state.totalPrice = 0;
-      try {
-        setValues("cartItems", []);
-        setValues("TotalQty", 0);
-        setValues("TotalPrice", 0);
-      } catch (error) {
-        console.error("Error saving auth status to localStorage:", error);
-      }
-    },
-    incrementItem: (state, action) => {
-      const existingIndex = findIndexOfItem(state.items, action.payload);
-      if (existingIndex !== -1) {
-        const item = state.items[existingIndex];
-        if (!item.originalPrice) {
-          item.originalPrice = item.price;
-        }
-        if (item.qty >= 1) {
-          const updatedQty = item.qty + 1;
-          const updatedPrice = updatedQty * item.originalPrice;
-          const updatedItem = {
-            ...item,
-            qty: updatedQty,
-            price: updatedPrice,
-          };
-          state.items.splice(existingIndex, 1, updatedItem);
-
-          state.totalPrice = finalPrice(state.items);
-
-          try {
-            setValues("cartItems", state.items);
-            setValues("TotalPrice", state.totalPrice);
-          } catch (error) {
-            console.error("Error saving data to localStorage:", error);
-          }
-        }
-      }
-    },
-    decrementItem: (state, action) => {
-      const existingIndex = findIndexOfItem(state.items, action.payload);
-      if (existingIndex !== -1) {
-        const item = state.items[existingIndex];
-        if (item.qty > 1) {
-          const updatedItem = {
-            ...item,
-            qty: item.qty - 1,
-            price: (item.qty - 1) * item.originalPrice,
-          };
-          state.items.splice(existingIndex, 1, updatedItem);
-
-          state.totalPrice = finalPrice(state.items);
-
-          try {
-            setValues("cartItems", state.items);
-            setValues("TotalPrice", state.totalPrice);
-          } catch (error) {
-            console.error("Error saving auth status to localStorage:", error);
-          }
-        }
-      }
+      storage.set("cartItems", []);
+      storage.set("TotalQty", 0);
+      storage.set("TotalPrice", 0);
     },
   },
 });

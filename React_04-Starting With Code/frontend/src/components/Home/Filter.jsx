@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../../HOC/Button";
 
 const Filter = ({ resList, setResList }) => {
@@ -8,11 +8,15 @@ const Filter = ({ resList, setResList }) => {
     fast: false,
   });
 
+  useEffect(() => {
+    applyFilters();
+  }, [activeFilters]);
+
   const applyFilters = () => {
     let filteredRestros = resList;
 
     if (activeFilters.rate) {
-      filteredRestros = filteredRestros.filter((res) => res.info.avgRating > 4);
+      filteredRestros = filteredRestros.filter((res) => res.info.avgRating > 4.0);
     }
 
     if (activeFilters.less) {
@@ -41,38 +45,28 @@ const Filter = ({ resList, setResList }) => {
 
   const revert = () => {
     setResList(resList);
-    setActiveFilters({
-      rate: false,
-      less: false,
-      fast: false,
-    });
+    setActiveFilters({ rate: false, less: false, fast: false });
   };
 
   return (
     <div data-testid="filters" className="flex">
       <Button
-        onClick={() => {
-          toggleFilter("rate");
-          applyFilters();
-        }}
+        data_testid="filter_1"
+        onClick={() => toggleFilter("rate")}
         isActive={activeFilters.rate}
       >
         Rating's 4.0+
       </Button>
       <Button
-        onClick={() => {
-          toggleFilter("less");
-          applyFilters();
-        }}
+        data_testid="filter_2"
+        onClick={() => toggleFilter("less")}
         isActive={activeFilters.less}
       >
         Less than ₹300
       </Button>
       <Button
-        onClick={() => {
-          toggleFilter("fast");
-          applyFilters();
-        }}
+        data_testid="filter_3"
+        onClick={() => toggleFilter("fast")}
         isActive={activeFilters.fast}
       >
         Fast Delivery

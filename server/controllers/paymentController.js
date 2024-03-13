@@ -7,7 +7,6 @@ export const checkout = async (req, res) => {
     currency: "INR",
   };
   const order = await instance.orders.create(options);
-  console.log(order);
 
   res.status(200).json({
     success: true,

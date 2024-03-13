@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Search } from "lucide-react";
 import { SWIGGY_API } from "../../utils/constants";
-import { SearchResultsList } from './SearchResultsList';
+import { SearchResultsList } from "./SearchResultsList";
 
 const debounce = (fn, t) => {
   let timeOutId;
@@ -19,7 +19,7 @@ const debounce = (fn, t) => {
 };
 
 const SearchBar = () => {
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
   const fetchData = async (value) => {
@@ -56,23 +56,20 @@ const SearchBar = () => {
     debounceFunction(e.target.value);
   };
 
-  console.log(results);
-
   return (
     <>
-    <div className="relative w-1/2 h-[50px] flex justify-between items-center border-none pr-[15px] border bg-[#eeeeee]">
-      <input
-        data-testid= "search-test"
-        type="text"
-        className="w-[95%] h-full border-none ps-5 text-base bg-[#eeeeee] outline-none"
-        placeholder="Search for restaurants and food"
-        value={searchValue}
-        onChange={handleChange}
-      />
-      <Search className="absolute right-0 bg-transparent border-none m-[15px]" />
-      <SearchResultsList results={results} />
-    </div>
-    
+      <div className="relative w-1/2 h-[50px] flex justify-between items-center border-none pr-[15px] border bg-[#eeeeee]">
+        <input
+          data-testid="search-test"
+          type="text"
+          className="w-[95%] h-full border-none ps-5 text-base bg-[#eeeeee] outline-none"
+          placeholder="Search for restaurants and food"
+          value={searchValue}
+          onChange={handleChange}
+        />
+        <Search className="absolute right-0 bg-transparent border-none m-[15px]" />
+        <SearchResultsList results={results} />
+      </div>
     </>
   );
 };

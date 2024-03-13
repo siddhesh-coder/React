@@ -11,7 +11,6 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { handleOpenCart } from "../../utils/Store/toggleCartSlice";
 
-
 const navigation = [
   { name: "Home", link: "/", icon: <Home /> },
   { name: "About", link: "aboutus", icon: <Building2 /> },

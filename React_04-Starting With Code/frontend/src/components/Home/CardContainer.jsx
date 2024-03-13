@@ -9,9 +9,9 @@ const CardContainer = ({ foodData }) => {
   const { deliveryTime } = sla;
 
   return (
-    <div className="w-[280px] border-[#ffffff] rounded-3xl p-4 overflow-hidden mr-2 ml-[0.4rem] mt-[2.6rem] transition-transform duration-300 ease-in-out hover:scale-90 cursor-pointer">
+    <div data-testid="restro-test" className="w-[280px] border-[#ffffff] rounded-3xl p-4 overflow-hidden mr-2 ml-[0.4rem] mt-[2.6rem] transition-transform duration-300 ease-in-out hover:scale-90 cursor-pointer">
       <img
-        className="w-full h-[220px] rounded-3xl mb-2"
+        className="w-full h-[220px] rounded-3xl mb-2 object-cover"
         src={FOOD_IMG + cloudinaryImageId}
         loading="lazy"
         alt={name}

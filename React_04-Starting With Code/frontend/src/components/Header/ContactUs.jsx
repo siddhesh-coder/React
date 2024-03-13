@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Faqs from "./FAQ/Faqs";
-import faqs from "../helper/faqs";
+import faqs from "../../utils/helper/faqs";
 
 const ContactUs = () => {
   const [showIndex, setShowIndex] = useState(0);

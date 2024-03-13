@@ -6,14 +6,15 @@ import LabeledCardContainer from "../../HOC/LabeledCardContainer";
 import Filter from "./Filter";
 
 export default Restros = ({ resList }) => {
-  const [resLists, setResList] = useState([]);
-  const LabelComponent = LabeledCardContainer(CardContainer); // HOC
+  const [resLists, setResList] = useState([]);  
 
   useEffect(() => {
     if (Array.isArray(resList)) {
       setResList(resList);
     }
   }, [resList]);
+
+  const LabelComponent = LabeledCardContainer(CardContainer); // HOC
 
   return (
     <>

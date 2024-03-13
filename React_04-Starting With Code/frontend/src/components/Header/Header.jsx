@@ -22,7 +22,7 @@ export default Header = () => {
     <header className="fixed top-0 left-0 z-30 flex items-center justify-between w-full h-20 p-4 pr-10 text-center bg-white shadow-lg">
       <div>
         <Link to={"/"}>
-          <img className="w-16 h-16 mx-16" src={COMPANY_LOGO} loading="lazy" />
+          <img className="w-16 h-16 mx-16" src={COMPANY_LOGO} loading="lazy" alt="company_logo"/>
         </Link>
       </div>
       <div className="flex">
