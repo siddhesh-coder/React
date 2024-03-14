@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import MenuCardList from "./MenuCardList";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 export default MenuCard = ({ downmenu, isOpen, setShowIndex }) => {
-  const { title, itemCards } = downmenu?.card?.card;
+  const { title, itemCards } = downmenu?.card?.card || "";
 
    const handleChange = () => {
       setShowIndex();
@@ -15,7 +15,7 @@ export default MenuCard = ({ downmenu, isOpen, setShowIndex }) => {
         <span>
           {title} ({itemCards?.length  || 0})
         </span>
-        <button type="button" className="bg-transparent border-none text-[#282c3f]" onClick={handleChange}>
+        <button data-testid="chevron-test" type="button" className="bg-transparent border-none text-[#282c3f]" onClick={handleChange}>
           {
             isOpen ? <ChevronDown /> : <ChevronUp />
           }

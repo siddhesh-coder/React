@@ -62,6 +62,7 @@ export default function FoodCart() {
                         <div className="flex items-center ml-3 h-7">
                           <button
                             type="button"
+                            data-testid="toggle-cart"
                             className="relative p-2 -m-2 text-gray-400 hover:text-gray-500"
                             onClick={() => handleShowCart()}
                           >
@@ -78,7 +79,7 @@ export default function FoodCart() {
                           className="relative top-40"
                         />
                       ) : (
-                        <CartItems cartItems={cartItems} />
+                        <CartItems cartItems={cartItems}/>
                       )}
                     </div>
 

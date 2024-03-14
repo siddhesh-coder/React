@@ -23,7 +23,7 @@ const MenuCardList = (el) => {
 
   let flag = true;
 
-  if (!offerTags || offerTags.length === 0) {
+  if (!offerTags) {
     flag = false;
   }
 
@@ -32,14 +32,14 @@ const MenuCardList = (el) => {
   const p1 = price || 0;
   const p2 = finalPrice || 0;
 
-  const calculatedPrice = (p1 / 100).toFixed(2);
-  const calculatedFinalPrice = (p2 / 100).toFixed(2);
+  const calculatedPrice = parseFloat((p1 / 100).toFixed(2));
+  const calculatedFinalPrice = parseFloat((p2 / 100).toFixed(2));
 
   useEffect(() => {
-    if (parseFloat(calculatedPrice) === 0.0) {
+    if (calculatedPrice === 0.0) {
       setUpdatePrice(defaultPrice / 100);
     } else {
-      setUpdatePrice(parseFloat(calculatedPrice));
+      setUpdatePrice(calculatedPrice);
     }
   }, [calculatedPrice]);
 
@@ -56,7 +56,10 @@ const MenuCardList = (el) => {
   };
 
   return (
-    <div className="flex justify-between items-center mt-5 border-b-2 border-solid border-[#b5b5b5] pb-5">
+    <div
+      data-testid="menu-list"
+      className="flex justify-between items-center mt-5 border-b-2 border-solid border-[#b5b5b5] pb-5"
+    >
       <div className="w-4/5">
         <div>
           {vegClassifier === "VEG" ? (
@@ -73,6 +76,7 @@ const MenuCardList = (el) => {
         <div className="flex justify-between">
           <div className="text-lg text-[#3e4152] font-medium">{name}</div>
           <button
+            data-testid="add-test"
             className="w-20 h-9 bg-transparent rounded-xl border-none text-sm text-[#60b246] font-semibold"
             onClick={handleAddItem}
           >
@@ -80,15 +84,12 @@ const MenuCardList = (el) => {
           </button>
         </div>
         <div>
-          {calculatedFinalPrice === "0.00" ? (
+          {calculatedFinalPrice === 0.0 ? (
             <>
-              <span>{"₹" + String(updatePrice)} </span>
+              <span>₹{updatePrice}</span>
               {flag && (
                 <span
-                  style={{
-                    color: `${textColor}`,
-                    backgroundColor: `${backgroundColor}`,
-                  }}
+                  style={{ color: textColor, backgroundColor: backgroundColor }}
                 >
                   {title} | {subTitle}
                 </span>
@@ -97,10 +98,10 @@ const MenuCardList = (el) => {
           ) : (
             <>
               <span className="line-through text-xs text-[#7e808c] font-light mr-[10px]">
-                {"₹" + String(updatePrice)}
+                ₹{updatePrice}
               </span>
               <span className="text-sm font-normal text-[#3e4152]">
-                {"₹" + String(calculatedFinalPrice)}
+                ₹{calculatedFinalPrice}
               </span>
             </>
           )}

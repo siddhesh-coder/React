@@ -49,8 +49,8 @@ export const SquigglyUnderline = () => {
             onClick={() => setSelectedLink(item.name)}
           >
             {item.name === "Bag" ? (
-              <button onClick={handleOpen}>
-                <div className="relative flex">
+              <button data-testid="cart-count" onClick={handleOpen}>
+                <div  className="relative flex">
                   <div className="absolute bottom-4 right-11 w-4 h-4 bg-opacity-80 bg-red-600 font-bold text-white flex items-center justify-center p-[12px] rounded-full">
                     {CartCount}
                   </div>

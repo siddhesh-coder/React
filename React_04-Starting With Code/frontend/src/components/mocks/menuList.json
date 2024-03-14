@@ -1,0 +1,872 @@
+{
+  "card": {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+    "info": {
+      "id": "128350832",
+      "name": "La Mushroom Pizza",
+      "category": "Veg Pizza @ 158",
+      "description": "Farm mushroom  freshly baked pizza with secret recipe cheesy, spicy & creamy jalapeno cheese sauce sprinkled with 100% mozarella cheese and served with inhouse chilli flakes & oregano seasoning",
+      "imageId": "57831d112ebafb7f00082ce755e0998e",
+      "inStock": 1,
+      "isVeg": 1,
+      "variants": {},
+      "variantsV2": {
+        "variantGroups": [
+          {
+            "groupId": "39389806",
+            "name": "Size",
+            "variations": [
+              {
+                "name": "Regular (Serves 1, 17.78CM)",
+                "default": 1,
+                "id": "125504918",
+                "inStock": 1,
+                "isVeg": 1,
+                "isEnabled": 1
+              },
+              {
+                "name": "Medium (Serves 2, 27.94CM)",
+                "id": "125504919",
+                "inStock": 1,
+                "isVeg": 1,
+                "isEnabled": 1
+              },
+              {
+                "name": "Medium Cheese Blast (Serves 2)",
+                "id": "125504920",
+                "inStock": 1,
+                "isVeg": 1,
+                "isEnabled": 1
+              },
+              {
+                "name": "Large (Serves 4, 35.56CM) ",
+                "id": "125504921",
+                "inStock": 1,
+                "isVeg": 1,
+                "isEnabled": 1
+              }
+            ]
+          }
+        ],
+        "pricingModels": [
+          {
+            "variations": [
+              {
+                "groupId": "39389806",
+                "variationId": "125504918"
+              }
+            ],
+            "price": 17800,
+            "addonCombinations": [
+              {
+                "groupId": "140832232",
+                "addonId": "114928455"
+              },
+              {
+                "groupId": "140832232",
+                "addonId": "114928522"
+              },
+              {
+                "groupId": "140832232",
+                "addonId": "114928500"
+              },
+              {
+                "groupId": "140832232",
+                "addonId": "114928494"
+              },
+              {
+                "groupId": "140832232",
+                "addonId": "114928497"
+              },
+              {
+                "groupId": "140832232",
+                "addonId": "114928520"
+              },
+              {
+                "groupId": "140832232",
+                "addonId": "114928449"
+              },
+              {
+                "groupId": "140832232",
+                "addonId": "114928464"
+              },
+              {
+                "groupId": "140832231",
+                "addonId": "114928482"
+              },
+              {
+                "groupId": "140832231",
+                "addonId": "114928470"
+              },
+              {
+                "groupId": "140832231",
+                "addonId": "114928463"
+              },
+              {
+                "groupId": "140832231",
+                "addonId": "114928451"
+              },
+              {
+                "groupId": "140832231",
+                "addonId": "114928516"
+              },
+              {
+                "groupId": "140832231",
+                "addonId": "114928479"
+              },
+              {
+                "groupId": "140832231",
+                "addonId": "114928495"
+              },
+              {
+                "groupId": "140832231",
+                "addonId": "114928442"
+              },
+              {
+                "groupId": "140832231",
+                "addonId": "114928480"
+              },
+              {
+                "groupId": "140832231",
+                "addonId": "114928496"
+              }
+            ]
+          },
+          {
+            "variations": [
+              {
+                "groupId": "39389806",
+                "variationId": "125504919"
+              }
+            ],
+            "price": 38900,
+            "addonCombinations": [
+              {
+                "groupId": "140832233",
+                "addonId": "114928466"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928498"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928491"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928523"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928521"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928476"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928456"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928462"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928509"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928457"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928501"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928505"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928473"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928483"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928454"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928512"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928484"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928493"
+              }
+            ]
+          },
+          {
+            "variations": [
+              {
+                "groupId": "39389806",
+                "variationId": "125504920"
+              }
+            ],
+            "price": 48900,
+            "addonCombinations": [
+              {
+                "groupId": "140832233",
+                "addonId": "114928466"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928498"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928491"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928523"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928521"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928476"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928456"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928462"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928509"
+              },
+              {
+                "groupId": "140832233",
+                "addonId": "114928457"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928501"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928505"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928473"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928483"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928454"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928512"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928484"
+              },
+              {
+                "groupId": "140832234",
+                "addonId": "114928493"
+              }
+            ]
+          },
+          {
+            "variations": [
+              {
+                "groupId": "39389806",
+                "variationId": "125504921"
+              }
+            ],
+            "price": 55900,
+            "addonCombinations": [
+              {
+                "groupId": "140832237",
+                "addonId": "114928443"
+              },
+              {
+                "groupId": "140832237",
+                "addonId": "114928511"
+              },
+              {
+                "groupId": "140832237",
+                "addonId": "114928502"
+              },
+              {
+                "groupId": "140832237",
+                "addonId": "114928486"
+              },
+              {
+                "groupId": "140832237",
+                "addonId": "114928458"
+              },
+              {
+                "groupId": "140832237",
+                "addonId": "114928487"
+              },
+              {
+                "groupId": "140832237",
+                "addonId": "114928518"
+              },
+              {
+                "groupId": "140832236",
+                "addonId": "114928466"
+              },
+              {
+                "groupId": "140832236",
+                "addonId": "114928498"
+              },
+              {
+                "groupId": "140832236",
+                "addonId": "114928491"
+              },
+              {
+                "groupId": "140832236",
+                "addonId": "114928523"
+              },
+              {
+                "groupId": "140832236",
+                "addonId": "114928521"
+              },
+              {
+                "groupId": "140832236",
+                "addonId": "114928476"
+              },
+              {
+                "groupId": "140832236",
+                "addonId": "114928456"
+              },
+              {
+                "groupId": "140832236",
+                "addonId": "114928462"
+              },
+              {
+                "groupId": "140832236",
+                "addonId": "114928509"
+              },
+              {
+                "groupId": "140832236",
+                "addonId": "114928457"
+              },
+              {
+                "groupId": "140832235",
+                "addonId": "114928506"
+              }
+            ]
+          }
+        ]
+      },
+      "addons": [
+        {
+          "groupId": "140832231",
+          "groupName": "Veg Toppings (Regular Pizza)",
+          "choices": [
+            {
+              "id": "114928482",
+              "name": "Capsicum",
+              "price": 3500,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928470",
+              "name": "Cheese",
+              "price": 3500,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928463",
+              "name": "Corn",
+              "price": 3500,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928451",
+              "name": "Jalapneo",
+              "price": 3500,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928516",
+              "name": "Mushroom",
+              "price": 3500,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928479",
+              "name": "Olive",
+              "price": 3500,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928495",
+              "name": "Onion",
+              "price": 3500,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928442",
+              "name": "Paneer",
+              "price": 3500,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928480",
+              "name": "Pineapple",
+              "price": 3500,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928496",
+              "name": "Red Paprika",
+              "price": 3500,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            }
+          ],
+          "maxAddons": 10,
+          "maxFreeAddons": -1
+        },
+        {
+          "groupId": "140832232",
+          "groupName": "Non Veg Toppings (Regular Pizza)",
+          "choices": [
+            {
+              "id": "114928455",
+              "name": "Bbq Chicken",
+              "price": 4500,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928522",
+              "name": "Chicken Ham",
+              "price": 4500,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928500",
+              "name": "Chicken Meatballs",
+              "price": 4500,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928494",
+              "name": "Chicken Sausage",
+              "price": 4500,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928497",
+              "name": "Chicken Seekh Kebab",
+              "price": 4500,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928520",
+              "name": "Chicken Tikka",
+              "price": 4500,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928449",
+              "name": "Pepperoni",
+              "price": 4500,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928464",
+              "name": "Smoked Chicken Breast",
+              "price": 4500,
+              "inStock": 1,
+              "isEnabled": 1
+            }
+          ],
+          "maxAddons": 8,
+          "maxFreeAddons": -1
+        },
+        {
+          "groupId": "140832233",
+          "groupName": "Veg Toppings (Medium Pizza)",
+          "choices": [
+            {
+              "id": "114928466",
+              "name": "Capsicum",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928498",
+              "name": "Cheese",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928491",
+              "name": "Corn",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928523",
+              "name": "Jalapneo",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928521",
+              "name": "Mushroom",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928476",
+              "name": "Olive",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928456",
+              "name": "Onion",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928462",
+              "name": "Paneer",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928509",
+              "name": "Pineapple",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928457",
+              "name": "Red Paprika",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            }
+          ],
+          "maxAddons": 10,
+          "maxFreeAddons": -1
+        },
+        {
+          "groupId": "140832234",
+          "groupName": "Non Veg Topping (Medium Pizza)",
+          "choices": [
+            {
+              "id": "114928501",
+              "name": "Bbq Chicken",
+              "price": 5000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928505",
+              "name": "Chicken Ham",
+              "price": 5000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928473",
+              "name": "Chicken Meatballs",
+              "price": 5000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928483",
+              "name": "Chicken Sausage",
+              "price": 5000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928454",
+              "name": "Chicken Seekh Kebab",
+              "price": 5000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928512",
+              "name": "Chicken Tikka",
+              "price": 5000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928484",
+              "name": "Pepperoni",
+              "price": 5000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928493",
+              "name": "Smoked Chicken Breast",
+              "price": 5000,
+              "inStock": 1,
+              "isEnabled": 1
+            }
+          ],
+          "maxAddons": 8,
+          "maxFreeAddons": -1
+        },
+        {
+          "groupId": "140832235",
+          "groupName": "Cheese Blast",
+          "choices": [
+            {
+              "id": "114928506",
+              "name": "Cheese Blast",
+              "price": 9900,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            }
+          ],
+          "maxAddons": 1,
+          "maxFreeAddons": -1
+        },
+        {
+          "groupId": "140832236",
+          "groupName": "Veg Toppings (Large Pizza)",
+          "choices": [
+            {
+              "id": "114928466",
+              "name": "Capsicum",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928498",
+              "name": "Cheese",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928491",
+              "name": "Corn",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928523",
+              "name": "Jalapneo",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928521",
+              "name": "Mushroom",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928476",
+              "name": "Olive",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928456",
+              "name": "Onion",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928462",
+              "name": "Paneer",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928509",
+              "name": "Pineapple",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928457",
+              "name": "Red Paprika",
+              "price": 4000,
+              "inStock": 1,
+              "isVeg": 1,
+              "isEnabled": 1
+            }
+          ],
+          "maxAddons": 10,
+          "maxFreeAddons": -1
+        },
+        {
+          "groupId": "140832237",
+          "groupName": "Non Veg Toppings (Large Pizza)",
+          "choices": [
+            {
+              "id": "114928443",
+              "name": "Bbq Chicken",
+              "price": 8000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928511",
+              "name": "Chicken Ham",
+              "price": 8000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928502",
+              "name": "Chicken Meatballs",
+              "price": 8000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928486",
+              "name": "Chicken Sausage",
+              "price": 8000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928458",
+              "name": "Chicken Seekh Kebab",
+              "price": 8000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928487",
+              "name": "Chicken Tikka",
+              "price": 8000,
+              "inStock": 1,
+              "isEnabled": 1
+            },
+            {
+              "id": "114928518",
+              "name": "Smoked Chicken Breast",
+              "price": 8000,
+              "inStock": 1,
+              "isEnabled": 1
+            }
+          ],
+          "maxAddons": 7,
+          "maxFreeAddons": -1
+        }
+      ],
+      "itemAttribute": {
+        "vegClassifier": "VEG"
+      },
+      "defaultPrice": 17800,
+      "ribbon": {},
+      "type": "ITEM",
+      "itemBadge": {},
+      "badgesV2": {},
+      "ratings": {
+        "aggregatedRating": {
+          "rating": "5.0",
+          "ratingCount": "4 ratings",
+          "ratingCountV2": "4"
+        }
+      }
+    },
+    "analytics": {},
+    "hideRestaurantDetails": true
+  }
+}
