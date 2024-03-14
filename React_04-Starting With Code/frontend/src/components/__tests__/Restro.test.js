@@ -39,8 +39,6 @@ it("should filter out the res data", () => {
     </BrowserRouter>
   );
 
-  console.log(MOCK_DATA.length);
-
   const filter_1 = screen.getByTestId("filter_1");
   fireEvent.click(filter_1);
   const filter_2 = screen.getByTestId("filter_2");

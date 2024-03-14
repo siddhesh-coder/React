@@ -32,7 +32,7 @@ export default Header = () => {
             <div className="flex flex-col space-y-1 text-sm">
               <HoveredLink to={"/login"}>Login</HoveredLink>
               <HoveredLink to={"/signup"}>Sign up</HoveredLink>
-              <HoveredLink onClick={handleLogout}>Logout</HoveredLink>
+              <HoveredLink data-testid="logout" onClick={handleLogout}>Logout</HoveredLink>
             </div>
           </MenuItem>
         </Menu>

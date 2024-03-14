@@ -10,7 +10,6 @@ const checkout = async (finalAmount) => {
   } = await axios.post("http://localhost:7000/api/checkout", {
     finalAmount,
   });
-  console.log(order);
 
   const options = {
     key,

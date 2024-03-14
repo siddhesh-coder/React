@@ -45,7 +45,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex mt-20 w-[400px] min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div data-testid="login" className="flex mt-20 w-[400px] min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="w-auto h-10 mx-auto"

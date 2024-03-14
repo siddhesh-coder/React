@@ -13,6 +13,7 @@ import MenuCardList from "../Menu/MenuCardList";
 import MOCK_LIST from '../mocks/menuList.json';
 import MOCK_ITEM from '../mocks/cartItem.json';
 import CartItems from "../Cart/CartItems";
+import Login from '../Auth/Login';
 
 global.fetch = jest.fn(()=> Promise.resolve({
   json: () => Promise.resolve(MOCK_LIST)
@@ -105,23 +106,13 @@ describe("RestaurantMenu component", () => {
           <Header />
           <RestaurantMenu />
           <FoodCart />
-          <CartItems cartItems={MOCK_ITEM}/>
         </Provider>
       </BrowserRouter>
     );
 
     await act(async () => {
       const items = screen.getAllByTestId("item-test");
-      expect(items.length).toBe(3);
-
-      // const plus = screen.getAllByTestId("plus")
-      // fireEvent.click(plus[0]);
-
-      // const minus = screen.getAllByTestId("minus")
-      // fireEvent.click(minus[0]);
-
-      // const remove = screen.getAllByTestId("remove")
-      // fireEvent.click(remove[0]);
+      expect(items.length).toBe(2);
 
       fireEvent.click(screen.getByRole("button", { name: "Clear Cart" }));
     });
@@ -136,7 +127,6 @@ describe("RestaurantMenu component", () => {
           <Header />
           <RestaurantMenu />
           <FoodCart />
-          <CartItems cartItems={MOCK_ITEM}/>
         </Provider>
       </BrowserRouter>
     );
@@ -163,5 +153,43 @@ describe("RestaurantMenu component", () => {
 
     expect(chevron[0]).toBeInTheDocument();
     expect(menu[0]).toBeInTheDocument();
+  });
+
+  it("Should minus, plus and remove the item", () => {
+    render(
+      <BrowserRouter>
+        <Provider store={appStore}>
+          <CartItems cartItems={MOCK_ITEM}/>
+        </Provider>
+      </BrowserRouter>
+    );
+
+     const plus = screen.getAllByTestId("plus")
+      fireEvent.click(plus[0]);
+
+      const minus = screen.getAllByTestId("minus")
+      fireEvent.click(minus[0]);
+
+      const remove = screen.getAllByTestId("remove")
+      fireEvent.click(remove[0]);
+  });
+
+  it("Should logout", () => {
+    render(
+      <BrowserRouter>
+        <Provider store={appStore}>
+          <Header/>
+          <Login/>
+        </Provider>
+      </BrowserRouter>
+    );
+
+     const logoutBtn = screen.getByTestId("logout-btn");
+     fireEvent.mouseEnter(logoutBtn);
+
+     const logout = screen.getByTestId("logout");
+     fireEvent.click(logout);
+
+     expect(screen.getByText("Login to your account")).toBeInTheDocument();
   });
 });
