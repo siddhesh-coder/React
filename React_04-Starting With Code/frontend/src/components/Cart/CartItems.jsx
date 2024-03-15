@@ -23,8 +23,7 @@ const CartItems = ({ cartItems }) => {
   const handleDecrement = (id) => {
     dispatch(decrementItem(id));
   };
-
-  console.log(cartItems);
+  
   return (
     <div className="mt-8">
       <div className="flow-root">
