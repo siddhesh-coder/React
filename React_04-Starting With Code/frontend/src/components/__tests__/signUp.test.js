@@ -70,5 +70,7 @@ it("should check all inputs fields", async () => {
     fireEvent.change(confirmPassword, { target: { value: "Test1@tryout" } });
   });
 
-  fireEvent.click(submitBtn);
+  await act(async () => fireEvent.click(submitBtn));
+
+  expect(window.location.pathname).toBe('/');
 });

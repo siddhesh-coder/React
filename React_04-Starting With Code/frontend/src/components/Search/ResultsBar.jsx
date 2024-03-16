@@ -1,13 +1,13 @@
 import React from 'react'
 import { FOOD_IMG } from "../../utils/constants";
 
-export const ResultsBar = ({results, id}) => {
+export const ResultsBar = ({result, id}) => {
 
     const {
         name,
         cloudinaryImageId,
         cuisines
-    } = results?.info;
+    } = result?.info;
   return (
     <div className='flex hover:bg-[#efefef]'>
         <div>

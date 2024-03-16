@@ -3,7 +3,7 @@ import Carousel from "./CarouselDiscount";
 import { TimerReset, IndianRupee, Loader } from "lucide-react";
 import TopPicks from "../TopPicks/TopPicks";
 import MenuCard from "./MenuCard";
-// import FoodLoader from "../Home/FoodLoader";
+import FoodLoader from "../Home/FoodLoader";
 import useMenu from "../../hooks/useMenu";
 
 export default RestaurantMenu = () => {
@@ -66,9 +66,9 @@ export default RestaurantMenu = () => {
     }
   }, [menuData]);
 
-  // if (!menuData) {
-  //   return <FoodLoader/>;
-  // }
+  if (!menuData) {
+    return <FoodLoader/>;
+  }
 
   const checkIsOpen = (index) => {
     return index === showIndex && prevClickIndex !== showIndex;

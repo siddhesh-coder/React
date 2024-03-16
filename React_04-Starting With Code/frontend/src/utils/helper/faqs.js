@@ -12,7 +12,7 @@ const faqs = () => [
     {
       question: "How do I track my delivery?",
       answer:
-        "You can track your delivery in real-time through our app. [Provide more details]",
+        "You can track your delivery in real-time through our app.",
     },
     {
       question: "I want to cancel my order",

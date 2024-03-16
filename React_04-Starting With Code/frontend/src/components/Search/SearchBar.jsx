@@ -32,19 +32,24 @@ const SearchBar = () => {
 
       const results = cards.filter((restro) => {
         return (
+          (value && restro?.info?.name.toLocaleLowerCase().includes(value)) ||
           (value &&
-            restro &&
-            restro.info.name &&
-            restro.info.name.toLocaleLowerCase().includes(value)) ||
-          (value &&
-            restro.info.cuisines &&
-            restro.info.cuisines.some((cuisine) =>
+            restro?.info?.cuisines.some((cuisine) =>
               cuisine.toLocaleLowerCase().includes(value)
             ))
         );
       });
       setResults(results);
     } catch (error) {
+      const notifyError = () =>
+        toast.error("Error fetching data", {
+          style: {
+            backgroundColor: "rgb(0,0,0,90)",
+            color: "white",
+            fontWeight: "600",
+          },
+        });
+      notifyError();
       console.error("Error fetching data:", error);
     }
   };
@@ -67,7 +72,10 @@ const SearchBar = () => {
           value={searchValue}
           onChange={handleChange}
         />
-        <Search className="absolute right-0 bg-transparent border-none m-[15px]" />
+        <Search
+          data-testid="search-icon"
+          className="absolute right-0 bg-transparent border-none m-[15px]"
+        />
         <SearchResultsList results={results} />
       </div>
     </>
